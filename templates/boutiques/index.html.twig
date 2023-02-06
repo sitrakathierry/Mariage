@@ -1,0 +1,257 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutiques{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .col-md-3
+    {
+        padding:  30px ;
+    }
+    .pt-0{
+        padding-top : 0px !important ;
+    }
+</style>
+{% endblock %}
+
+{% block header_title %}
+    Boutiques
+{% endblock %}
+
+{% block content %}
+<div class="pl-3 pr-3 pb-1 w-100">
+<h2 class="font-Montserrat mt-4 font-weight-bold text-center">Tout nos Produits</h2>
+  <hr>
+</div>
+
+  <div class="p-5 pt-0 pb-2">
+  <div class="row">
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/robe.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/bijoux.webp')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/costard.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/chaussure.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/robe.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/bijoux.webp')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/costard.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/chaussure.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/robe.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/bijoux.webp')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/costard.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/chaussure.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/robe.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/bijoux.webp')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/costard.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

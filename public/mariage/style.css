@@ -1,0 +1,35 @@
+    .form-control-borderless {
+        border: none;
+    }
+
+    .form-control-borderless:hover,
+    .form-control-borderless:active,
+    .form-control-borderless:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
+    .card {
+        width: 65%;
+    }
+
+    .radius-30 {
+        border-radius: 20px;
+    }
+
+    .unMariage {
+        transition: .3s;
+    }
+
+    .unMariage img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+    }
+
+    .unMariage:hover {
+        box-shadow: 0 0 10px lightgrey;
+        transform: translateY(-15px);
+        cursor: pointer;
+    }

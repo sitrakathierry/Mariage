@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mariage{% endblock %}
+
+{% block stylesheets  %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset('mariage/style.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    
+    {% endblock %}
+{% block header_title %}
+    Mariage
+{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid p-5">
+        <form class="card ml-auto mr-auto mb-4  card-sm">
+            <div class="card-body row no-gutters align-items-center">
+            <div class="col-auto">
+            <i class="fas fa-search h5 text-body"></i>
+            </div>
+            <div class="col">
+            <input class="form-control form-control-md form-control-borderless" type="search" placeholder="Taper ici ">
+            </div>
+
+            <div class="col-auto">
+            <button class="btn btn-md  btn-success pl-4 pr-4 " type="submit">Rechercher</button>
+            </div>
+
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+            <div class="col-12 mt-5 col-md-2">
+                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
+                    <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

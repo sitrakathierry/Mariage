@@ -1,0 +1,340 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+{{ parent() }}
+{# <link rel="stylesheet" href="{{asset('perso/css/album.css')}}"> #}
+    {# albums #}
+    <link rel="stylesheet" href="{{asset('album/fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{asset('album/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('album/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('album/css/style.css')}}">
+
+    {# videos #}
+    <link rel="stylesheet" href="{{asset('videos/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('videos/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('videos/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('audio/style.css')}}">
+    
+    <style>
+      h2
+      {
+        font-family : 'Montserrat' ;
+        font-weight : bold ;
+        font-size : 2.5em ;
+      }
+      </style>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    {# <script src="js/jquery-3.3.1.min.js"></script> #}
+    {# albums #}
+    <script src="{{asset('album/js/popper.min.js')}}"></script>
+    <script src="{{asset('album/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('album/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('album/js/main.js')}}"></script>
+    {# videos #}
+    <script src="{{asset('videos/js/main.js')}}"></script>
+    <script src="{{asset('audio/main.js')}}"></script>
+
+{% endblock %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+
+<div class="w-100 p-5 fond-inv">
+  <div class="inv ml-auto p-4 mr-auto text-center" style="background-image: url({{asset('predefinie/images/bg-invite.jpg')}});">
+      <!-- <img src="images/bg-invite.jpg" class="img img-fluid inv-image"> -->
+      <img src="{{ asset("predefinie/images/mariee.jpg") }}" class="img img-circle inv-image">
+      <h1 class="mt-3 font-Great">Ousmane & Malia</h1>
+      <label class="mt-2 font-normal font-Montserrat">Jeudi 19 Janvier 2023</label><br>
+      <label class="mt-2 font-sous-titre font-Montserrat font-italic">10h</label>
+  </div>
+</div>
+<div class="text-center p-3">
+      <h2 class="font-Montserrat" >Albums</h2>
+      <hr>
+        <div class="owl-carousel p-5 pb-2 owl-2">
+          <div class="media-29101">
+            <a href="#"><img src="{{asset('album/images/img_1.jpg')}}" alt="Image" class="img-fluid"></a>
+            <h3><a href="#">Consectetur Adipisicing Elit</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#"><img src="{{asset('album/images/img_2.jpg')}}" alt="Image" class="img-fluid"></a>
+            <h3><a href="#">Beatae Doloribu</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#"><img src="{{asset('album/images/img_3.jpg')}}" alt="Image" class="img-fluid"></a>
+            <h3><a href="#">Accusantium Eius Soluta</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#"><img src="{{asset('album/images/img_4.jpg')}}" alt="Image" class="img-fluid"></a>
+            <h3><a href="#">Consectetur Adipisicing Elit</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#"><img src="{{asset('album/images/img_5.jpg')}}" alt="Image" class="img-fluid"></a>
+            <h3><a href="#">Beatae Doloribu</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#"><img src="{{asset('album/images/img_6.jpg')}}" alt="Image" class="img-fluid"></a>
+            <h3><a href="#">Accusantium Eius Soluta</a></h3>
+          </div>
+        </div>
+        <h2 class="font-Montserrat " >Vidéos</h2>
+      <hr>
+      <div class="featured-carousel p-5 owl-carousel">
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-1.jpg')}});">
+										<div class="text w-100">
+											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
+											<h3><a href="#">Video 01</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-2.jpg')}});">
+										<div class="text w-100">
+											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
+											<h3><a href="#">Video 02</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-3.jpg')}});">
+										<div class="text w-100">
+											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
+											<h3><a href="#">Video 03</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-4.jpg')}});">
+										<div class="text w-100">
+											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
+											<h3><a href="#">Video 04</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="work">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-5.jpg')}});">
+										<div class="text w-100">
+											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
+											<h3><a href="#">Video 05</a></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+      <h2 class="font-Montserrat " >Audio</h2>
+      <hr>
+      <div class="gtco-testimonials p-3">
+      <div class="owl-carousel owl-carousel1 owl-theme">
+        <div>
+          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-1.jpeg')}}" alt="">
+            <div class="card-body">
+              <h5>Titre audio <br />
+                <span>Date audio</span>
+              </h5>
+              {# <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                impedit quo minus id quod maxime placeat ” </p> #}
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-2.jpg')}}" alt="">
+            <div class="card-body">
+              <h5>Titre audio <br />
+                <span>Date audio</span>
+              </h5>
+              {# <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                impedit quo minus id quod maxime placeat ” </p> #}
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-1.jpeg')}}" alt="">
+            <div class="card-body">
+              <h5>Titre audio <br />
+                <span>Date audio</span>
+              </h5>
+              {# <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                impedit quo minus id quod maxime placeat ” </p> #}
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-2.jpg')}}" alt="">
+            <div class="card-body">
+              <h5>Titre audio <br />
+                <span>Date audio</span>
+              </h5>
+              {# <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                impedit quo minus id quod maxime placeat ” </p> #}
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+ 
+  <h2 class="font-Montserrat">Boutiques</h2>
+  <hr>
+  <div class="p-5 pb-2">
+  <div class="row">
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/robe.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/bijoux.webp')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/costard.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="product-wrapper text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"> <img src="{{asset('boutiques/chaussure.jpg')}}" alt=""> </a>
+            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
+                <div class="product-action"> 
+                    <div class="product-action-style">
+                        <a href="#"><i class="fa fa-plus"></i></a>
+                        <a href="#"><i class="fa fa-heart"></i> </a>
+                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="w-100  mt-5">
+    <button class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</button>
+  </div>
+</div>
+  <h2 class="font-Montserrat">Prestations</h2>
+  <hr>
+  <div class="p-5 pb-2">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/photographe.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Photographe
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+      <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/organisateur.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Organisateur
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/patissier.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Pâtissier
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+      <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/maquilleur.webp')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Maquilleur/Coiffeur
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+    </div>
+  <div class="w-100  mt-5">
+    <button class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</button>
+  </div>
+  </div>
+  
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prestations{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .col-md-3
+    {
+        padding-top: 50px ;
+    }
+        .pt-0{
+        padding-top : 0px !important ;
+    }
+</style>
+{% endblock %}
+{% block header_title %}
+    Prestations
+{% endblock %}
+
+{% block content %}
+<div class="pl-3 pr-3 pb-1 w-100">
+<h2 class="font-Montserrat mt-4 font-weight-bold text-center">Toutes nos Prestations </h2>
+  <hr>
+</div>
+
+<div class="p-5 pt-0 pb-2">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/photographe.jpg')}}" />
+                </div>
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Photographe
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+      <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/organisateur.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Organisateur
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/patissier.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Pâtissier
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+      <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/maquilleur.webp')}}" />
+                </div>
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Maquilleur/Coiffeur
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/photographe.jpg')}}" />
+                </div>
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Photographe
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/patissier.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Pâtissier
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/photographe.jpg')}}" />
+                </div>
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Photographe
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+      <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/organisateur.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Organisateur
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/patissier.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Pâtissier
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+      <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/maquilleur.webp')}}" />
+                </div>
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Maquilleur/Coiffeur
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/photographe.jpg')}}" />
+                </div>
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Photographe
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-sl">
+                <div class="card-image">
+                    <img
+                        src="{{asset('prestations/patissier.jpg')}}" />
+                </div>
+
+                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                <div class="card-heading">
+                    Pâtissier
+                </div>
+                <div class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                </div>
+                <a href="#" class="card-button"> Commander</a>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}

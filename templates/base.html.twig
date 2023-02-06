@@ -1,19 +1,314 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <meta charset="utf-8">
+        <title>Logo & Société - {% block title %}Mariage{% endblock %}</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+        <!-- Mon Style -->
+        <link rel="stylesheet" href="{{asset("perso/css/main.css")}}">
+        <!-- Favicon -->
+        <link rel="stylesheet" href=" {{ asset('predefinie/css/bootstrap.css') }} ">
+        <link rel="stylesheet" href=" {{ asset('predefinie/css/bootstrap.min.css') }} ">
+        <link rel="stylesheet" href=" {{ asset('predefinie/css/jquery-confirm.css') }} ">
+        <link href="{{asset("predefinie/images/mariage.ico")}}" rel="icon">
+        <link rel="stylesheet" href="{{asset("slider/normalize.min.css")}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'>
+        <link href="https://fonts.cdnfonts.com/css/parisienne" rel="stylesheet">
+        <link rel="stylesheet" href="{{asset("predefinie/css/menu.css")}}">
+        <link rel="stylesheet" href="{{asset("predefinie/css/footer.css")}}">
+        <link rel="stylesheet" href="{{asset("slider/style.css")}}">
+        <link rel="stylesheet" href="{{asset('prestations/style.css')}}">
+        <link rel="stylesheet" href="{{asset('boutiques/style.css')}}">
+        
         {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
+        <style>
+            .icon-menu:before {
+                content: "\e5d2";
+            }
+            footer
+            {
+                height : auto ;
+                background: linear-gradient(159deg, rgba(254,111,76,1) 0%, rgba(238,78,38,0.8911939775910365) 100%);
+            }
+        </style>
     </head>
-    <body>
-        {% block body %}{% endblock %}
+
+    <body>  
+{% if page_name != "Accueil" and page_name != "Actualites" %}
+    <style>
+      .site-navbar
+      {
+        position: initial;
+        background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+      }
+      .site-logo
+      {
+        margin-top : 0 !important ;
+      }
+    </style>
+{% endif %}
+ {% if page_name == "Actualites" %}
+  <style>
+  .g-banniere
+  {
+    background-image : url('{{asset('predefinie/images/news.jpg')}}') ;
+    background-repeat : no-repeat ;
+    background-size : cover ;
+    background-position : center center ;
+    height: 450px ;
+  }
+</style>
+{% endif %}
+    <header class="site-navbar" role="banner">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-11 pl-5 col-xl-2">
+            <h1 class="mb-0 site-logo"><a href="#" class="text-white font-regular font-weight-bold mb-0">Site Mariage</a></h1>
+          </div>
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class=""><a href="{{path('app_accueil')}}"><span>Accueil</span></a></li>
+                <li class=""><a href="{{path('app_agenda')}}"><span>Agenda</span></a></li>
+                <li class="has-children">
+                  <a href="#"><span>Festivités</span></a>
+                  <ul class="dropdown">
+                    <li><a href="{{path('app_mariage')}}">Mariage</a></li>
+                    <li><a href="#" class="album">Albums</a></li>
+                    <li><a href="#" class="video">Vidéos</a></li>
+                    <li><a href="#" class="audio">Audio</a></li>
+                    {# <li class="has-children">
+                      <a href="#">Dropdown</a>
+                      <ul class="dropdown">
+                        <li><a href="#">Menu One</a></li>
+                        <li><a href="#">Menu Two</a></li>
+                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="#">Menu Four</a></li>
+                      </ul>
+                    </li> #}
+                  </ul>
+                </li>
+                <li><a href="{{path('app_actualites')}}"><span>Actualités</span></a></li>
+                <li><a href="{{path('app_boutiques')}}"><span>Boutiques</span></a></li>
+                <li><a href="{{path('app_prestations')}}"><span>Prestations</span></a></li>
+                <li><a href="{{path('app_contact')}}"><span>Contact</span></a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+    </header>
+{% if page_name != "Accueil" %}
+
+<section class="g-banniere" >
+<h1>{{ page_name }}</h1>
+</section>
+
+{% endif %}
+
+
+
+{% if page_name == "Accueil" %}
+            <!-- partial:index.partial.html -->
+<main class="main-content">
+  <section class="slideshow">
+    <div class="slideshow-inner">
+      <div class="slides">
+        <div class="slide is-active ">
+          <div class="slide-content">
+            <div class="caption">
+              <div class="title">Adnane & Hasna</div>
+              <div class="text">
+                <p>Vive les mariées</p>
+              </div> 
+              <a href="#" class="btn">
+                <span class="btn-inner">Détails</span>
+              </a>
+            </div>
+          </div>
+          <div class="image-container"> 
+            <img src="{{asset('predefinie/images/carousel-1.jpg')}}" alt="" class="image" />
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="caption">
+              <div class="title">Moussa et Inaya</div>
+              <div class="text">
+                <p>Vive les mariés</p>
+              </div> 
+              <a href="#" class="btn">
+                <span class="btn-inner">Détails</span>
+              </a>
+            </div>
+          </div>
+          <div class="image-container">
+            <img src="{{asset('predefinie/images/carousel-2.jpg')}}" alt="" class="image" />
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="caption">
+              <div class="title">Amadou & Aminata</div>
+              <div class="text">
+                <p>Vive les mariés</p>
+              </div> 
+              <a href="#" class="btn">
+                <span class="btn-inner">Détails</span>
+              </a>
+            </div>
+          </div>
+          <div class="image-container">
+            <img src="{{asset('predefinie/images/carousel-3.jpg')}}" alt="" class="image" />
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <div class="caption">
+              <div class="title">Adama & Rahima</div>
+              <div class="text">
+                <p>Vive les mariés</p>
+              </div> 
+              <a href="#" class="btn">
+                <span class="btn-inner">Détails</span>
+              </a>
+            </div>
+          </div>
+          <div class="image-container"> 
+            <img src="{{asset('predefinie/images/carousel-3.jpeg')}}" alt="" class="image" />
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <div class="item is-active"> 
+          <span class="icon">1</span>
+        </div>
+        <div class="item">
+          <span class="icon">2</span>
+        </div> 
+        <div class="item">
+          <span class="icon">3</span>
+        </div>
+        <div class="item">
+          <span class="icon">4</span>
+        </div>
+      </div>
+      <div class="arrows">
+        <div class="arrow prev">
+          <span class="svg svg-arrow-left">
+            <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
+            <span class="alt sr-only"></span>
+          </span>
+        </div>
+        <div class="arrow next">
+          <span class="svg svg-arrow-right">
+            <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
+            <span class="alt sr-only"></span>
+          </span>
+        </div>
+      </div>
+    </div> 
+  </section>
+</main>
+<!-- partial -->
+<!-- Invitation Start -->
+{% endif %}
+
+{% block content %}
+
+{% endblock %}
+    <footer class="footer-14398">
+      
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <a href="#" class="footer-site-logo">Site Mariage</a>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit officiis corporis optio natus. </p>
+            </div>
+            <div class="col-md-2 ml-auto">
+              <h3>Nos Liens</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Agenda</a></li>
+                <li><a href="#">Mariage</a></li>
+                <li><a href="#">Actualités</a></li>
+                <li><a href="#">Boutiques</a></li>
+                <li><a href="#">Prestations</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 ml-auto">
+              <h3>Nos patenaires</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Hikam SM</a></li>
+                <li><a href="#">Partenaire 2</a></li>
+                <li><a href="#">Partenaire 3</a></li>
+                <li><a href="#">Partenaire 4</a></li>
+                <li><a href="#">Partenaire 5</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2 ml-auto">
+              <h3>Contacts</h3>
+              <ul class="list-unstyled links">
+                <li><a href="#">Facebook : </a></li>
+                <li><a href="#">Gmail : </a></li>
+                {# <li><a href="#">Team</a></li>
+                <li><a href="#">Career</a></li>
+                <li><a href="#">Contacts</a></li> #}
+              </ul>
+            </div>
+          </div>
+
+          {# <div class="row mb-4">
+            <div class="col-12 pb-4">
+              <div class="line"></div>
+            </div>
+            <div class="col-md-6 text-md-left">
+              <ul class="list-unstyled link-menu nav-left">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Code of Conduct</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 text-md-right">
+              <ul class="list-unstyled social nav-right">
+                <li><a href="#"><span class="icon-twitter"></span></a></li>
+                <li><a href="#"><span class="icon-instagram"></span></a></li>
+                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                <li><a href="#"><span class="icon-pinterest"></span></a></li>
+              </ul>
+            </div>
+          </div> #}
+
+          {# <div class="row">
+            <div class="col-md-7">
+              <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, fuga. Ex at maxime eum odio quibusdam pariatur expedita explicabo harum! Consectetur ducimus delectus nemo, totam odit!</small></p>
+            </div>
+          </div> #}
+        </div>
+    </footer>
+{% block javascripts %} 
+<script src="{{asset("predefinie/js/jquery.js")}}"></script>
+<script src="{{asset("predefinie/js/jquery-confirm.js")}}"></script>
+<script src="{{asset("predefinie/js/bootstrap.js")}}"></script>
+<script src="{{asset("predefinie/js/bootstrap.min.js")}}"></script>
+<script src="{{asset("bundles/fosjsrouting/js/router.js")}}"></script>
+<script src="{{asset("slider/TweenMax.min.js")}}"></script>
+<script  src="{{asset("slider/script.js")}}"></script>
+<script  src="{{asset("perso/js/main.js")}}"></script>
+<script src="{{asset('mariage/main.js')}}"></script>
+{# <script src="{{asset('perso/js/album.js')}}"></script> #}
+{% endblock %}
     </body>
 </html>
