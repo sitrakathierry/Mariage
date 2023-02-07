@@ -8,7 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FestiviteController extends AbstractController
 {
-    #[Route('/mariage', name: 'app_mariage')]
+    /**
+     * @Route("/mariage", name="app_mariage")
+     */   
     public function index(): Response
     {
         return $this->render('festivite/mariage.html.twig', [
@@ -16,7 +18,9 @@ class FestiviteController extends AbstractController
         ]);
     }
 
-    #[Route('/albums', name: 'app_albums')]
+    /**
+     * @Route("/albums", name="app_albums")
+     */ 
     public function albums(): Response
     {
         return $this->render('festivite/albums.html.twig', [
@@ -24,7 +28,9 @@ class FestiviteController extends AbstractController
         ]);
     }
 
-    #[Route('/videos', name: 'app_videos')]
+    /**
+     * @Route("/videos", name="app_videos")
+     */ 
     public function videos(): Response
     {
         return $this->render('festivite/videos.html.twig', [
@@ -32,7 +38,9 @@ class FestiviteController extends AbstractController
         ]);
     }
 
-    #[Route('/audio', name: 'app_audio')]
+    /**
+     * @Route("/audio", name="app_audio")
+     */
     public function audio(): Response
     {
         return $this->render('festivite/audio.html.twig', [

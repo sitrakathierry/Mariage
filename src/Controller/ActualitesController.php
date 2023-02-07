@@ -11,6 +11,9 @@ class ActualitesController extends AbstractController
     #[Route('/actualites', name: 'app_actualites')]
     public function index(): Response
     {
+        /**
+         * @Route("/actualites", name="app_actualites")
+         */
         return $this->render('actualites/index.html.twig', [
             'page_name' => 'Actualites',
         ]);

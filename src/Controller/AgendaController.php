@@ -8,7 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AgendaController extends AbstractController
 {
-    #[Route('/agenda', name: 'app_agenda')]
+    /**
+     * @Route("/agenda", name="app_agenda")
+     */
     public function index(): Response
     {
         return $this->render('agenda/index.html.twig', [
