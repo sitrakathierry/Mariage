@@ -5,16 +5,16 @@
 {{ parent() }}
 {# <link rel="stylesheet" href="{{asset('perso/css/album.css')}}"> #}
     {# albums #}
-    <link rel="stylesheet" href="{{asset('album/fonts/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{asset('album/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('album/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('album/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/css/style.css')}}">
 
     {# videos #}
-    <link rel="stylesheet" href="{{asset('videos/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('videos/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('videos/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('audio/style.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/videos/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/videos/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/videos/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/audio/style.css')}}">
     
     <style>
       h2
@@ -30,13 +30,13 @@
 {{ parent() }}
     {# <script src="js/jquery-3.3.1.min.js"></script> #}
     {# albums #}
-    <script src="{{asset('album/js/popper.min.js')}}"></script>
-    <script src="{{asset('album/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('album/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('album/js/main.js')}}"></script>
+    <script src="{{asset('plugs/album/js/popper.min.js')}}"></script>
+    <script src="{{asset('plugs/album/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('plugs/album/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('plugs/album/js/main.js')}}"></script>
     {# videos #}
-    <script src="{{asset('videos/js/main.js')}}"></script>
-    <script src="{{asset('audio/main.js')}}"></script>
+    <script src="{{asset('plugs/videos/js/main.js')}}"></script>
+    <script src="{{asset('plugs/audio/main.js')}}"></script>
 
 {% endblock %}
 
@@ -45,9 +45,9 @@
 {% block content %}
 
 <div class="w-100 p-5 fond-inv">
-  <div class="inv ml-auto p-4 mr-auto text-center" style="background-image: url({{asset('predefinie/images/bg-invite.jpg')}});">
+  <div class="inv ml-auto p-4 mr-auto text-center" style="background-image: url({{asset('plugs/predefinie/images/bg-invite.jpg')}});">
       <!-- <img src="images/bg-invite.jpg" class="img img-fluid inv-image"> -->
-      <img src="{{ asset("predefinie/images/mariee.jpg") }}" class="img img-circle inv-image">
+      <img src="{{ asset("plugs/predefinie/images/mariee.jpg") }}" class="img img-circle inv-image">
       <h1 class="mt-3 font-Great">Ousmane & Malia</h1>
       <label class="mt-2 font-normal font-Montserrat">Jeudi 19 Janvier 2023</label><br>
       <label class="mt-2 font-sous-titre font-Montserrat font-italic">10h</label>
@@ -58,27 +58,27 @@
       <hr>
         <div class="owl-carousel p-5 pb-2 owl-2">
           <div class="media-29101">
-            <a href="#"><img src="{{asset('album/images/img_1.jpg')}}" alt="Image" class="img-fluid"></a>
+            <a href="#"><img src="{{asset('plugs/album/images/img_1.jpg')}}" alt="Image" class="img-fluid"></a>
             <h3><a href="#">Consectetur Adipisicing Elit</a></h3>
           </div>
           <div class="media-29101">
-            <a href="#"><img src="{{asset('album/images/img_2.jpg')}}" alt="Image" class="img-fluid"></a>
+            <a href="#"><img src="{{asset('plugs/album/images/img_2.jpg')}}" alt="Image" class="img-fluid"></a>
             <h3><a href="#">Beatae Doloribu</a></h3>
           </div>
           <div class="media-29101">
-            <a href="#"><img src="{{asset('album/images/img_3.jpg')}}" alt="Image" class="img-fluid"></a>
+            <a href="#"><img src="{{asset('plugs/album/images/img_3.jpg')}}" alt="Image" class="img-fluid"></a>
             <h3><a href="#">Accusantium Eius Soluta</a></h3>
           </div>
           <div class="media-29101">
-            <a href="#"><img src="{{asset('album/images/img_4.jpg')}}" alt="Image" class="img-fluid"></a>
+            <a href="#"><img src="{{asset('plugs/album/images/img_4.jpg')}}" alt="Image" class="img-fluid"></a>
             <h3><a href="#">Consectetur Adipisicing Elit</a></h3>
           </div>
           <div class="media-29101">
-            <a href="#"><img src="{{asset('album/images/img_5.jpg')}}" alt="Image" class="img-fluid"></a>
+            <a href="#"><img src="{{asset('plugs/album/images/img_5.jpg')}}" alt="Image" class="img-fluid"></a>
             <h3><a href="#">Beatae Doloribu</a></h3>
           </div>
           <div class="media-29101">
-            <a href="#"><img src="{{asset('album/images/img_6.jpg')}}" alt="Image" class="img-fluid"></a>
+            <a href="#"><img src="{{asset('plugs/album/images/img_6.jpg')}}" alt="Image" class="img-fluid"></a>
             <h3><a href="#">Accusantium Eius Soluta</a></h3>
           </div>
         </div>
@@ -87,7 +87,7 @@
       <div class="featured-carousel p-5 owl-carousel">
 							<div class="item">
 								<div class="work">
-									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-1.jpg')}});">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('plugs/videos/images/work-1.jpg')}});">
 										<div class="text w-100">
 											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
 											<h3><a href="#">Video 01</a></h3>
@@ -97,7 +97,7 @@
 							</div>
 							<div class="item">
 								<div class="work">
-									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-2.jpg')}});">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('plugs/videos/images/work-2.jpg')}});">
 										<div class="text w-100">
 											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
 											<h3><a href="#">Video 02</a></h3>
@@ -107,7 +107,7 @@
 							</div>
 							<div class="item">
 								<div class="work">
-									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-3.jpg')}});">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('plugs/videos/images/work-3.jpg')}});">
 										<div class="text w-100">
 											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
 											<h3><a href="#">Video 03</a></h3>
@@ -117,7 +117,7 @@
 							</div>
 							<div class="item">
 								<div class="work">
-									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-4.jpg')}});">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('plugs/videos/images/work-4.jpg')}});">
 										<div class="text w-100">
 											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
 											<h3><a href="#">Video 04</a></h3>
@@ -127,7 +127,7 @@
 							</div>
 							<div class="item">
 								<div class="work">
-									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('videos/images/work-5.jpg')}});">
+									<div class="img d-flex align-items-end justify-content-center" style="background-image: url({{asset('plugs/videos/images/work-5.jpg')}});">
 										<div class="text w-100">
 											<a href="#"><span class="cat"><i class="fa fa-play"></i></span></a>
 											<h3><a href="#">Video 05</a></h3>
@@ -141,7 +141,7 @@
       <div class="gtco-testimonials p-3">
       <div class="owl-carousel owl-carousel1 owl-theme">
         <div>
-          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-1.jpeg')}}" alt="">
+          <div class="card text-center"><img class="card-img-top" src="{{asset('plugs/audio/audio-1.jpeg')}}" alt="">
             <div class="card-body">
               <h5>Titre audio <br />
                 <span>Date audio</span>
@@ -152,7 +152,7 @@
           </div>
         </div>
         <div>
-          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-2.jpg')}}" alt="">
+          <div class="card text-center"><img class="card-img-top" src="{{asset('plugs/audio/audio-2.jpg')}}" alt="">
             <div class="card-body">
               <h5>Titre audio <br />
                 <span>Date audio</span>
@@ -163,7 +163,7 @@
           </div>
         </div>
         <div>
-          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-1.jpeg')}}" alt="">
+          <div class="card text-center"><img class="card-img-top" src="{{asset('plugs/audio/audio-1.jpeg')}}" alt="">
             <div class="card-body">
               <h5>Titre audio <br />
                 <span>Date audio</span>
@@ -174,7 +174,7 @@
           </div>
         </div>
         <div>
-          <div class="card text-center"><img class="card-img-top" src="{{asset('audio/audio-2.jpg')}}" alt="">
+          <div class="card text-center"><img class="card-img-top" src="{{asset('plugs/audio/audio-2.jpg')}}" alt="">
             <div class="card-body">
               <h5>Titre audio <br />
                 <span>Date audio</span>
@@ -194,7 +194,7 @@
     <div class="col-md-3">
         <div class="product-wrapper text-center"> 
             <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('boutiques/robe.jpg')}}" alt=""> </a>
+            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/robe.jpg')}}" alt=""> </a>
             <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
                 <div class="product-action"> 
                     <div class="product-action-style">
@@ -209,7 +209,7 @@
     <div class="col-md-3">
         <div class="product-wrapper text-center"> 
             <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('boutiques/bijoux.webp')}}" alt=""> </a>
+            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/bijoux.webp')}}" alt=""> </a>
             <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
                 <div class="product-action"> 
                     <div class="product-action-style">
@@ -224,7 +224,7 @@
     <div class="col-md-3">
         <div class="product-wrapper text-center"> 
             <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('boutiques/costard.jpg')}}" alt=""> </a>
+            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/costard.jpg')}}" alt=""> </a>
             <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
                 <div class="product-action"> 
                     <div class="product-action-style">
@@ -239,7 +239,7 @@
     <div class="col-md-3">
         <div class="product-wrapper text-center"> 
             <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('boutiques/chaussure.jpg')}}" alt=""> </a>
+            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/chaussure.jpg')}}" alt=""> </a>
             <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
                 <div class="product-action"> 
                     <div class="product-action-style">
@@ -264,7 +264,7 @@
             <div class="card-sl">
                 <div class="card-image">
                     <img
-                        src="{{asset('prestations/photographe.jpg')}}" />
+                        src="{{asset('plugs/prestations/photographe.jpg')}}" />
                 </div>
 
                 {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
@@ -281,7 +281,7 @@
             <div class="card-sl">
                 <div class="card-image">
                     <img
-                        src="{{asset('prestations/organisateur.jpg')}}" />
+                        src="{{asset('plugs/prestations/organisateur.jpg')}}" />
                 </div>
 
                 {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
@@ -298,7 +298,7 @@
             <div class="card-sl">
                 <div class="card-image">
                     <img
-                        src="{{asset('prestations/patissier.jpg')}}" />
+                        src="{{asset('plugs/prestations/patissier.jpg')}}" />
                 </div>
 
                 {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
@@ -315,7 +315,7 @@
             <div class="card-sl">
                 <div class="card-image">
                     <img
-                        src="{{asset('prestations/maquilleur.webp')}}" />
+                        src="{{asset('plugs/prestations/maquilleur.webp')}}" />
                 </div>
 
                 {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}

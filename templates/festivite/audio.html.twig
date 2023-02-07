@@ -4,19 +4,19 @@
 
 {% block stylesheets  %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{asset('album/fonts/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{asset('album/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('album/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('album/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('album/style.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('plugs/album/style.css')}}">
 {% endblock %}
 
 {% block javascripts %}
     {{parent()}}
-    <script src="{{asset('album/js/popper.min.js')}}"></script>
-    <script src="{{asset('album/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('album/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('album/js/main.js')}}"></script>
+    <script src="{{asset('plugs/album/js/popper.min.js')}}"></script>
+    <script src="{{asset('plugs/album/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('plugs/album/js/owl.carousel.min.js')}}"></script>
+    <script src="{{asset('plugs/album/js/main.js')}}"></script>
 {% endblock %}
 
 {% block header_title %}
@@ -27,11 +27,11 @@
     <div class="padding">
     <div class="block pl-5 pr-5 m-4">
         <div class="sous-block w-100">
-            <img src="mariage/mariage.png" class="img mrg-image" alt="">
+            <img src="plugs/mariage/mariage.png" class="img mrg-image" alt="">
             <h4 class="font-Monserrat font-italic font-weight-bold mt-3 ml-3">Adnane et Hasna</h4>
         </div>
         <div class="sous-block w-100">
-            <img src="mariage/hall.png" class="img mrg-image ml-auto" alt="">
+            <img src="plugs/mariage/hall.png" class="img mrg-image ml-auto" alt="">
             <h4 class="font-Monserrat font-italic font-weight-bold mt-3 ml-3">A la mairie </h4>
         </div>
     </div>
@@ -43,6 +43,18 @@
                   <audio
                       controls
                       src="audio/echantillon.mp3" class="w-100">
+                          <a href="plugs/audio/echantillon.mp3">
+                              Download audio
+                          </a>
+                  </audio>
+            </figure>
+        </div>
+        <div class="col-md-6">
+          <figure>
+                <figcaption>20 Sep. 2022</figcaption>
+                  <audio
+                      controls
+                      src="plugs/audio/echantillon.mp3" class="w-100">
                           <a href="audio/echantillon.mp3">
                               Download audio
                           </a>
@@ -54,7 +66,7 @@
                 <figcaption>20 Sep. 2022</figcaption>
                   <audio
                       controls
-                      src="audio/echantillon.mp3" class="w-100">
+                      src="plugs/audio/echantillon.mp3" class="w-100">
                           <a href="audio/echantillon.mp3">
                               Download audio
                           </a>
@@ -66,19 +78,7 @@
                 <figcaption>20 Sep. 2022</figcaption>
                   <audio
                       controls
-                      src="audio/echantillon.mp3" class="w-100">
-                          <a href="audio/echantillon.mp3">
-                              Download audio
-                          </a>
-                  </audio>
-            </figure>
-        </div>
-        <div class="col-md-6">
-          <figure>
-                <figcaption>20 Sep. 2022</figcaption>
-                  <audio
-                      controls
-                      src="audio/echantillon.mp3" class="w-100">
+                      src="plugs/audio/echantillon.mp3" class="w-100">
                           <a href="audio/echantillon.mp3">
                               Download audio
                           </a>

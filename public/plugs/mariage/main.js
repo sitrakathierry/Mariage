@@ -43,7 +43,7 @@ $(document).ready(function(){
         });
     })
 
-var host = window.location.protocol + "//" + window.location.host;
+var host = window.location.protocol + "//" + window.location.host+"/mariage/public";
 
 function affichageFestivite(data)
 {

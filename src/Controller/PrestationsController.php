@@ -9,9 +9,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class PrestationsController extends AbstractController
 {
     /**
-     * @Route("/prestations", name="app_videos")
+     * @Route("/prestations", name="app_prestations")
      */ 
-    #[Route('/prestations', name: 'app_prestations')]
     public function index(): Response
     {
         return $this->render('prestations/index.html.twig', [

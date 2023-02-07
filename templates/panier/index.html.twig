@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Panier{% endblock %}
+
+{% block stylesheets  %}
+    {{ parent() }}
+
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+
+{% endblock %}
+
+{% block header_title %}
+    Panier
+{% endblock %}
+
+{% block content %}
+    <div class="p-5">
+        <div class="table-responsive">
+            <table>
+            <thead>
+            <tr>
+                    <th>Type</th>
+                    <th>Designation</th>
+                    <th>Prix</th>
+                    <th>Qte</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Boutique</td>
+                    <td>Robe de marié</td>
+                    <td>32000 KMF</td>
+                    <td>1</td>
+                    <td>32000</td>
+                    <td><button class="btn btn-danger btn-block"><i class="fa text-white fa-trash"></i></button></td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ActualitesController extends AbstractController
+class PanierController extends AbstractController
 {
     /**
-     * @Route("/actualites", name="app_actualites")
+     * @Route("/panier", name="app_panier")
      */
     public function index(): Response
     {
-        return $this->render('actualites/index.html.twig', [
-            'page_name' => 'Actualites',
+        return $this->render('panier/index.html.twig', [
+            'page_name' => 'PanierController',
         ]);
     }
 }
