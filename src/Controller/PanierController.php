@@ -14,7 +14,7 @@ class PanierController extends AbstractController
     public function index(): Response
     {
         return $this->render('panier/index.html.twig', [
-            'page_name' => 'PanierController',
+            'page_name' => 'Panier',
         ]);
     }
 }

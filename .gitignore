@@ -8,13 +8,11 @@
 /public/bundles/
 /var/
 /vendor/
-/config
-/bin/
 /composer.json
 /composer.lock
 /phpunit.xml.dist
 /symfony.lock
-
+/public/.htaccess
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
