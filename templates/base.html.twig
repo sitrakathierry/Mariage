@@ -2,10 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Logo & Société - {% block title %}Mariage{% endblock %}</title>
+        <title>SoibahLHer Shuhuli - {% block title %}Mariage{% endblock %}</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="Free Website Template" name="keywords">
-        <meta content="Free Website Template" name="description">
+        <meta content="SoibahLHer Shuhuli" name="keywords">
+        <meta content="SoibahLHer Shuhuli" name="description">
         {% block stylesheets %}
         <!-- Mon Style -->
         <link rel="stylesheet" href="{{asset("plugs/perso/css/main.css")}}">
@@ -23,12 +23,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'>
         <link href="https://fonts.cdnfonts.com/css/parisienne" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset("plugs/predefinie/css/menu.css")}}">
+
         <link rel="stylesheet" href="{{asset("plugs/predefinie/css/footer.css")}}">
         <link rel="stylesheet" href="{{asset("plugs/slider/style.css")}}">
         <link rel="stylesheet" href="{{asset('plugs/prestations/style.css')}}">
         <link rel="stylesheet" href="{{asset('plugs/boutiques/style.css')}}">
-        
+        <link rel="stylesheet" href="{{asset('plugs/menu/fonts/icomoon/style.css')}}">
+        <link rel="stylesheet" href="{{asset('plugs/menu/css/style.css')}}">
         {% endblock %}
         <style>
             .icon-menu:before {
@@ -37,7 +38,22 @@
             footer
             {
                 height : auto ;
-                background: linear-gradient(159deg, rgba(254,111,76,1) 0%, rgba(238,78,38,0.8911939775910365) 100%);
+            }
+            .logoFooter
+            {
+                width: 220px;
+                height : 220px ;
+            }
+            .logoMariage
+            {
+              width : 65px ;
+              height : 65px ;
+            }
+            .contentLogo
+            {
+              display : flex ;
+              flex-direction : row ;
+              align-items : center ;
             }
         </style>
     </head>
@@ -48,7 +64,8 @@
       .site-navbar
       {
         position: initial;
-        background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+        background: linear-gradient(132deg, rgba(250,188,19,1) 9%, rgba(213,165,6,1) 36%, rgba(185,95,19,1) 63%, rgba(255,85,0,1) 87%);
+        padding-top: 0.5em ;
       }
       .site-logo
       {
@@ -68,14 +85,27 @@
   }
 </style>
 {% endif %}
+        <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
     <header class="site-navbar" role="banner">
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-11 pl-5 col-xl-2">
-            <h1 class="mb-0 site-logo text-white font-regular font-weight-bold mb-0">Site Mariage</h1>
+          <div class="pl-3 contentLogo col-xl-3">
+            <img src="{{asset('plugs/predefinie/images/logo.jpeg')}}" alt="" class="img mr-3 rounded-circle logoMariage">
+            <h2 class="mb-0 site-logo text-white font-Montserrat font-italic font-weight-bold mb-0">
+            SoibahLHer Shuhuli
+            </h2>
           </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
+          <div class="col-xl-9 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
+
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li class=""><a href="{{path('app_accueil')}}"><span>Accueil</span></a></li>
                 <li class=""><a href="{{path('app_agenda')}}"><span>Agenda</span></a></li>
@@ -83,9 +113,9 @@
                   <a href="#"><span>Festivités</span></a>
                   <ul class="dropdown">
                     <li><a href="{{path('app_mariage')}}">Mariage</a></li>
-                    <li><a href="#" class="album">Albums</a></li>
-                    <li><a href="#" class="video">Vidéos</a></li>
-                    <li><a href="#" class="audio">Audio</a></li>
+                    <li><a href="{{path('app_albums')}}" class="album">Albums</a></li>
+                    <li><a href="{{path('app_videos')}}" class="video">Vidéos</a></li>
+                    <li><a href="{{path('app_audio')}}" class="audio">Audio</a></li>
                     {# <li class="has-children">
                       <a href="#">Dropdown</a>
                       <ul class="dropdown">
@@ -236,35 +266,34 @@
       
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
-              <a href="#" class="footer-site-logo">Site Mariage</a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit officiis corporis optio natus. </p>
+            <div class="col-md-3 text-center">
+              <img src="{{asset('plugs/predefinie/images/logo.jpeg')}}" alt="" class="img mr-3 rounded-circle logoFooter">
             </div>
             <div class="col-md-2 ml-auto">
               <h3>Nos Liens</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Agenda</a></li>
-                <li><a href="#">Mariage</a></li>
-                <li><a href="#">Actualités</a></li>
-                <li><a href="#">Boutiques</a></li>
-                <li><a href="#">Prestations</a></li>
+              <ul class="list-unstyled  links">
+                <li><a href="#" class="text-white">Agenda</a></li>
+                <li><a href="#" class="text-white">Mariage</a></li>
+                <li><a href="#" class="text-white">Actualités</a></li>
+                <li><a href="#" class="text-white">Boutiques</a></li>
+                <li><a href="#" class="text-white">Prestations</a></li>
               </ul>
             </div>
             <div class="col-md-2 ml-auto">
               <h3>Nos patenaires</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Hikam SM</a></li>
-                <li><a href="#">Partenaire 2</a></li>
-                <li><a href="#">Partenaire 3</a></li>
-                <li><a href="#">Partenaire 4</a></li>
-                <li><a href="#">Partenaire 5</a></li>
+                <li><a href="#" class="text-white">Hikam SM</a></li>
+                <li><a href="#" class="text-white">Partenaire 2</a></li>
+                <li><a href="#" class="text-white">Partenaire 3</a></li>
+                <li><a href="#" class="text-white">Partenaire 4</a></li>
+                <li><a href="#" class="text-white">Partenaire 5</a></li>
               </ul>
             </div>
             <div class="col-md-2 ml-auto">
               <h3>Contacts</h3>
               <ul class="list-unstyled links">
-                <li><a href="#">Facebook : </a></li>
-                <li><a href="#">Gmail : </a></li>
+                <li><a href="#" class="text-white">Facebook : </a></li>
+                <li><a href="#" class="text-white">Gmail : </a></li>
                 {# <li><a href="#">Team</a></li>
                 <li><a href="#">Career</a></li>
                 <li><a href="#">Contacts</a></li> #}
@@ -310,7 +339,8 @@
 <script  src="{{asset("plugs/slider/script.js")}}"></script>
 <script  src="{{asset("plugs/perso/js/main.js")}}"></script>
 <script src="{{asset('plugs/mariage/main.js')}}"></script>
-{# <script src="{{asset('perso/js/album.js')}}"></script> #}
+<script src="{{asset('plugs/menu/js/jquery.sticky.js')}}"></script>
+<script src="{{asset('plugs/menu/js/main.js')}}"></script>
 {% endblock %}
     </body>
 </html>

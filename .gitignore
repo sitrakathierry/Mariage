@@ -1,12 +1,20 @@
 
 ###> symfony/framework-bundle ###
 /.env.local
+/.env
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
+/config
+/bin/
+/composer.json
+/composer.lock
+/phpunit.xml.dist
+/symfony.lock
+
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
