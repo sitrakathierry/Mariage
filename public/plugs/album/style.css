@@ -39,11 +39,39 @@
 }
 
 .padding {
-    padding: 0px 45px 0px;
+    padding: 0px 40px 0px;
 }
 
 .sous-block {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.myAlbum {
+    display: flex;
+    flex-direction: row;
+}
+
+.contenu_album {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px dashed grey;
+}
+
+.elem_album {
+    width: 20%;
+}
+
+.cadre
+{
+    height: 100px;
+    transition: .5s;
+}
+
+.cadre:hover
+{
+    transform: translateY(-10px);
+    box-shadow: 0 5px 10px lightgrey;
+    cursor: pointer;
 }

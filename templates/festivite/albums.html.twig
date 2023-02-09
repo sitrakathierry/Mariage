@@ -4,19 +4,12 @@
 
 {% block stylesheets  %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{asset('plugs/album/fonts/icomoon/style.css')}}">
-    <link rel="stylesheet" href="{{asset('plugs/album/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('plugs/album/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('plugs/album/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('plugs/album/style.css')}}">
 {% endblock %}
 
 {% block javascripts %}
     {{parent()}}
-    <script src="{{asset('plugs/album/js/popper.min.js')}}"></script>
-    <script src="{{asset('plugs/album/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('plugs/album/js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('plugs/album/js/main.js')}}"></script>
+
 {% endblock %}
 
 {% block header_title %}
@@ -25,7 +18,7 @@
 
 {% block content %}
     <div class="padding">
-    <div class="block pl-5 pr-5 m-4">
+      <div class="block pl-5 pr-5 m-4">
         <div class="sous-block w-100">
             <img src="{{asset('plugs/mariage/mariage.png')}}" class="img mrg-image" alt="">
             <h4 class="font-Monserrat font-italic font-weight-bold mt-3 ml-3">Adnane et Hasna</h4>
@@ -34,35 +27,45 @@
             <img src="{{asset('plugs/mariage/hall.png')}}" class="img mrg-image ml-auto" alt="">
             <h4 class="font-Monserrat font-italic font-weight-bold mt-3 ml-3">A la mairie </h4>
         </div>
+      </div>
+      <div class="myAlbum">
+            <div class="contenu_album p-2 w-75">
+                <div class="elem_album">
+                    <div class="cadre m-2">
+                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                    </div>
+                </div>
+                <div class="elem_album">
+                    <div class="cadre m-2">
+                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                    </div>
+                </div>
+                <div class="elem_album">
+                    <div class="cadre m-2">
+                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                    </div>
+                </div>
+                <div class="elem_album">
+                    <div class="cadre m-2">
+                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                    </div>
+                </div>
+                <div class="elem_album">
+                    <div class="cadre m-2">
+                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                    </div>
+                </div>
+                <div class="elem_album">
+                    <div class="cadre m-2">
+                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                    </div>
+                </div>   
+            </div>
+            <div class="option_album border text-white text-left p-3 w-25 bg-secondary">
+                <label for="" class="font-Montserrat h4">Mariage</label>
+                <input type="text" class="form-control" placeholder="Ecrire ici . . .">
+            </div>
+      </div>
     </div>
-        <div class="album-view w-100">
-            <img src="{{asset('plugs/predefinie/images/Profil-5.webp')}}" class="img w-100 img-thumbnail" alt="">
-        </div>
-                <div class="owl-carousel p-5 pb-2 owl-2">
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_1.jpg')}}" alt="Image" class="img-fluid img-thumbnail"></a>
-            <h3><a href="#">Consectetur Adipisicing Elit</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_2.jpg')}}" alt="Image" class="img-fluid img-thumbnail"></a>
-            <h3><a href="#">Beatae Doloribu</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_3.jpg')}}" alt="Image" class="img-fluid img-thumbnail"></a>
-            <h3><a href="#">Accusantium Eius Soluta</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_4.jpg')}}" alt="Image" class="img-fluid img-thumbnail"></a>
-            <h3><a href="#">Consectetur Adipisicing Elit</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_5.jpg')}}" alt="Image" class="img-fluid img-thumbnail"></a>
-            <h3><a href="#">Beatae Doloribu</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_6.jpg')}}" alt="Image" class="img-fluid img-thumbnail"></a>
-            <h3><a href="#">Accusantium Eius Soluta</a></h3>
-          </div>
-        </div>
-    </div>
+
 {% endblock %}
