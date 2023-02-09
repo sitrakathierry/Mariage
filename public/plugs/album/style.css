@@ -39,7 +39,7 @@
 }
 
 .padding {
-    padding: 0px 40px 0px;
+    padding: 0px 40px 40px;
 }
 
 .sous-block {
@@ -63,15 +63,55 @@
     width: 20%;
 }
 
+@media only screen and (max-width: 900px) {
+    .elem_album {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .contenu_album,
+    .option_album {
+        width: 100% !important;
+    }
+
+    .myAlbum {
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+    }
+
+    .elem_album {
+        width: 100%;
+    }
+}
 .cadre
 {
     height: 100px;
     transition: .5s;
 }
 
+.cadreAudio {
+    height: 100px;
+    transition: .5s;
+}
+
+.elem_audio {
+    width: 50%;
+}
+
+.cadre img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
 .cadre:hover
 {
     transform: translateY(-10px);
     box-shadow: 0 5px 10px lightgrey;
     cursor: pointer;
+}
+.bg-grey {
+    background-color: #fbfbfb;
+    ;
 }
