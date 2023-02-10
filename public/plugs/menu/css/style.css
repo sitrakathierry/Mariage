@@ -120,7 +120,8 @@ a {
         background: #fff;
         -webkit-transition: 0.2s 0s;
         -o-transition: 0.2s 0s;
-        transition: 0.2s 0s; }
+        transition: 0.2s 0s; 
+        z-index: 9999999;}
         .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top {
           position: absolute; }
           .site-navbar .site-navigation .site-menu .has-children .dropdown.arrow-top:before {

@@ -23,7 +23,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"> 
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'>
         <link href="https://fonts.cdnfonts.com/css/parisienne" rel="stylesheet">
-
+        <link href="https://fonts.cdnfonts.com/css/wedding" rel="stylesheet">
+        
         <link rel="stylesheet" href="{{asset("plugs/predefinie/css/footer.css")}}">
         <link rel="stylesheet" href="{{asset("plugs/slider/style.css")}}">
         <link rel="stylesheet" href="{{asset('plugs/prestations/style.css')}}">
@@ -56,37 +57,21 @@
               flex-direction : row ;
               align-items : center ;
             }
+            .site-navbar
+            {
+              position: initial;
+              background: linear-gradient(132deg, rgba(250,188,19,1) 9%, rgba(213,165,6,1) 36%, rgba(185,95,19,1) 63%, rgba(255,85,0,1) 87%);
+              padding-top: 0.5em ;
+              padding-bottom : 0.5em ;
+            }
+            .site-logo
+            {
+              margin-top : 0 !important ;
+            }
         </style>
     </head>
-
     <body>  
-{% if page_name != "Accueil" and page_name != "Actualites" %}
-    <style>
-      .site-navbar
-      {
-        position: initial;
-        background: linear-gradient(132deg, rgba(250,188,19,1) 9%, rgba(213,165,6,1) 36%, rgba(185,95,19,1) 63%, rgba(255,85,0,1) 87%);
-        padding-top: 0.5em ;
-      }
-      .site-logo
-      {
-        margin-top : 0 !important ;
-      }
-    </style>
-{% endif %}
- {% if page_name == "Actualites" %}
-  <style>
-  .g-banniere
-  {
-    background-image : url('{{asset('plugs/predefinie/images/news.jpg')}}') ;
-    background-repeat : no-repeat ;
-    background-size : cover ;
-    background-position : center center ;
-    height: 450px ;
-  }
-</style>
-{% endif %}
-        <div class="site-mobile-menu">
+    <div class="site-mobile-menu">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close mt-3">
           <span class="icon-close2 js-menu-toggle"></span>
@@ -94,7 +79,6 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-    
     <header class="site-navbar" role="banner">
       <div class="container-fluid">
         <div class="row align-items-center">
@@ -145,119 +129,9 @@
       </div>
     </header>
 {% if page_name != "Accueil" %}
-
 <section class="g-banniere" >
 <h1>{{ page_name }}</h1>
 </section>
-
-{% endif %}
-
-
-
-{% if page_name == "Accueil" %}
-            <!-- partial:index.partial.html -->
-<main class="main-content">
-  <section class="slideshow">
-    <div class="slideshow-inner">
-      <div class="slides">
-        <div class="slide is-active ">
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title">Adnane & Hasna</div>
-              <div class="text">
-                <p>Vive les mariées</p>
-              </div> 
-              <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
-              </a>
-            </div>
-          </div>
-          <div class="image-container"> 
-            <img src="{{asset('plugs/predefinie/images/carousel-1.jpg')}}" alt="" class="image" />
-          </div>
-        </div>
-        <div class="slide">
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title">Moussa et Inaya</div>
-              <div class="text">
-                <p>Vive les mariés</p>
-              </div> 
-              <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
-              </a>
-            </div>
-          </div>
-          <div class="image-container">
-            <img src="{{asset('plugs/predefinie/images/carousel-2.jpg')}}" alt="" class="image" />
-          </div>
-        </div>
-        <div class="slide">
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title">Amadou & Aminata</div>
-              <div class="text">
-                <p>Vive les mariés</p>
-              </div> 
-              <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
-              </a>
-            </div>
-          </div>
-          <div class="image-container">
-            <img src="{{asset('plugs/predefinie/images/carousel-3.jpg')}}" alt="" class="image" />
-          </div>
-        </div>
-        <div class="slide">
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title">Adama & Rahima</div>
-              <div class="text">
-                <p>Vive les mariés</p>
-              </div> 
-              <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
-              </a>
-            </div>
-          </div>
-          <div class="image-container"> 
-            <img src="{{asset('plugs/predefinie/images/carousel-3.jpeg')}}" alt="" class="image" />
-          </div>
-        </div>
-      </div>
-      <div class="pagination">
-        <div class="item is-active"> 
-          <span class="icon">1</span>
-        </div>
-        <div class="item">
-          <span class="icon">2</span>
-        </div> 
-        <div class="item">
-          <span class="icon">3</span>
-        </div>
-        <div class="item">
-          <span class="icon">4</span>
-        </div>
-      </div>
-      <div class="arrows">
-        <div class="arrow prev">
-          <span class="svg svg-arrow-left">
-            <svg version="1.1" id="svg4-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M13,26c-0.256,0-0.512-0.098-0.707-0.293l-12-12c-0.391-0.391-0.391-1.023,0-1.414l12-12c0.391-0.391,1.023-0.391,1.414,0s0.391,1.023,0,1.414L2.414,13l11.293,11.293c0.391,0.391,0.391,1.023,0,1.414C13.512,25.902,13.256,26,13,26z"/> </svg>
-            <span class="alt sr-only"></span>
-          </span>
-        </div>
-        <div class="arrow next">
-          <span class="svg svg-arrow-right">
-            <svg version="1.1" id="svg5-Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="14px" height="26px" viewBox="0 0 14 26" enable-background="new 0 0 14 26" xml:space="preserve"> <path d="M1,0c0.256,0,0.512,0.098,0.707,0.293l12,12c0.391,0.391,0.391,1.023,0,1.414l-12,12c-0.391,0.391-1.023,0.391-1.414,0s-0.391-1.023,0-1.414L11.586,13L0.293,1.707c-0.391-0.391-0.391-1.023,0-1.414C0.488,0.098,0.744,0,1,0z"/> </svg>
-            <span class="alt sr-only"></span>
-          </span>
-        </div>
-      </div>
-    </div> 
-  </section>
-</main>
-<!-- partial -->
-<!-- Invitation Start -->
 {% endif %}
 
 {% block content %}

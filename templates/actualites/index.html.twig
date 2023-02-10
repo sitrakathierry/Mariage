@@ -5,8 +5,18 @@
 {% block stylesheets %}
 {{ parent() }}
      <link rel="stylesheet" type="text/css" href="{{asset('plugs/actualites/css/style.css')}}">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="{{asset('plugs/actualites/css/responsive.css')}}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{{asset('plugs/actualites/css/responsive.css')}}">
+    <style>
+    .g-banniere
+        {
+            background-image : url('{{asset('plugs/predefinie/images/news.jpg')}}') ;
+            background-repeat : no-repeat ;
+            background-size : cover ;
+            background-position : center center ;
+            height: 450px ;
+        }
+    </style>
 {% endblock %}
 
 {% block javascripts %}
