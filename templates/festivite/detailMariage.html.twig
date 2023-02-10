@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails{% endblock %}
+
+{% block stylesheets  %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset('plugs/album/style.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    
+    {% endblock %}
+{% block header_title %}
+    Détails Mariage
+{% endblock %}
+
+{% block content %}
+<div class="padding">
+    <div class="block pl-5 pr-5 m-4">
+    <div class="sous-block w-100">
+        <img src="{{asset('plugs/mariage/hall.png')}}" class="img mrg-image" alt="">
+        <h4 class="font-Great color-title-apart font-weight-bold pt-2 font-weight-bold mt-3 ml-3">Adnane & Hasna</h4>
+    </div>
+    <div class="sous-block w-100">
+        <img src="{{asset('plugs/mariage/alarm.png')}}" class="img mrg-image" alt="">
+        <h4 class="font-Great color-title-apart font-weight-bold pt-1 font-weight-bold mt-3 ml-3"> . . . (Festivité)</h4>
+    </div>
+    <div class="sous-block w-100">
+        <img src="{{asset('plugs/mariage/camera.png')}}" class="img mrg-image" alt="">
+        <h4 class="font-Great color-title-apart font-weight-bold pt-1 font-weight-bold mt-3 ml-3">Audio / Vidéo / Audio</h4>
+    </div>
+    </div>
+    <div class="myAlbum">
+    <div class="contenu_album p-2 w-75">
+        <div class="elem_album">
+            <div class="cadre m-2">
+                <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
+                    <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                </a>       
+            </div>
+        </div>
+        <div class="elem_album">
+            <div class="cadre m-2">
+                <a href="{{asset('plugs/album/images/hero_2.jpg')}}" data-lightbox="album" data-title="Genesis">
+                    <img src="{{asset('plugs/album/images/hero_2.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                </a> 
+            </div>
+        </div>  
+    </div>
+    <div class="option_album text-white text-left p-3 w-25 bg-grey">
+        <label for="" class="color-description-apart font-Great font-weight-bold">Festivités</label>
+        <select name="mariage" id="" class="custom-select mb-2">
+            <option value="" disabled selected>Festivités</option>
+            <option value=""> ...</option>
+            <option value=""> ...</option>
+            <option value=""> ...</option>
+            <option value=""> ...</option>
+        </select>
+        <label for="" class="color-description-apart font-Great font-weight-bold mt-4 ">Type Contenu</label>
+        <select name="mariage" id="" class="custom-select">
+            <option value="" disabled selected>Type Contenu</option>
+            <option value="">Album</option>
+            <option value="">Vidéo</option>
+            <option value="">Audio</option>
+        </select>
+        <button class="btn btn-warning font-weight-bold text-white btn-block mt-4"><i class="fas fa-eye"></i>&nbsp;&nbsp;Afficher</button>
+    </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -47,4 +47,14 @@ class FestiviteController extends AbstractController
             'page_name' => 'Audio',
         ]);
     }
+
+    /**
+     * @Route("/detail/mariage", name="app_detailMariage")
+     */
+    public function detailMariage(): Response
+    {
+        return $this->render('festivite/detailMariage.html.twig', [
+            'page_name' => 'Détails Mariage',
+        ]);
+    }
 }

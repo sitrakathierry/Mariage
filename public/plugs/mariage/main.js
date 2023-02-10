@@ -1,47 +1,47 @@
 $(document).ready(function(){
-    $('.unMariage').click(function(){
-        $.confirm({
-            title: 'Adnane & Hasna',
-            content: `
-                <style>
-                    .font-regular {
-                        font-family: 'Parisienne';
-                    }
+    // $('.unMariage').click(function(){
+    //     $.confirm({
+    //         title: 'Adnane & Hasna',
+    //         content: `
+    //             <style>
+    //                 .font-regular {
+    //                     font-family: 'Parisienne';
+    //                 }
 
-                    .text-purple {
-                        color: #800080;
-                    }
-                </style>
-                <h3 for="" class="text-left pl-2 font-regular text-purple font-weight-bold">Festivité</h3>
-                <select name="" id="" class="custom-select">
-                    <option value="">Mairie</option>
-                    <option value="">Eglise</option>
-                    <option value="">Espace</option>
-                </select>
-                <h3 for="" class="text-left pl-2 mt-3 font-regular text-purple font-weight-bold">Type</h3>
-                <select name="" id="" class="custom-select">
-                    <option value="">Albums</option>
-                    <option value="">Video</option>
-                    <option value="">Audio</option>
-                </select>
-            `,
-            theme:'modern',
-            type: 'purple',
-            buttons: {
-                Annuler: function () {
-                    $.alert('Canceled!');
-                },
-                OK: {
-                    text: 'OK',
-                    btnClass: 'btn-blue',
-                    keys: ['enter'],
-                    action: function(){
-                        $.alert('OK');
-                    }
-                }
-            }
-        });
-    })
+    //                 .text-purple {
+    //                     color: #800080;
+    //                 }
+    //             </style>
+    //             <h3 for="" class="text-left pl-2 font-regular text-purple font-weight-bold">Festivité</h3>
+    //             <select name="" id="" class="custom-select">
+    //                 <option value="">Mairie</option>
+    //                 <option value="">Eglise</option>
+    //                 <option value="">Espace</option>
+    //             </select>
+    //             <h3 for="" class="text-left pl-2 mt-3 font-regular text-purple font-weight-bold">Type</h3>
+    //             <select name="" id="" class="custom-select">
+    //                 <option value="">Albums</option>
+    //                 <option value="">Video</option>
+    //                 <option value="">Audio</option>
+    //             </select>
+    //         `,
+    //         theme:'modern',
+    //         type: 'purple',
+    //         buttons: {
+    //             Annuler: function () {
+    //                 $.alert('Canceled!');
+    //             },
+    //             OK: {
+    //                 text: 'OK',
+    //                 btnClass: 'btn-blue',
+    //                 keys: ['enter'],
+    //                 action: function(){
+    //                     $.alert('OK');
+    //                 }
+    //             }
+    //         }
+    //     });
+    // })
 
 var host = window.location.protocol + "//" + window.location.host+"/mariage/public/";
 
