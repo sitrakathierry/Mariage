@@ -17,4 +17,14 @@ class PrestationsController extends AbstractController
             'page_name' => 'Prestations',
         ]);
     }
+
+    /**
+     * @Route("/detail/prestation", name="app_detailPrest")
+     */
+    public function detailsPrestation(): Response
+    {
+        return $this->render('prestations/detailPrestation.html.twig', [
+            'page_name' => 'Détails Prestation',
+        ]);
+    }
 }

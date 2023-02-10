@@ -4,7 +4,13 @@
 
 {% block stylesheets  %}
     {{ parent() }}
-    
+    <style>
+        .img-prest
+        {
+            height : 350px ;
+            object-fit : cover ;
+        }
+    </style>
 {% endblock %}
 
 {% block javascripts %}
@@ -17,6 +23,31 @@
 
 {% block content %}
 <div class="p-5">
-    
+    <div class="row mb-4" > 
+        <div class="col-md-4" >
+            <img src="{{asset('plugs/prestations/photographe.jpg')}}" class="img w-100 img-prest" />
+        </div>
+        <div class="col-md-8" >
+            <h2 class="font-Montserrat" >TItre Prestation</h2>
+            <label for="" class="font-Montserrat">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, officia! Quibusdam, harum iure debitis explicabo reprehenderit facilis minus maiores eligendi eum quisquam et eaque neque amet, ratione repellat, minima ad.</label>
+            <button class="btn btn-success">Reserver</button>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-lg">
+            <thead class="thead-brown">
+                <tr>
+                    <th>Designation</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
