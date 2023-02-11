@@ -59,6 +59,11 @@ class Albums
      */
     private $id_fest;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Mariage::class, inversedBy="albums")
+     */
+    private $IdMariage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -156,6 +161,18 @@ class Albums
     public function setIdFest(?Festivites $id_fest): self
     {
         $this->id_fest = $id_fest;
+
+        return $this;
+    }
+
+    public function getIdMariage(): ?Mariage
+    {
+        return $this->IdMariage;
+    }
+
+    public function setIdMariage(?Mariage $IdMariage): self
+    {
+        $this->IdMariage = $IdMariage;
 
         return $this;
     }

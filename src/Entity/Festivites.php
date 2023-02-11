@@ -79,12 +79,12 @@ class Festivites
         return $this->id;
     }
 
-    public function getIdMariage(): ?int
+    public function getIdMariage(): ?Mariage
     {
         return $this->IdMariage;
     }
 
-    public function setIdMariage(int $IdMariage): self
+    public function setIdMariage(Mariage $IdMariage): self
     {
         $this->IdMariage = $IdMariage;
 

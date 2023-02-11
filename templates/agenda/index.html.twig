@@ -30,62 +30,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                    {% for item in agenda %}
                         <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
+                            <td>{{ item.IdMariage.NomHomme }} & {{ item.IdMariage.NomFemme }}</td>
+                            <td>{{ item.NomFest }}</td>
+                            <td>{{ item.Lieu }}</td>
+                            <td>{{ item.Ville }}</td>
+                            <td>{{ item.Date | format_datetime('full','none') }}</td>
+                            <td>{{ item.Heure | format_datetime('none','short') }}</td>
+                        </tr>  
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>    

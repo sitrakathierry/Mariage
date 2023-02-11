@@ -32,13 +32,14 @@ class AlbumsCrudController extends AbstractCrudController
     {
         return [
             // IdField::new('id'), Date
+            AssociationField::new('IdMariage', "Mariage"),
+            AssociationField::new('id_fest', "Festivité"),
             TextField::new('Nom')->hideOnForm(),
             ImageField::new('Chemin', 'Photo')
                 ->setBasePath(self::ALBUM_BASE_PATH)
                 ->setUploadDir(self::ALBUM_UPLOAD_DIR)
                 ->setSortable(false),
             DateField::new('Date'),
-            AssociationField::new('id_fest', "Festivités"),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
             TextField::new('Type')
