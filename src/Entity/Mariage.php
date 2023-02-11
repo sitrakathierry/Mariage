@@ -160,17 +160,17 @@ class Mariage
         return $this;
     }
 
-    public function removeFestivite(Festivites $festivite): self
-    {
-        if ($this->festivites->removeElement($festivite)) {
-            // set the owning side to null (unless already changed)
-            if ($festivite->getIdMariage() === $this) {
-                $festivite->setIdMariage(null);
-            }
-        }
+    // public function removeFestivite(Festivites $festivite): self
+    // {
+    //     if ($this->festivites->removeElement($festivite)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($festivite->getIdMariage() === $this) {
+    //             $festivite->setIdMariage(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * @return Collection<int, Albums>
