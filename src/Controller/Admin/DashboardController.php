@@ -27,7 +27,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
 
-        return $this->render('bundles/EasyAdmin/Bundle/welcome.html.twig');
+        return $this->render('bundles/EasyAdminBundle/welcome.html.twig');
     }
 
     public function configureDashboard(): Dashboard
@@ -62,7 +62,6 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Categories::class),
         ]);
         yield MenuItem::subMenu('Panier', 'fa fa-shopping-cart')->setSubItems([
-            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Articles::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Articles::class),
         ]);
         yield MenuItem::subMenu('Actualités', 'fa fa-globe')->setSubItems([

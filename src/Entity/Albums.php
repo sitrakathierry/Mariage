@@ -52,6 +52,8 @@ class Albums
      */
     private $updated_at;
 
+    private $IdFest;
+
     /**
      * @ORM\ManyToOne(targetEntity=Festivites::class, inversedBy="albumsa")
      */
