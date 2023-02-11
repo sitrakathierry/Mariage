@@ -18,7 +18,7 @@ class Prix
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=TypePrix::class, inversedBy="prixes")
      */
     private $IdTypePrix;
 

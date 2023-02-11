@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MariageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,21 @@ class Mariage
      * @ORM\Column(type="datetime")
      */
     private $updated_at;
+
+    /**
+     * @ORM\Column(type="string", length=500)
+     */
+    private $PhotoMariee;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Festivites::class, mappedBy="id_mariage")
+     */
+    private $festivites;
+
+    public function __construct()
+    {
+        $this->festivites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +120,48 @@ class Mariage
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getPhotoMariee(): ?string
+    {
+        return $this->PhotoMariee;
+    }
+
+    public function setPhotoMariee(string $PhotoMariee): self
+    {
+        $this->PhotoMariee = $PhotoMariee;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Festivites>
+     */
+    public function getFestivites(): Collection
+    {
+        return $this->festivites;
+    }
+
+    public function addFestivite(Festivites $festivite): self
+    {
+        if (!$this->festivites->contains($festivite)) {
+            $this->festivites[] = $festivite;
+            $festivite->setIdMariage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFestivite(Festivites $festivite): self
+    {
+        if ($this->festivites->removeElement($festivite)) {
+            // set the owning side to null (unless already changed)
+            if ($festivite->getIdMariage() === $this) {
+                $festivite->setIdMariage(null);
+            }
+        }
 
         return $this;
     }

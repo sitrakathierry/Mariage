@@ -43,7 +43,7 @@ class Albums
     private $Statut;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=Festivites::class, inversedBy="albums")
      */
     private $IdFest;
 

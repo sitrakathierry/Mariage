@@ -5,10 +5,12 @@
 {% block stylesheets  %}
     {{ parent() }}
     <link rel="stylesheet" href="{{asset('plugs/album/style.css')}}">
+
 {% endblock %}
 
 {% block javascripts %}
-    {{parent()}}
+{{parent()}}
+
 {% endblock %}
 
 {% block header_title %}
@@ -27,22 +29,9 @@
           <h4 class="font-Monserrat font-italic font-weight-bold mt-3 ml-3">A la mairie </h4>
       </div>
   </div>
-  <div class="myAlbum">
+  <div class="myAlbum w-100">
     <div class="contenu_album p-2 w-75">
-        <div class="elem_album">
-            <div class="cadre m-2">
-                <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                    <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                </a>       
-            </div>
-        </div>
-        <div class="elem_album">
-            <div class="cadre m-2">
-                <a href="{{asset('plugs/album/images/hero_2.jpg')}}" data-lightbox="album" data-title="Genesis">
-                    <img src="{{asset('plugs/album/images/hero_2.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                </a> 
-            </div>
-        </div>  
+        
     </div>
     <div class="option_album text-white text-left p-3 w-25 bg-grey">
         <label for="" class="font-Montserrat text-secondary font-weight-bold h5">Mariage</label>

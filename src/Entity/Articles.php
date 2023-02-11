@@ -18,12 +18,12 @@ class Articles
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=Panier::class, inversedBy="articles")
      */
     private $IdPanier;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="articles")
      */
     private $IdCategorie;
 

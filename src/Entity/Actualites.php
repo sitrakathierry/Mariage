@@ -43,7 +43,7 @@ class Actualites
     private $Auteur;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="actualities")
      */
     private $IdUser;
 
