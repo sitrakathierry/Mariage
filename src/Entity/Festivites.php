@@ -199,7 +199,7 @@ class Festivites
     {
         if (!$this->albums->contains($album)) {
             $this->albums[] = $album;
-            $album->setIdFest($this);
+            $album->setIdFest($this->getId());
         }
 
         return $this;
@@ -209,8 +209,8 @@ class Festivites
     {
         if ($this->albums->removeElement($album)) {
             // set the owning side to null (unless already changed)
-            if ($album->getIdFest() === $this) {
-                $album->setIdFest(null);
+            if ($album->getIdFest() === $this->getId()) {
+                $album->setIdFest('');
             }
         }
 

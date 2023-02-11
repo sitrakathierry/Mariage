@@ -131,7 +131,7 @@ class Panier
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
-            $article->setIdPanier($this);
+            $article->setIdPanier($this->getId());
         }
 
         return $this;
@@ -142,7 +142,7 @@ class Panier
         if ($this->articles->removeElement($article)) {
             // set the owning side to null (unless already changed)
             if ($article->getIdPanier() === $this) {
-                $article->setIdPanier(null);
+                $article->setIdPanier('');
             }
         }
 
