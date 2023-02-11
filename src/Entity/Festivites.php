@@ -210,10 +210,16 @@ class Festivites
         if ($this->albums->removeElement($album)) {
             // set the owning side to null (unless already changed)
             if ($album->getIdFest() === $this->getId()) {
-                $album->setIdFest('');
+                $album->setIdFest(null);
             }
         }
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->getId() . ' - ' . $this->getNomFest();
+    }
+
 }

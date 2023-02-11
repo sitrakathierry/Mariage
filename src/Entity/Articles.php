@@ -52,24 +52,24 @@ class Articles
         return $this->id;
     }
 
-    public function getIdPanier(): ?int
+    public function getIdPanier(): ?Panier
     {
         return $this->IdPanier;
     }
 
-    public function setIdPanier(int $IdPanier): self
+    public function setIdPanier(Panier $IdPanier): self
     {
         $this->IdPanier = $IdPanier;
 
         return $this;
     }
 
-    public function getIdCategorie(): ?int
+    public function getIdCategorie(): ?Categories
     {
         return $this->IdCategorie;
     }
 
-    public function setIdCategorie(int $IdCategorie): self
+    public function setIdCategorie(Categories $IdCategorie): self
     {
         $this->IdCategorie = $IdCategorie;
 

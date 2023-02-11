@@ -43,11 +43,6 @@ class Albums
     private $Statut;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Festivites::class, inversedBy="albums")
-     */
-    private $IdFest;
-
-    /**
      * @ORM\Column(type="datetime_immutable")
      */
     private $created_at;
@@ -56,6 +51,11 @@ class Albums
      * @ORM\Column(type="datetime_immutable")
      */
     private $updated_at;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Festivites::class, inversedBy="albumsa")
+     */
+    private $id_fest;
 
     public function getId(): ?int
     {
@@ -122,18 +122,6 @@ class Albums
         return $this;
     }
 
-    public function getIdFest(): ?int
-    {
-        return $this->IdFest;
-    }
-
-    public function setIdFest(int $IdFest): self
-    {
-        $this->IdFest = $IdFest;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
@@ -154,6 +142,18 @@ class Albums
     public function setUpdatedAt(\DateTimeImmutable $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getIdFest(): ?Festivites
+    {
+        return $this->id_fest;
+    }
+
+    public function setIdFest(?Festivites $id_fest): self
+    {
+        $this->id_fest = $id_fest;
 
         return $this;
     }

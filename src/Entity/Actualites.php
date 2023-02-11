@@ -122,12 +122,12 @@ class Actualites
         return $this;
     }
 
-    public function getIdUser(): ?int
+    public function getIdUser(): ?User
     {
         return $this->IdUser;
     }
 
-    public function setIdUser(?int $IdUser): self
+    public function setIdUser(?User $IdUser): self
     {
         $this->IdUser = $IdUser;
 
