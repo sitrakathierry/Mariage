@@ -17,13 +17,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use App\Field\VichImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+
 class AlbumsCrudController extends AbstractCrudController
 {
-    public const ACTION_DUPLICATE = 'duplicate';
-    // public const ALBUM_BASE_PATH = 'plugs/photo/albums';
-    // public const ALBUM_UPLOAD_DIR = 'public/plugs/photo/albums';
-
-
     public static function getEntityFqcn(): string
     {
         return Albums::class;
@@ -37,12 +35,15 @@ class AlbumsCrudController extends AbstractCrudController
             AssociationField::new('IdMariage', "Mariage"),
             AssociationField::new('id_fest', "Festivité"),
             TextField::new('Nom')->hideOnForm(),
-            TextareaField::new('albumFile')
-            ->setFormType(VichImageType::class),
+            // TextareaField::new('albumFile')
+            // ->setFormType(VichImageType::class),
             // ImageField::new('albumFile')
             //         ->setFormType(VichImageType::class)
             //         ->setLabel('Image')
             //     ,
+            Field::new('albumFile')
+            ->setFormType(VichImageType::class)
+            ->setLabel('Contenu'),
             DateField::new('Date'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
@@ -51,32 +52,21 @@ class AlbumsCrudController extends AbstractCrudController
         ];
     }
 
-    public function configureActions(Actions $actions): Actions
-    {
-        $editAlbum = Action::new(self::ACTION_DUPLICATE)
-            ->linkToCrudAction('editAlbum');
-
-        return $actions
-            ->add(Crud::PAGE_EDIT, $editAlbum);
-    }
 
     public function persistEntity(EntityManagerInterface $em, $entityInstance): void
     {
-        if (!$entityInstance instanceof Albums) return ;
-
-        $entityInstance->setNom($entityInstance->getChemin());
+        // if (!$entityInstance instanceof Albums) return;
+        dd($entityInstance->getNom());
         $entityInstance->setType('Album');
-        $entityInstance->setCreatedAt(new \DateTimeImmutable);
-        $entityInstance->setUpdatedAt(new \DateTimeImmutable);
-
-        parent::persistEntity($em, $entityInstance);
+        // $entityInstance->setCreatedAt(new \DateTimeImmutable);
+        // parent::persistEntity($em, $entityInstance);
     }
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle('new', 'Ajout Album')
-            ->setPageTitle('index', 'Consultation Album');
+            ->setPageTitle('new', 'Ajout Contenu')
+            ->setPageTitle('index', 'Consultation Contenu');
     }
     
 }

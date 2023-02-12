@@ -31,7 +31,7 @@ class Albums
     private $Date;
 
     /**
-     * @ORM\Column(type="string", length=500)
+     * @ORM\Column(type="string", length=500,  nullable=true)
      */
     private $Chemin;
 
@@ -67,10 +67,10 @@ class Albums
      */
     private $IdMariage;
 
-    /*
-    * @Vich\Uploadable (mapping="map_albums" , fileNameProperty="Nom")
-    * @var File
-    */
+    /** 
+     * @Vich\UploadableField(mapping="map_albums" , fileNameProperty="Nom")
+     * @var File
+     */
     private $albumFile;
 
     public function getId(): ?int
@@ -113,20 +113,24 @@ class Albums
 
         return $this;
     }
-    /*
-    * @return File|null
-    */
+    /** 
+     * @return File|null
+     */
     public function getAlbumFile(): ?File
     {
         return $this->albumFile ;
     }
 
-    /*
-    * @param File|null $AlbumFile
-    */
+    /** 
+     * @param File|null $AlbumFile
+     */
     public function setAlbumFile(File $AlbumFile)
     {
         $this->albumFile = $AlbumFile;
+
+        if (null !== $AlbumFile) {
+            $this->updated_at = new \DateTimeImmutable;
+        }
     }
 
     public function getType(): ?string

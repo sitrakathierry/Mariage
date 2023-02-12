@@ -45,15 +45,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToRoute('Ajouter', 'fa fa-plus', 'admin_add_agenda'),
             MenuItem::linkToRoute('Consulter', 'fa fa-eye', 'admin_show_agenda'),
         ]);
-        yield MenuItem::subMenu('Albums', 'fa fa-image')->setSubItems([
-            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class)
-        ]);
-        yield MenuItem::subMenu('Videos', 'fa fa-video')->setSubItems([
-            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class)
-        ]);
-        yield MenuItem::subMenu('Audio', 'fa fa-music')->setSubItems([
+        yield MenuItem::subMenu('Contenu', 'fas fa-box')->setSubItems([
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class)
         ]);
