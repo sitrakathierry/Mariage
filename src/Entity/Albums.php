@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\AlbumsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass=AlbumsRepository::class)
@@ -64,6 +65,8 @@ class Albums
      */
     private $IdMariage;
 
+    private $albumFile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +106,21 @@ class Albums
         $this->Chemin = $Chemin;
 
         return $this;
+    }
+    /*
+    * @return File|null
+    */
+    public function getAlbumFile(): ?File
+    {
+        return $this->albumFile ;
+    }
+
+    /*
+    * @param File|null $AlbumFile
+    */
+    public function setAlbumFile(File $AlbumFile)
+    {
+        $this->albumFile = $AlbumFile;
     }
 
     public function getType(): ?string
