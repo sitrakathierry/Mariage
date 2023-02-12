@@ -18,8 +18,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 class AlbumsCrudController extends AbstractCrudController
 {
     public const ACTION_DUPLICATE = 'duplicate';
-    public const ALBUM_BASE_PATH = 'plugs/photo/albums';
-    public const ALBUM_UPLOAD_DIR = 'public/plugs/photo/albums';
+    // public const ALBUM_BASE_PATH = 'plugs/photo/albums';
+    // public const ALBUM_UPLOAD_DIR = 'public/plugs/photo/albums';
 
 
     public static function getEntityFqcn(): string
@@ -37,8 +37,8 @@ class AlbumsCrudController extends AbstractCrudController
             TextField::new('Nom')->hideOnForm(),
             ImageField::new('albumFile')
                     ->setLabel('Image')
-                ->setBasePath(self::ALBUM_BASE_PATH)
-                ->setUploadDir(self::ALBUM_UPLOAD_DIR),
+                ->setBasePath('plugs/photo/albums')
+                ->setUploadDir('public/plugs/photo/albums'),
             DateField::new('Date'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
