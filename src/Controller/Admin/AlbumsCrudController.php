@@ -35,10 +35,9 @@ class AlbumsCrudController extends AbstractCrudController
             AssociationField::new('IdMariage', "Mariage"),
             AssociationField::new('id_fest', "Festivité"),
             TextField::new('Nom')->hideOnForm(),
-            ImageField::new('Chemin', 'Photo')
-                ->setBasePath(self::ALBUM_BASE_PATH)
-                ->setUploadDir(self::ALBUM_UPLOAD_DIR)
-                ->setSortable(false),
+            // ImageField::new('Chemin', 'Photo')
+            //     ->setBasePath(self::ALBUM_BASE_PATH)
+            //     ->setUploadDir(self::ALBUM_UPLOAD_DIR),
             DateField::new('Date'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
@@ -58,7 +57,7 @@ class AlbumsCrudController extends AbstractCrudController
 
     public function persistEntity(EntityManagerInterface $em, $entityInstance): void
     {
-        if (!$entityInstance instanceof Albums) return;
+        if (!$entityInstance instanceof Albums) return ;
 
         $entityInstance->setNom($entityInstance->getChemin());
         $entityInstance->setType('Album');
