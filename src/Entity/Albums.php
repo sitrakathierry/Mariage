@@ -5,9 +5,11 @@ namespace App\Entity;
 use App\Repository\AlbumsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=AlbumsRepository::class)
+ * @Vich\Uploadable
  */
 class Albums
 {
@@ -65,6 +67,10 @@ class Albums
      */
     private $IdMariage;
 
+    /*
+    * @Vich\Uploadable (mapping="map_albums" , fileNameProperty="Nom")
+    * @var File
+    */
     private $albumFile;
 
     public function getId(): ?int

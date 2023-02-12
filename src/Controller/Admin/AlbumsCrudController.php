@@ -12,9 +12,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField; 
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 class AlbumsCrudController extends AbstractCrudController
 {
     public const ACTION_DUPLICATE = 'duplicate';
@@ -35,10 +37,12 @@ class AlbumsCrudController extends AbstractCrudController
             AssociationField::new('IdMariage', "Mariage"),
             AssociationField::new('id_fest', "Festivité"),
             TextField::new('Nom')->hideOnForm(),
-            ImageField::new('albumFile')
-                    ->setLabel('Image')
-                ->setBasePath('plugs/photo/albums')
-                ->setUploadDir('public/plugs/photo/albums'),
+            TextareaField::new('albumFile')
+            ->setFormType(VichImageType::class),
+            // ImageField::new('albumFile')
+            //         ->setFormType(VichImageType::class)
+            //         ->setLabel('Image')
+            //     ,
             DateField::new('Date'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
