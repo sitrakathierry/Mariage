@@ -55,11 +55,10 @@ class AlbumsCrudController extends AbstractCrudController
 
     public function persistEntity(EntityManagerInterface $em, $entityInstance): void
     {
-        // if (!$entityInstance instanceof Albums) return;
-        dd($entityInstance->getNom());
+        if (!$entityInstance instanceof Albums) return;
         $entityInstance->setType('Album');
-        // $entityInstance->setCreatedAt(new \DateTimeImmutable);
-        // parent::persistEntity($em, $entityInstance);
+        $entityInstance->setCreatedAt(new \DateTimeImmutable);
+        parent::persistEntity($em, $entityInstance);
     }
 
     public function configureCrud(Crud $crud): Crud
