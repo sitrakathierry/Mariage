@@ -13,9 +13,15 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
+use Doctrine\Persistence\ManagerRegistry;
 class RegistrationController extends AbstractController
 {
+    protected $em;
+
+    public function __construct(ManagerRegistry $doctrine)
+    {
+        $this->em = $doctrine->getManager();
+    }
     /**
      * @Route("/register", name="app_register")
      */

@@ -39,20 +39,32 @@ class FestivitesRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Festivites[] Returns an array of Festivites objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    //    /**
+    //     * @return Festivites[] Returns an array of Festivites objects
+    //     */
+
+    public function getLastFestOfMariage($idMariage): array
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.IdMariage = ?1 ')
+            ->setParameter(1, $idMariage)
+            ->orderBy('f.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getAll($idMariage): array
+    {
+        return $this->createQueryBuilder('f')
+            ->andWhere('f.IdMariage = ?1 ')
+            ->setParameter(1, $idMariage)
+            ->groupBy('f.NomFest')
+            ->orderBy('f.NomFest', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 
 //    public function findOneBySomeField($value): ?Festivites
 //    {

@@ -20,33 +20,31 @@
     <div class="block pl-5 pr-5 m-4">
     <div class="sous-block w-100">
         <img src="{{asset('plugs/mariage/hall.png')}}" class="img mrg-image" alt="">
-        <h4 class="font-Great color-title-apart font-weight-bold pt-2 font-weight-bold mt-3 ml-3">Adnane & Hasna</h4>
+        <h4 class="font-Great color-title-apart font-weight-bold pt-2 font-weight-bold mt-3 ml-3">{{ unMariage.NomHomme }} & {{ unMariage.NomFemme }}</h4>
     </div>
-    <div class="sous-block w-100">
+    <div class="sous-block w-75">
         <img src="{{asset('plugs/mariage/alarm.png')}}" class="img mrg-image" alt="">
-        <h4 class="font-Great color-title-apart font-weight-bold pt-1 font-weight-bold mt-3 ml-3"> . . . (Festivité)</h4>
+        <h4 class="font-Great color-title-apart font-weight-bold pt-1 font-weight-bold mt-3 ml-3">{{ lastFest[0].NomFest }}</h4>
     </div>
-    <div class="sous-block w-100">
+    <div class="sous-block w-50">
         <img src="{{asset('plugs/mariage/camera.png')}}" class="img mrg-image" alt="">
-        <h4 class="font-Great color-title-apart font-weight-bold pt-1 font-weight-bold mt-3 ml-3">Audio / Vidéo / Audio</h4>
+        <h4 class="font-Great color-title-apart font-weight-bold pt-1 font-weight-bold mt-3 ml-3">Album</h4>
     </div>
     </div>
     <div class="myAlbum">
     <div class="contenu_album p-2 w-75">
-        <div class="elem_album">
-            <div class="cadre m-2">
-                <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                    <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                </a>       
-            </div>
-        </div>
-        <div class="elem_album">
-            <div class="cadre m-2">
-                <a href="{{asset('plugs/album/images/hero_2.jpg')}}" data-lightbox="album" data-title="Genesis">
-                    <img src="{{asset('plugs/album/images/hero_2.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                </a> 
-            </div>
-        </div>  
+        {% for album in albums %}
+            {% set extension = album.Nom|split('.') %}
+            {% if extension[1] in extensionImage %}
+              <div class="elem_album">
+                <div class="cadre m-2">
+                    <a href="{{asset('plugs/photo/albums/' ~ album.Nom)}}" data-lightbox="album" data-title="{{ album.Date | format_datetime('full','none') }}">
+                        <img src="{{asset('plugs/photo/albums/' ~ album.Nom)}}" alt="" class="img img-thumbnail img-fluid">
+                    </a>       
+                </div>
+             </div>  
+            {% endif %}
+        {% endfor %}  
     </div>
     <div class="option_album text-white text-left p-3 w-25 bg-grey">
         <label for="" class="color-description-apart font-Great font-weight-bold">Festivités</label>

@@ -34,38 +34,21 @@
             </div>
         </form>
         <div class="row">
+        {% for mariage in mariage %}
             <div class="col-12 mt-5 col-md-2">
-                <a href="{{path('app_detailMariage')}}">
-                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
-                    <img src="{{asset('plugs/predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
-                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
+                <a href="{{path('app_detailMariage',{idMariage:mariage.id})}}">
+                <div class="radius-30 border unMariage shadow-nons h-100 p-3 w-100 text-center ">
+                    {% if mariage.PhotoMariee is not null %}
+                        <img src="{{asset('plugs/photo/albums/' ~ mariage.PhotoMariee)}}" alt="" class="img rounded-circle">
+                    {% else %}
+                        <img src="{{asset('plugs/default.png')}}" alt="" class="img rounded-circle">
+                    {% endif %}
+                    
+                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">{{ mariage.NomHomme }} & {{ mariage.NomFemme }}</h3>
                 </div>
                 </a>
             </div>
-            <div class="col-12 mt-5 col-md-2">
-                <a href="{{path('app_detailMariage')}}">
-                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
-                    <img src="{{asset('plugs/predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
-                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
-                </div>
-                </a>
-            </div>
-            <div class="col-12 mt-5 col-md-2">
-                <a href="{{path('app_detailMariage')}}">
-                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
-                    <img src="{{asset('plugs/predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
-                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
-                </div>
-                </a>
-            </div>
-            <div class="col-12 mt-5 col-md-2">
-                <a href="{{path('app_detailMariage')}}">
-                <div class="radius-30 border unMariage shadow-nons p-3 w-100 text-center ">
-                    <img src="{{asset('plugs/predefinie/images/carousel-1.jpg')}}" alt="" class="img rounded-circle">
-                    <h3 class="font-regular mt-3 font-weight-bold text-purple font-sm">Adnane & Hasna</h3>
-                </div>
-                </a>
-            </div>
+        {% endfor %}    
         </div>
     </div>
 {% endblock %}
