@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var host = window.location.protocol + "//" + window.location.host+"/mariage/public/index.php";
+    var host = window.location.protocol + "//" + window.location.host+"/Mariage/public/index.php";
    
     $('.ajout_panier').click(function(){
         var self = $(this)
