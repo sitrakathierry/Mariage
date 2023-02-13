@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
+
 class ArticlesCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -22,6 +24,7 @@ class ArticlesCrudController extends AbstractCrudController
         return [
             AssociationField::new('IdPanier', 'N° & Client'),
             AssociationField::new('IdCategorie', 'Article'),
+            NumberField::new('quantite','Quantité'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
         ];

@@ -47,6 +47,11 @@ class Articles
      */
     private $updated_at;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $quantite;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -66,6 +71,7 @@ class Articles
 
     public function getIdCategorie(): ?Categories
     {
+    
         return $this->IdCategorie;
     }
 
@@ -123,6 +129,18 @@ class Articles
     public function setUpdatedAt(\DateTimeImmutable $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getQuantite(): ?int
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(int $quantite): self
+    {
+        $this->quantite = $quantite;
 
         return $this;
     }

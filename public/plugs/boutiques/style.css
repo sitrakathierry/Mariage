@@ -15,7 +15,7 @@
 .product-action {
     bottom: 0px;
     left: 0;
-    opacity: 0;
+    opacity: 1;
     position: absolute;
     right: 0;
     text-align: center;
@@ -50,7 +50,7 @@
     background-color: #fff;
     box-shadow: 0 0 8px 1.7px rgba(0, 0, 0, 0.06);
     display: inline-block;
-    padding: 16px 2px 12px
+    padding: 8px 3px 8px
 }
 
 .product-action-style>a {
@@ -73,6 +73,6 @@
 }
 
 .product-wrapper:hover .product-action {
-    bottom: 20px;
+    /* bottom: 20px; */
     opacity: 1
 }

@@ -33,8 +33,9 @@
             <div class="product-img">
             <a href="#" data-abc="true"> <img src="{{asset('plugs/photo/albums/' ~ boutique.Image)}}" alt=""> </a>
             <span class="text-center">{{ boutique.IdPrix }}&nbsp;KMF</span>
-                <div class="product-action"> 
-                    <div class="product-action-style">
+                <div class="product-action mb-3"> 
+                    <div class="product-action-style rounded">
+                    <a href="#">{{ boutique.Nom }}</a>
                         <a href="#" class="ajout_panier" value="{{ boutique.id }}"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                 </div>
@@ -45,3 +46,4 @@
   </div>
 </div>
 {% endblock %}
+
