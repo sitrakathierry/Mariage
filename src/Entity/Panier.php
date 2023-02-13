@@ -59,12 +59,12 @@ class Panier
         return $this->id;
     }
 
-    public function getIdUser(): ?int
+    public function getIdUser(): ?User
     {
         return $this->IdUser;
     }
 
-    public function setIdUser(int $IdUser): self
+    public function setIdUser(User $IdUser): self
     {
         $this->IdUser = $IdUser;
 
@@ -142,10 +142,19 @@ class Panier
         if ($this->articles->removeElement($article)) {
             // set the owning side to null (unless already changed)
             if ($article->getIdPanier() === $this) {
-                $article->setIdPanier('');
+                $article->setIdPanier(0);
             }
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        if (!empty($this->getIdUser())) {
+            return $this->getId() . ' - ' . $this->getIdUser()->getNom() . ' ' . $this->getIdUser()->getPrenoms();
+        } else {
+            return '';
+        }
     }
 }

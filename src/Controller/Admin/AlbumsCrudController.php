@@ -47,8 +47,7 @@ class AlbumsCrudController extends AbstractCrudController
             DateField::new('Date'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
-            TextField::new('Type')
-                ->hideOnForm(),
+            TextField::new('Type')->hideOnForm(),
         ];
     }
 

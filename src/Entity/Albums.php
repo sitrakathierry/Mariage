@@ -113,6 +113,7 @@ class Albums
 
         return $this;
     }
+    
     /** 
      * @return File|null
      */

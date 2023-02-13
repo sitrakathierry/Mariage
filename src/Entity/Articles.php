@@ -71,8 +71,11 @@ class Articles
 
     public function setIdCategorie(Categories $IdCategorie): self
     {
-        $this->IdCategorie = $IdCategorie;
-
+        if ($this->getIdCategorie() !== $IdCategorie) {
+            $this->IdCategorie = $IdCategorie;
+            $this->setUpdatedAt(new \DateTimeImmutable);
+        }
+       
         return $this;
     }
 

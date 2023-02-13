@@ -6,9 +6,12 @@ use App\Repository\CategoriesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CategoriesRepository::class)
+ * @Vich\Uploadable
  */
 class Categories
 {
@@ -30,7 +33,7 @@ class Categories
     private $DateEnr;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity=TypeOffre::class, inversedBy="categories")
      */
     private $IdTypeOffre;
 
@@ -69,6 +72,12 @@ class Categories
      */
     private $articles;
 
+    /** 
+     * @Vich\UploadableField(mapping="map_albums" , fileNameProperty="Image")
+     * @var File
+     */
+    private $categoryFile;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -103,12 +112,12 @@ class Categories
         return $this;
     }
 
-    public function getIdTypeOffre(): ?int
+    public function getIdTypeOffre(): ?TypeOffre
     {
         return $this->IdTypeOffre;
     }
 
-    public function setIdTypeOffre(int $IdTypeOffre): self
+    public function setIdTypeOffre(TypeOffre $IdTypeOffre): self
     {
         $this->IdTypeOffre = $IdTypeOffre;
 
@@ -150,6 +159,27 @@ class Categories
 
         return $this;
     }
+
+    /** 
+     * @return File|null
+     */
+    public function getCategoryFile(): ?File
+    {
+        return $this->categoryFile;
+    }
+
+    /** 
+     * @param File|null $categoryFile
+     */
+    public function setCategoryFile(File $categoryFile)
+    {
+        $this->categoryFile = $categoryFile;
+
+        if (null !== $categoryFile) {
+            $this->updated_at = new \DateTimeImmutable;
+        }
+    }
+
 
     public function getCreatedAt(): ?\DateTimeImmutable
     {
@@ -215,5 +245,10 @@ class Categories
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getId().' - '.$this->getNom() ;
     }
 }

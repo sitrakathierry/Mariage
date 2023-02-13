@@ -49,6 +49,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $paniers;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Nom;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Prenoms;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Adresse;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Telephone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Pays;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $Statut;
+
     public function __construct()
     {
         $this->actualities = new ArrayCollection();
@@ -186,7 +216,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->paniers->contains($panier)) {
             $this->paniers[] = $panier;
-            $panier->setIdUser($this);
+            $panier->setIdUser($this->getId());
         }
 
         return $this;
@@ -197,9 +227,81 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->paniers->removeElement($panier)) {
             // set the owning side to null (unless already changed)
             if ($panier->getIdUser() === $this) {
-                $panier->setIdUser(null);
+                $panier->setIdUser(0);
             }
         }
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->Nom;
+    }
+
+    public function setNom(?string $Nom): self
+    {
+        $this->Nom = $Nom;
+
+        return $this;
+    }
+
+    public function getPrenoms(): ?string
+    {
+        return $this->Prenoms;
+    }
+
+    public function setPrenoms(?string $Prenoms): self
+    {
+        $this->Prenoms = $Prenoms;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->Adresse;
+    }
+
+    public function setAdresse(?string $Adresse): self
+    {
+        $this->Adresse = $Adresse;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->Telephone;
+    }
+
+    public function setTelephone(?string $Telephone): self
+    {
+        $this->Telephone = $Telephone;
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->Pays;
+    }
+
+    public function setPays(?string $Pays): self
+    {
+        $this->Pays = $Pays;
+
+        return $this;
+    }
+
+    public function getStatut(): ?int
+    {
+        return $this->Statut;
+    }
+
+    public function setStatut(?int $Statut): self
+    {
+        $this->Statut = $Statut;
 
         return $this;
     }

@@ -6,9 +6,12 @@ use App\Repository\MariageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=MariageRepository::class)
+ * @Vich\Uploadable
  */
 class Mariage
 {
@@ -48,6 +51,13 @@ class Mariage
      * @ORM\Column(type="string", length=500)
      */
     private $PhotoMariee;
+
+    /** 
+     * @Vich\UploadableField(mapping="map_albums" , fileNameProperty="PhotoMariee")
+     * @var File
+     */
+    private $couvertureFile;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Festivites::class, mappedBy="id_mariage")
@@ -140,6 +150,26 @@ class Mariage
         $this->PhotoMariee = $PhotoMariee;
 
         return $this;
+    }
+
+    /** 
+     * @return File|null
+     */
+    public function getCouvertureFile(): ?File
+    {
+        return $this->couvertureFile;
+    }
+
+    /** 
+     * @param File|null $couvertureFile
+     */
+    public function setCouvertureFile(File $couvertureFile)
+    {
+        $this->couvertureFile = $couvertureFile;
+
+        if (null !== $couvertureFile) {
+            $this->updated_at = new \DateTimeImmutable;
+        }
     }
 
     /**

@@ -41,9 +41,9 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Tableau de Bord', 'fa fa-home');
-        yield MenuItem::subMenu('Agenda', 'fa fa-calendar')->setSubItems([
-            MenuItem::linkToRoute('Ajouter', 'fa fa-plus', 'admin_add_agenda'),
-            MenuItem::linkToRoute('Consulter', 'fa fa-eye', 'admin_show_agenda'),
+        yield MenuItem::subMenu('Agenda', 'fa fa-calendar')->setSubItems([MenuItem::linkToCrud('Mariage', 'fa fa-ring', Mariage::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Festivités', 'fa fa-bell', Festivites::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Festivites::class),
         ]);
         yield MenuItem::subMenu('Contenu', 'fas fa-box')->setSubItems([
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),

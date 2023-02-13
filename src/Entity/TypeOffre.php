@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TypeOffreRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class TypeOffre
      * @ORM\Column(type="datetime_immutable")
      */
     private $updated_at;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Categories::class, mappedBy="id_type_offre")
+     */
+    private $categories;
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,41 @@ class TypeOffre
     public function setUpdatedAt(\DateTimeImmutable $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getId() . ' - ' . $this->getNom();
+    }
+
+    /**
+     * @return Collection<int, Categories>
+     */
+    public function getCategories(): Collection
+    {
+        return $this->categories;
+    }
+
+    public function addCategory(Categories $category): self
+    {
+        if (!$this->categories->contains($category)) {
+            $this->categories[] = $category;
+            $category->setIdTypeOffre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategory(Categories $category): self
+    {
+        if ($this->categories->removeElement($category)) {
+            // set the owning side to null (unless already changed)
+            if ($category->getIdTypeOffre() === $this) {
+                $category->setIdTypeOffre(null);
+            }
+        }
 
         return $this;
     }

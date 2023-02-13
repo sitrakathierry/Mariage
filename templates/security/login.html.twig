@@ -3,7 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<div class="">
+<div class="blocLogin shadow">
     <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -15,10 +15,10 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
+    <h1 class="h3 mb-3 font-weight-bold font-Roboto text-center">Connexion</h1>
+    <h5 for="inputEmail font-Roboto font-weight-bold">E-mail</h5>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
+    <br><h5 for="inputPassword font-Roboto mt-3 font-weight-bold">Mot de passe</h5>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
@@ -35,10 +35,12 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+    <div class="text-center">
+        <button class="btn btn-primary pl-4 pr-4 font-weight-bold font-Roboto btn-md mt-4 btn-rounded" type="submit">
+            Se connecter
+        </button>
+    </div>
+    
 </form>
 </div>
 {% endblock %}

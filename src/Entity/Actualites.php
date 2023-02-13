@@ -4,9 +4,12 @@ namespace App\Entity;
 
 use App\Repository\ActualitesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ActualitesRepository::class)
+ * @Vich\Uploadable
  */
 class Actualites
 {
@@ -56,6 +59,17 @@ class Actualites
      * @ORM\Column(type="datetime_immutable")
      */
     private $updated_at;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $ImageActualite;
+
+    /** 
+     * @Vich\UploadableField(mapping="map_albums" , fileNameProperty="ImageActualite")
+     * @var File
+     */
+    private $actualitesFile;
 
     public function getId(): ?int
     {
@@ -157,4 +171,37 @@ class Actualites
 
         return $this;
     }
+
+    public function getImageActualite(): ?string
+    {
+        return $this->ImageActualite;
+    }
+
+    public function setImageActualite(?string $ImageActualite): self
+    {
+        $this->ImageActualite = $ImageActualite;
+
+        return $this;
+    }
+
+    /** 
+     * @return File|null
+     */
+    public function getActualitesFile(): ?File
+    {
+        return $this->actualitesFile;
+    }
+
+    /** 
+     * @param File|null $actualitesFile
+     */
+    public function setActualitesFile(File $actualitesFile)
+    {
+        $this->actualitesFile = $actualitesFile;
+
+        if (null !== $actualitesFile) {
+            $this->updated_at = new \DateTimeImmutable;
+        }
+    }
+
 }
