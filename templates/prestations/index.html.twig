@@ -41,7 +41,7 @@
                     <div class="card-heading">
                         {{ prestation.Nom }}
                     </div>
-                    <a href="{{path('app_detailPrest')}}" class="card-button"> Voir les tarifs</a>
+                    <a href="{{path('app_detailPrest',{idPrestation:prestation.id})}}" class="card-button"> Voir les tarifs</a>
                 </div>
             </div>
         {% endfor %}

@@ -32,12 +32,19 @@ class PrestationsController extends AbstractController
     }
 
     /**
-     * @Route("/detail/prestation", name="app_detailPrest")
+     * @Route("/detail/prestation/{idPrestation}", name="app_detailPrest")
      */
-    public function detailsPrestation(): Response
+    public function detailsPrestation($idPrestation): Response
     {
+        $unePestation = $this->em->getRepository(Categories::class)
+            ->findOneBy(array(
+                "Statut" => null,
+                "IdTypeOffre" => 2,
+                "id" => $idPrestation
+            ));
         return $this->render('prestations/detailPrestation.html.twig', [
             'page_name' => 'Détails Prestation',
+            'unePestation' => $unePestation
         ]);
     }
 }
