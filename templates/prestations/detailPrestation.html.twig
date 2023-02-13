@@ -25,11 +25,11 @@
 <div class="p-5">
     <div class="row mb-4" > 
         <div class="col-md-4" >
-            <img src="{{asset('plugs/photo/albums/' ~ unePestation.Image )}}" class="img w-100 img-prest" />
+            <img src="{{asset('plugs/photo/albums/' ~ unePrestation.Image )}}" class="img w-100 img-prest" />
         </div> 
         <div class="col-md-8" >
-            <h2 class="font-Montserrat" >{{ unePestation.Nom }}</h2>
-            <label for="" class="font-Montserrat">{{ unePestation.Description|raw }}</label><br>
+            <h2 class="font-Montserrat" >{{ unePrestation.Nom }}</h2>
+            <label for="" class="font-Montserrat">{{ unePrestation.Description|raw }}</label><br>
             <button class="btn btn-success">Reserver</button>
         </div>
     </div>
@@ -43,8 +43,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ unePestation.Nom }}</td>
-                    <td>{{ unePestation.IdPrix }} KMF</td>
+                    <td>{{ unePrestation.Nom }}</td>
+                    <td>{{ unePrestation.IdPrix }} KMF</td>
                 </tr>
             </tbody>
         </table>

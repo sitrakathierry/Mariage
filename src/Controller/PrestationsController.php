@@ -36,7 +36,7 @@ class PrestationsController extends AbstractController
      */
     public function detailsPrestation($idPrestation): Response
     {
-        $unePestation = $this->em->getRepository(Categories::class)
+        $unePrestation = $this->em->getRepository(Categories::class)
             ->findOneBy(array(
                 "Statut" => null,
                 "IdTypeOffre" => 2,
@@ -44,7 +44,7 @@ class PrestationsController extends AbstractController
             ));
         return $this->render('prestations/detailPrestation.html.twig', [
             'page_name' => 'Détails Prestation',
-            'unePestation' => $unePestation
+            'unePrestation' => $unePrestation
         ]);
     }
 }
