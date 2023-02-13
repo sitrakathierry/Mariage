@@ -39,10 +39,10 @@
                 <tr>
                     <td>{{ panier.IdCategorie.IdTypeOffre.Nom }}</td>
                     <td>{{ panier.IdCategorie.Nom }}</td>
-                    <td>{{ panier.IdCategorie.IdPrix }} KMF</td>
-                    <td>{{ panier.quantite }} </td>
-                    <td>{{ totalP }} </td>
-                    <td><button class="btn btn-danger supprPanier btn-block"><i class="fa text-white fa-trash"></i></button></td>
+                    <td>{{ panier.IdCategorie.IdPrix|number_format(0, '.', ' ') }} KMF</td>
+                    <td>{{ panier.quantite|number_format(0, '.', ' ') }} </td>
+                    <td>{{ totalP|number_format(0, '.', ' ') }} </td>
+                    <td><button class="btn btn-danger supprPanier btn-block" totalP= "{{ totalP }}"><i class="fa text-white fa-times"></i></button></td>
                 </tr>
                 {% set totalG = totalG + totalP %}
             {% endfor %}
@@ -50,14 +50,16 @@
             <tfoot>
                 <tr>
                     <th colspan="4">Total General</th>
-                    <th>{{ totalG }}</th>
+                    <th class="totalG">{{ totalG|number_format(0, '.', ' ') }}</th>
                     <td></td>
                 </tr>
             </tfoot>
             </table>
+            <input type="hidden" class="valTG" value="{{ totalG }}">
         </div>
-        <div class="w-100 text-right mt-5">
-            <button class="btn btn-success pl-5 pr-5">Commander</button>
+        <div class="w-100 text-right mt-3">
+            <button class="btn btn-danger font-Roboto font-weight-bold btn_commander pl-5 pr-5 mr-4">Annuler</button>
+            <button class="btn btn-success font-Roboto font-weight-bold btn_commander pl-5 pr-5">Commander</button>
         </div>
     </div>
 {% endblock %}

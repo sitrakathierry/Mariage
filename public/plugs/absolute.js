@@ -6,7 +6,6 @@ $(document).ready(function(){
         $.confirm({
             title: 'Voulez-vous ajouter au panier ? ',
             content: '',
-            theme :'modern',
             type:'purle',
             buttons: {
                 NON: function () {
@@ -20,6 +19,7 @@ $(document).ready(function(){
                         $.confirm({
                             title: 'Quantité',
                             content: '<input type="number" class="form-control qteProd" placeholder="Quantité" >',
+                            theme:'modern',
                             buttons: {
                                 Annuler: function () {
                                     
@@ -61,7 +61,36 @@ $(document).ready(function(){
     }) 
 
     $('.supprPanier').click(function(){
-        // $(this).closet('tr').remove()
+        var valTG = $('.valTG').val()
+
+        var totalGeneral = valTG - parseInt($(this).attr('totalP'))
+
+        $('.valTG').val(totalGeneral)
+        $('.totalG').text(totalGeneral)
+
+        $(this).closest('tr').remove()
+    })
+
+    $('.btn_commander').click(function(){
+        $.confirm({
+            title: 'Enregistrement',
+            content: 'Etes-vous sûre de vouloir enregistrer ?',
+            buttons : {
+                Annuler: function()
+                {
+
+                },
+                Oui: {
+                    text: 'Oui',
+                    btnClass: 'btn-blue',
+                    keys: ['enter'],
+                    action: function(){
+                        $.alert("Demande d'information . . .")
+                    }
+                }  
+            }
+          })
+
     })
 
 })
