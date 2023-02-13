@@ -30,7 +30,7 @@ class FestiviteController extends AbstractController
     public function index(): Response
     {
         $mariage = $this->em->getRepository(Mariage::class)
-            ->find(array(
+            ->findBy(array(
                 "Statut" => null
             ));
         return $this->render('festivite/mariage.html.twig', [
