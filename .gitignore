@@ -13,6 +13,7 @@
 /phpunit.xml.dist
 /symfony.lock
 /public/.htaccess
+/public/plugs/photo/
 ###< symfony/framework-bundle ###
 
 ###> phpunit/phpunit ###
