@@ -240,7 +240,7 @@ class Categories
         if ($this->articles->removeElement($article)) {
             // set the owning side to null (unless already changed)
             if ($article->getIdCategorie() === $this) {
-                $article->setIdCategorie(null);
+                $article->setIdCategorie(0);
             }
         }
 

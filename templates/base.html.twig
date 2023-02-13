@@ -32,51 +32,8 @@
         <link rel="stylesheet" href="{{asset('plugs/menu/fonts/icomoon/style.css')}}">
         <link rel="stylesheet" href="{{asset('plugs/menu/css/style.css')}}">
         <link href="{{asset('plugs/lightbox/dist/css/lightbox.css')}}" rel="stylesheet" />
+        <link href="{{asset('plugs/absolute.css')}}" rel="stylesheet" />
         {% endblock %}
-        <style>
-            .font-Roboto {
-                font-family: 'Roboto';
-            }
-            .icon-menu:before {
-                content: "\e5d2";
-            }
-            footer
-            {
-                height : auto ;
-            }
-            .logoFooter
-            {
-                width: 220px;
-                height : 220px ;
-            }
-            .logoMariage
-            {
-              width : 65px ;
-              height : 65px ;
-            }
-            .contentLogo
-            {
-              display : flex ;
-              flex-direction : row ;
-              align-items : center ;
-            }
-            .site-navbar
-            {
-              position: initial;
-              background: linear-gradient(132deg, rgba(250,188,19,1) 9%, rgba(213,165,6,1) 36%, rgba(185,95,19,1) 63%, rgba(255,85,0,1) 87%);
-              padding-top: 0.5em ;
-              padding-bottom : 0.5em ;
-            }
-            .site-logo
-            {
-              margin-top : 0 !important ;
-            }
-            .thead-brown
-            {
-                background-color: #b95f13;
-                color: white;
-            }
-        </style>
     </head>
     <body>  
     <div class="site-mobile-menu">
@@ -225,6 +182,7 @@
 <script src="{{asset('plugs/menu/js/jquery.sticky.js')}}"></script>
 <script src="{{asset('plugs/menu/js/main.js')}}"></script>
 <script src="{{asset('plugs/lightbox/dist/js/lightbox.js')}}"></script>
+<script src="{{asset('plugs/absolute.js')}}"></script>
 {% endblock %}
     </body>
 </html>

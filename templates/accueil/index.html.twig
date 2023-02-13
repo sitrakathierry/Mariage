@@ -48,10 +48,12 @@
   <section class="slideshow">
     <div class="slideshow-inner">
       <div class="slides">
-        <div class="slide is-active ">
+      {% set i = 0 %}
+        {% for mariage in mariages %}
+          <div class="slide {{ (i == 0) ? 'is-active' : '' }}">
           <div class="slide-content">
             <div class="caption">
-              <div class="title">Adnane & Hasna</div>
+              <div class="title">{{ mariage.NomHomme }} & {{ mariage.NomFemme }}</div>
               <div class="text">
                 <p>Vive les mariées</p>
               </div> 
@@ -61,57 +63,11 @@
             </div>
           </div>
           <div class="image-container"> 
-            <img src="{{asset('plugs/predefinie/images/carousel-1.jpg')}}" alt="" class="image" />
+            <img src="{{asset('plugs/photo/albums/' ~ mariage.PhotoMariee )}}" alt="" class="image" />
           </div>
         </div>
-        <div class="slide">
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title">Moussa et Inaya</div>
-              <div class="text">
-                <p>Vive les mariés</p>
-              </div> 
-              <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
-              </a>
-            </div>
-          </div>
-          <div class="image-container">
-            <img src="{{asset('plugs/predefinie/images/carousel-2.jpg')}}" alt="" class="image" />
-          </div>
-        </div>
-        <div class="slide">
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title">Amadou & Aminata</div>
-              <div class="text">
-                <p>Vive les mariés</p>
-              </div> 
-              <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
-              </a>
-            </div>
-          </div>
-          <div class="image-container">
-            <img src="{{asset('plugs/predefinie/images/carousel-3.jpg')}}" alt="" class="image" />
-          </div>
-        </div>
-        <div class="slide">
-          <div class="slide-content">
-            <div class="caption">
-              <div class="title">Adama & Rahima</div>
-              <div class="text">
-                <p>Vive les mariés</p>
-              </div> 
-              <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
-              </a>
-            </div>
-          </div>
-          <div class="image-container"> 
-            <img src="{{asset('plugs/predefinie/images/carousel-3.jpeg')}}" alt="" class="image" />
-          </div>
-        </div>
+        {% set i = i + 1 %}
+        {% endfor %}
       </div>
       <div class="pagination">
         <div class="item is-active"> 
@@ -153,7 +109,7 @@
       </div>
       <div class="col-md-8 p-5 text-center">
         <h1 class="font-Great color-wedding">Ousmane & Malia</h1>
-        <p class="font-wedding h4 mot-inv">seraient heureux de vous compter parmis leurs invités de mariage qui aura lieu au  .... (Lieu) le .... (Date) à partir de .... (Heure) </p>
+        <p class="font-wedding h4 mot-inv">seraient heureux de vous compter parmis leurs invités pour la .... (Festivités) qui aura lieu au  .... (Lieu) le .... (Date) à partir de .... (Heure) </p>
         <label class="font-wedding mot-inv">Réponse souhautée avant le ... (15j avant Date)</label><br>
       </div>
       

@@ -39,6 +39,28 @@ class MariageRepository extends ServiceEntityRepository
         }
     }
 
+    public function getLastMariage()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT * FROM `mariage` WHERE 1 ORDER BY `id` DESC LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $query = $stmt->executeQuery([]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $query->fetchAssociative();
+    }
+
+    public function getFirstMariage()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT * FROM `mariage` WHERE 1 ORDER BY `id` ASC LIMIT 1";
+        $stmt = $conn->prepare($sql);
+        $query = $stmt->executeQuery([]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $query->fetchAssociative();
+    }
+
 //    /**
 //     * @return Mariage[] Returns an array of Mariage objects
 //     */

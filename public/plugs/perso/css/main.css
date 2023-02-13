@@ -231,7 +231,7 @@
 }
 
 .text-purple {
-    color: #800080;
+    color: #800080 !important;
 }
 
 .mariage-item {

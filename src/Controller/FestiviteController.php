@@ -13,9 +13,16 @@ class FestiviteController extends AbstractController
 {
     protected $em;
 
+    protected $extensionImage;
+    protected $extensionVideo;
+    protected $extensionAudio;
+
     public function __construct(ManagerRegistry $doctrine)
     {
         $this->em = $doctrine->getManager();
+        $this->extensionImage =  array('jpg', 'jpeg', 'png', 'gif', 'ico', 'svg', 'JPG', 'JPEG', 'PNG', 'SVG', 'webp');
+        $this->extensionVideo =  array('mp4', 'mkv', 'mov', 'wmv', 'avi', 'avchd', 'flv', 'f4v', 'swf', 'webm', 'mpeg-2', 'mpeg');
+        $this->extensionAudio =  array('mp3', 'wav', 'ogg', 'wma', 'mid', 'riff');
     }
     /**
      * @Route("/mariage", name="app_mariage")
@@ -23,7 +30,7 @@ class FestiviteController extends AbstractController
     public function index(): Response
     {
         $mariage = $this->em->getRepository(Mariage::class)
-            ->findBy(array(
+            ->find(array(
                 "Statut" => null
             ));
         return $this->render('festivite/mariage.html.twig', [
@@ -37,8 +44,34 @@ class FestiviteController extends AbstractController
      */ 
     public function albums(): Response
     {
+        $mariage = $this->em->getRepository(Mariage::class)
+            ->findAll();
+
+        $firstFestivite = $this->em->getRepository(Festivites::class)
+            ->getFirstFestivite();
+
+        $albums = null;
+        if (!empty($firstFestivite)) {
+            $albums = $this->em->getRepository(Albums::class)
+                ->findBy(array(
+                    "id_fest" => $firstFestivite['id'],
+                    "IdMariage" => $firstFestivite['IdMariage'],
+                ));
+
+            if (empty($albums))
+                $albums = null;
+        }
+
+        $allFestivites = $this->em->getRepository(Festivites::class)
+            ->getAll();
+            
         return $this->render('festivite/albums.html.twig', [
             'page_name' => 'Albums',
+            'mariage' => $mariage,
+            'firstFestivite' => $firstFestivite,
+            'allFestivites' => $allFestivites,
+            'albums' => $albums,
+            'extensionImage' => $this->extensionImage
         ]);
     }
 
@@ -47,8 +80,34 @@ class FestiviteController extends AbstractController
      */ 
     public function videos(): Response
     {
+        $mariage = $this->em->getRepository(Mariage::class)
+            ->findAll();
+
+        $firstFestivite = $this->em->getRepository(Festivites::class)
+            ->getFirstFestivite();
+
+        $albums = null;
+        if (!empty($firstFestivite)) {
+            $albums = $this->em->getRepository(Albums::class)
+                ->findBy(array(
+                    "id_fest" => $firstFestivite['id'],
+                    "IdMariage" => $firstFestivite['IdMariage'],
+                ));
+
+            if (empty($albums))
+                $albums = null;
+        }
+
+        $allFestivites = $this->em->getRepository(Festivites::class)
+            ->getAll();
+
         return $this->render('festivite/videos.html.twig', [
             'page_name' => 'Videos',
+            'mariage' => $mariage,
+            'firstFestivite' => $firstFestivite,
+            'allFestivites' => $allFestivites,
+            'albums' => $albums,
+            'extensionVideo' => $this->extensionVideo
         ]);
     }
 
@@ -57,8 +116,34 @@ class FestiviteController extends AbstractController
      */
     public function audio(): Response
     {
+        $mariage = $this->em->getRepository(Mariage::class)
+            ->findAll();
+
+        $firstFestivite = $this->em->getRepository(Festivites::class)
+            ->getFirstFestivite();
+
+        $albums = null;
+        if (!empty($firstFestivite)) {
+            $albums = $this->em->getRepository(Albums::class)
+                ->findBy(array(
+                    "id_fest" => $firstFestivite['id'],
+                    "IdMariage" => $firstFestivite['IdMariage'],
+                ));
+
+            if (empty($albums))
+                $albums = null;
+        }
+
+        $allFestivites = $this->em->getRepository(Festivites::class)
+            ->getAll();
+
         return $this->render('festivite/audio.html.twig', [
             'page_name' => 'Audio',
+            'mariage' => $mariage,
+            'firstFestivite' => $firstFestivite,
+            'allFestivites' => $allFestivites,
+            'albums' => $albums,
+            'extensionAudio' => $this->extensionAudio
         ]);
     }
 
@@ -75,16 +160,20 @@ class FestiviteController extends AbstractController
         $lastFest = $this->em->getRepository(Festivites::class)
             ->getLastFestOfMariage($idMariage);
 
-        $albums = $this->em->getRepository(Albums::class)
-            ->findBy(array(
-                "id_fest" => $lastFest[0]->getId(),
-                "IdMariage" => $idMariage,
-            ));
+        $albums = null;
+        if (!empty($lastFest)) {
+            $albums = $this->em->getRepository(Albums::class)
+                ->findBy(array(
+                    "id_fest" => $lastFest[0]->getId(),
+                    "IdMariage" => $idMariage,
+                ));
 
-        $extensionImage = array('jpg', 'jpeg', 'png', 'gif', 'ico', 'svg', 'JPG', 'JPEG', 'PNG', 'SVG');
+            if (empty($albums))
+                $albums = null;
+        }
 
         $allFestivites = $this->em->getRepository(Festivites::class)
-            ->getAll($idMariage);
+            ->getAll();
 
         return $this->render('festivite/detailMariage.html.twig', [
             'page_name' => 'Détails Mariage',
@@ -92,7 +181,7 @@ class FestiviteController extends AbstractController
             'lastFest' => $lastFest,
             'albums' => $albums,
             'allFestivites' => $allFestivites,
-            'extensionImage' => $extensionImage
+            'extensionImage' => $this->extensionImage
         ]);
     }
 }

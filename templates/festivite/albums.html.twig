@@ -20,180 +20,52 @@
       <div class="block pl-5 pr-5 m-4">
         <div class="sous-block w-100">
             <img src="{{asset('plugs/mariage/hall.png')}}" class="img mrg-image" alt="">
-            <h4 class="font-Monserrat font-italic font-weight-bold mt-3 ml-3">Adnane et Hasna</h4>
+            <h4 class="font-Monserrat font-italic font-weight-bold h5 mt-3 ml-3 text-orange">{{firstFestivite.nom_homme}} & {{ firstFestivite.nom_femme }}</h4>
         </div>
         <div class="sous-block w-100">
             <img src="{{asset('plugs/mariage/alarm.png')}}" class="img mrg-image" alt="">
-            <h4 class="font-Monserrat font-italic font-weight-bold mt-3 ml-3">A la mairie </h4>
+            <h4 class="font-Monserrat font-italic font-weight-bold h5 mt-3 ml-3 text-orange">{{ firstFestivite.nom_fest }}</h4>
         </div>
       </div>
       <div class="myAlbum">
             <div class="contenu_album p-2 w-75">
+                {% if albums is not null %}
+                {% for album in albums %}
+                    {% set extension = album.Nom|split('.') %}
+                    {% if extension[1] in extensionImage %}
+                    <div class="elem_album">
+                        <div class="cadre m-2">
+                            <a href="{{asset('plugs/photo/albums/' ~ album.Nom)}}" data-lightbox="album" data-title="{{ album.Date | format_datetime('full','none') }}">
+                                <img src="{{asset('plugs/photo/albums/' ~ album.Nom)}}" alt="" class="img img-thumbnail img-fluid">
+                            </a>       
+                        </div>
+                    </div>  
+                    {% endif %}
+                {% endfor %}  
+            {% else %}
                 <div class="elem_album">
                     <div class="cadre m-2">
-                        <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
+                        <a href="{{asset('plugs/default.png')}}" data-lightbox="album" data-title="Insérer un album">
+                            <img src="{{asset('plugs/default.png')}}" alt="" class="img img-thumbnail img-fluid">
                         </a>       
                     </div>
                 </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                        <a href="{{asset('plugs/album/images/hero_2.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_2.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_3.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_3.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/img_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/img_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/img_2.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/img_2.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/img_3.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/img_3.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/img_4.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/img_4.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/img_5.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/img_5.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/img_6.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/img_6.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div><div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div><div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div><div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div><div class="elem_album">
-                    <div class="cadre m-2">
-                            <a href="{{asset('plugs/album/images/hero_1.jpg')}}" data-lightbox="album" data-title="Genesis">
-                            <img src="{{asset('plugs/album/images/hero_1.jpg')}}" alt="" class="img img-thumbnail img-fluid">
-                        </a> 
-                    </div>
-                </div>   
+            {% endif %}
             </div>
             <div class="option_album text-white text-left p-3 w-25 bg-grey">
                 <label for="" class="font-Montserrat text-secondary font-weight-bold h5">Mariage</label>
                 <select name="mariage" id="" class="custom-select">
                     <option value="" disabled selected>Mariage</option>
-                    <option value="">Adnane & Hasna</option>
-                    <option value="">Adnane & Hasna</option>
-                    <option value="">Adnane & Hasna</option>
+                    {% for mariage in mariage %}
+                        <option value="{{ mariage.id }}">{{ mariage.NomHomme }} & {{ mariage.NomFemme }}</option>
+                    {% endfor %}
                 </select>
                 <label for="" class="font-Montserrat text-secondary mt-4 font-weight-bold h5">Festivités</label>
                 <select name="mariage" id="" class="custom-select">
                     <option value="" disabled selected>Festivité</option>
-                    <option value="">Adnane & Hasna</option>
-                    <option value="">Adnane & Hasna</option>
-                    <option value="">Adnane & Hasna</option>
+                    {% for festivite in allFestivites %}
+                        <option value="{{ festivite.id }}">{{ festivite.NomFest }}</option>
+                    {% endfor %}
                 </select>
                 <button class="btn btn-warning font-weight-bold text-white btn-block mt-4"><i class="fas fa-eye"></i>&nbsp;&nbsp;Afficher</button>
             </div>

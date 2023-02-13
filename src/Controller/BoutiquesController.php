@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Categories;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,8 +20,14 @@ class BoutiquesController extends AbstractController
      */
     public function index(): Response
     {
+        $boutiques = $this->em->getRepository(Categories::class)
+            ->findBy(array(
+                "Statut" => null,
+                "IdTypeOffre" => 1
+            ));
         return $this->render('boutiques/index.html.twig', [
             'page_name' => 'Boutiques',
+            'boutiques' => $boutiques 
         ]);
     }
 }

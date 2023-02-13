@@ -54,17 +54,25 @@ class FestivitesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function getAll($idMariage): array
+    public function getAll(): array
     {
         return $this->createQueryBuilder('f')
-            ->andWhere('f.IdMariage = ?1 ')
-            ->setParameter(1, $idMariage)
             ->groupBy('f.NomFest')
             ->orderBy('f.NomFest', 'ASC')
             ->getQuery()
             ->getResult();
     }
 
+    public function getFirstFestivite()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = " SELECT f.id, m.id as IdMariage, m.nom_homme, m.nom_femme, f.nom_fest FROM `festivites` f JOIN mariage m ON f.id_mariage_id = m.id ORDER BY f.`id` ASC LIMIT 1 ";
+        $stmt = $conn->prepare($sql);
+        $query = $stmt->executeQuery([]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $query->fetchAssociative();
+    }
 
 //    public function findOneBySomeField($value): ?Festivites
 //    {

@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Entity\Categories;
 class PrestationsController extends AbstractController
 {
     protected $em;
@@ -19,8 +20,14 @@ class PrestationsController extends AbstractController
      */ 
     public function index(): Response
     {
+        $prestations = $this->em->getRepository(Categories::class)
+            ->findBy(array(
+                "Statut" => null,
+                "IdTypeOffre" => 2
+            ));
         return $this->render('prestations/index.html.twig', [
             'page_name' => 'Prestations',
+            'prestations' => $prestations
         ]);
     }
 

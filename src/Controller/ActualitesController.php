@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Actualites;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,8 +20,13 @@ class ActualitesController extends AbstractController
      */
     public function index(): Response
     {
+        $actualites = $this->em->getRepository(Actualites::class)
+            ->findBy(array(
+                "Statut" => null
+            ));
         return $this->render('actualites/index.html.twig', [
             'page_name' => 'Actualites',
+            'actualites' => $actualites
         ]);
     }
 }
