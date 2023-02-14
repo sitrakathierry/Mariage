@@ -165,7 +165,6 @@ class PanierController extends AbstractController
                 $this->em->flush();
 
                 $articlePanier->setIdPanier($panier);
-                $articlePanier->setIdUser($userClient);
                 $articlePanier->setStatut(null);
                 $this->em->flush();
                 return new JsonResponse(['msg' => 'success']);
@@ -194,7 +193,6 @@ class PanierController extends AbstractController
             $this->em->flush();
 
             $articlePanier->setIdPanier($panier);
-            $articlePanier->setIdUser($userClient);
             $articlePanier->setStatut(null);
             $this->em->flush();
 
