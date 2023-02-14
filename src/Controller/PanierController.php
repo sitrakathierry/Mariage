@@ -7,6 +7,7 @@ use App\Entity\Categories;
 use App\Entity\Panier;
 use App\Entity\Festivites;
 use App\Entity\User;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -142,11 +143,28 @@ class PanierController extends AbstractController
                 }
 
                 $session->set('mailUser', $cmd_email);
+
                 $articlePanier = $this->em->getRepository(Articles::class)
                     ->findOneBy(array(
                         "Statut" => -1
                     ));
 
+                $verifyEmail = $this->em->getRepository(User::class)
+                ->findOneBy(array(
+                    "email" => $session->get('mailUser'),
+                ));
+
+                $panier = new Panier();
+
+                $panier->setIdUser($verifyEmail);
+                $panier->setUpdatedAt(new \DateTimeImmutable);
+                $panier->setCreatedAt(new \DateTimeImmutable);
+                $panier->setDate(new \DateTime);
+
+                $this->em->persist($panier);
+                $this->em->flush();
+
+                $articlePanier->setIdPanier($panier);
                 $articlePanier->setIdUser($userClient);
                 $articlePanier->setStatut(null);
                 $this->em->flush();
@@ -165,6 +183,17 @@ class PanierController extends AbstractController
                     "email" => $session->get('mailUser'),
                 ));
 
+            $panier = new Panier();
+
+            $panier->setIdUser($verifyEmail);
+            $panier->setUpdatedAt(new \DateTimeImmutable);
+            $panier->setCreatedAt(new \DateTimeImmutable);
+            $panier->setDate(new \DateTime);
+
+            $this->em->persist($panier);
+            $this->em->flush();
+
+            $articlePanier->setIdPanier($panier);
             $articlePanier->setIdUser($userClient);
             $articlePanier->setStatut(null);
             $this->em->flush();
