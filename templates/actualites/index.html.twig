@@ -26,7 +26,7 @@
         .image_article
         {
             width: 100%;
-            height : 230px ;
+            height : 200px ;
             object-fit : cover ;
         }
         .explication
@@ -60,8 +60,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mb-5">
+<div class="container-fluid mb-5">
+    <div class="row">
     {% for actualite in actualites %}
+        <div class="col-md-6 p-4">
         <div class="bloc_article container-fluid p-4 mt-4" value="{{ actualite.id }}">
         <div class="row">
             <div class="col-md-4 p-2 text-right">
@@ -82,7 +84,9 @@
             </div>
         </div>
     </div>
+    </div>
     {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
