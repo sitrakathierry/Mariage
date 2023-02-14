@@ -145,7 +145,7 @@ class PanierController extends AbstractController
                 $session->set('mailUser', $cmd_email);
 
                 $articlePanier = $this->em->getRepository(Articles::class)
-                    ->findOneBy(array(
+                    ->findBy(array(
                         "Statut" => -1
                     ));
 
@@ -173,7 +173,7 @@ class PanierController extends AbstractController
             }
         } else {
             $articlePanier = $this->em->getRepository(Articles::class)
-                ->findOneBy(array(
+                ->findBy(array(
                     "Statut" => -1
                 ));
 
