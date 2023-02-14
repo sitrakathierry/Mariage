@@ -83,7 +83,7 @@ class Albums
         return $this->Nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(?string $Nom): self
     {
         $this->Nom = $Nom;
 

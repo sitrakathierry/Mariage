@@ -41,8 +41,16 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Tableau de Bord', 'fa fa-home');
-        yield MenuItem::subMenu('Agenda', 'fa fa-calendar')->setSubItems([MenuItem::linkToCrud('Mariage', 'fa fa-ring', Mariage::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Festivités', 'fa fa-bell', Festivites::class)->setAction(Crud::PAGE_NEW),
+        yield MenuItem::subMenu('Mariage', 'fas fa-ring')->setSubItems([
+            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Mariage::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Mariage::class)
+        ]);
+        yield MenuItem::subMenu('Festivité', 'fas fa-bell')->setSubItems([
+            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Festivites::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Festivites::class)
+        ]);
+        yield MenuItem::subMenu('Agenda', 'fa fa-calendar')->setSubItems([
+            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Festivites::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Festivites::class),
         ]);
         yield MenuItem::subMenu('Contenu', 'fas fa-box')->setSubItems([

@@ -43,7 +43,8 @@ class AlbumsCrudController extends AbstractCrudController
             //     ,
             Field::new('albumFile')
             ->setFormType(VichImageType::class)
-            ->setLabel('Contenu'),
+            ->setLabel('Contenu')
+            ->hideOnIndex(),
             DateField::new('Date'),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),

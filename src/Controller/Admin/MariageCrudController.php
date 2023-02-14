@@ -12,6 +12,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
+
 class MariageCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -28,7 +30,8 @@ class MariageCrudController extends AbstractCrudController
             Field::new('couvertureFile')
                 ->setFormType(VichImageType::class)
                 ->setLabel('Photo de couverture')
-                ->setRequired(true),
+            ->setRequired(true)
+                ->hideOnIndex(),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
         ];

@@ -145,7 +145,7 @@ class Mariage
         return $this->PhotoMariee;
     }
 
-    public function setPhotoMariee(string $PhotoMariee): self
+    public function setPhotoMariee(?string $PhotoMariee): self
     {
         $this->PhotoMariee = $PhotoMariee;
 
@@ -162,8 +162,9 @@ class Mariage
 
     /** 
      * @param File|null $couvertureFile
+     * @throws \Exception
      */
-    public function setCouvertureFile(File $couvertureFile)
+    public function setCouvertureFile(?File $couvertureFile = null): void
     {
         $this->couvertureFile = $couvertureFile;
 
