@@ -651,7 +651,7 @@ img.image_3 {
 .blog_section_2 {
     width: 100%;
     background-color: #ffffff;
-    height: auto;
+    height: 300px;
     padding: 0px 50px 50px 0px;
     margin-top: 50px;
 }
@@ -662,7 +662,7 @@ img.image_3 {
 }
 
 .date_text {
-    width: 60px;
+    width: 80px;
     font-size: 15px;
     color: #ffffff;
     background-color: #fb8a05;
@@ -670,16 +670,17 @@ img.image_3 {
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
     position: relative;
     z-index: 1;
+    top: 20px;
 }
 
 .image_4 {
     width: 100%;
     float: left;
     position: relative;
-    top: -10px;
+    top: -35px;
     padding-left: 50px;
 }
 
@@ -689,7 +690,7 @@ img.image_3 {
     font-size: 28px;
     color: #252525;
     font-weight: bold;
-    padding-top: 80px;
+    padding-top: 20px;
     font-family: 'Roboto', sans-serif;
 }
 

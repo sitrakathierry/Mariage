@@ -29,4 +29,19 @@ class ActualitesController extends AbstractController
             'actualites' => $actualites
         ]);
     }
+
+    /**
+     * @Route("/detail/actualite/{id_actualite}", name="details_actualite")
+     */
+    public function detailAcualite($id_actualite): Response
+    {
+        $actualites = $this->em->getRepository(Actualites::class)
+            ->findOneBy(array(
+                "id" => $id_actualite
+            ));
+        return $this->render('actualites/detail.html.twig', [
+            'page_name' => 'Details Actualités',
+            'actualite' => $actualites
+        ]);
+    }
 }
