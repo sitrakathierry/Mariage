@@ -164,9 +164,12 @@ class PanierController extends AbstractController
                 $this->em->persist($panier);
                 $this->em->flush();
 
-                $articlePanier->setIdPanier($panier);
-                $articlePanier->setStatut(null);
-                $this->em->flush();
+                foreach ($articlePanier as $articlePanier) {
+                    $articlePanier->setIdPanier($panier);
+                    $articlePanier->setStatut(null);
+                    $this->em->flush();
+                }
+                
                 return new JsonResponse(['msg' => 'success']);
             } else {
                 return new JsonResponse(['msg' => 'error']);
@@ -192,9 +195,11 @@ class PanierController extends AbstractController
             $this->em->persist($panier);
             $this->em->flush();
 
-            $articlePanier->setIdPanier($panier);
-            $articlePanier->setStatut(null);
-            $this->em->flush();
+            foreach ($articlePanier as $articlePanier) {
+                $articlePanier->setIdPanier($panier);
+                $articlePanier->setStatut(null);
+                $this->em->flush();
+            }
 
             return new JsonResponse(['msg' => 'success']);
         }
