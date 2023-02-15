@@ -14,6 +14,7 @@ use App\Entity\TypeOffre;
 use App\Entity\TypePrix;
 use App\Entity\Invitation;
 use App\Entity\TypeFestivite;
+use App\Entity\Video;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -59,8 +60,8 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Invitation::class),
         ]);
         yield MenuItem::subMenu('Video', 'fa  fa-cloud')->setSubItems([
-            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class)
+            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Video::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Video::class)
         ]);
         yield MenuItem::subMenu('Photo/Audio', 'fas fa-box')->setSubItems([
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),

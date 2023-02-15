@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AlbumsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -71,6 +73,16 @@ class Albums
      * @ORM\ManyToOne(targetEntity=TypeFestivite::class, inversedBy="albums")
      */
     private $IdTypeFest;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Attachement::class, mappedBy="album")
+     */
+    private $attachements;
+
+    public function __construct()
+    {
+        $this->attachements = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -201,6 +213,36 @@ class Albums
     public function setIdTypeFest(?TypeFestivite $IdTypeFest): self
     {
         $this->IdTypeFest = $IdTypeFest;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Attachement>
+     */
+    public function getAttachements(): Collection
+    {
+        return $this->attachements;
+    }
+
+    public function addAttachement(Attachement $attachement): self
+    {
+        if (!$this->attachements->contains($attachement)) {
+            $this->attachements[] = $attachement;
+            $attachement->setAlbum($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttachement(Attachement $attachement): self
+    {
+        if ($this->attachements->removeElement($attachement)) {
+            // set the owning side to null (unless already changed)
+            if ($attachement->getAlbum() === $this) {
+                $attachement->setAlbum(null);
+            }
+        }
 
         return $this;
     }

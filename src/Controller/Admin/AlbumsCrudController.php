@@ -65,7 +65,7 @@ class AlbumsCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setPageTitle('new', 'Ajout Contenu')
+            ->setPageTitle('new', 'Ajout Image/Audio')
             ->setPageTitle('index', 'Consultation Contenu');
     }
     
