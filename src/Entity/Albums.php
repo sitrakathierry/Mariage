@@ -124,7 +124,7 @@ class Albums
     /** 
      * @param File|null $AlbumFile
      */
-    public function setAlbumFile(File $AlbumFile)
+    public function setAlbumFile(?File $AlbumFile)
     {
         $this->albumFile = $AlbumFile;
 
