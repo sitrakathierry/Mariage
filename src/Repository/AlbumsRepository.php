@@ -18,6 +18,7 @@ class AlbumsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
+        
         parent::__construct($registry, Albums::class);
     }
 
@@ -37,6 +38,18 @@ class AlbumsRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function getAlbumsParMariage()
+    {
+        $sql = "SELECT * FROM `albums` WHERE `statut` IS NULL GROUP BY `id_mariage_id` ORDER BY `date` DESC ";
+        
+        $conn = $this->getEntityManager()->getConnection();
+        $stmt = $conn->prepare($sql);
+        $query = $stmt->executeQuery(array());
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $query->fetchAllAssociative();
     }
 
 //    /**

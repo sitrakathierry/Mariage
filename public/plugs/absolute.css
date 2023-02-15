@@ -55,3 +55,9 @@ footer {
     height: 200px;
     object-fit: cover;
 }
+.lettre_inv div {
+    line-height: 48px !important;
+    color: #ff5700 !important;
+    font-size: 1.8em !important;
+    font-family: 'Wedding';
+}

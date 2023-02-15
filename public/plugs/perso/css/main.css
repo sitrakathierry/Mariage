@@ -126,7 +126,7 @@
 
 .fond-inv-image {
     position: absolute;
-    width: 270px;
+    width: 270px !important;
     height: auto;
     top: 15%;
     left: 20%;
@@ -160,13 +160,35 @@
 }
 .inv-image {
     position: absolute;
-        width: 141px;
+    width: 141px !important;
         height: 141px;
     object-fit: cover;
     top: 32.3%;
+    left: 38.5%;
+    }
+    
+    @media only screen and (max-width: 1260px) {
+        .inv-image {
+            top: 30.5%;
         left: 39.5%;
+        }
 }
 
+@media only screen and (max-width: 900px) {
+    .inv-image {
+        top: 28%;
+        left: 48.5%;
+    }
+}
+
+/* @media only screen and (max-width: 600px) {
+    .inv-image {
+        left: 38.5%;
+    }
+
+}
+
+*/
 .font-sous-titre {
     font-size: 1.6em;
 }

@@ -100,49 +100,39 @@
     </div> 
   </section>
 </main>
-<!-- partial -->
-<div class="w-100 p-5 container-fluid fond-inv">
-  <div class="inv ml-auto row mr-auto">
+<!-- partial --> 
+<div class="w-100 p-3 owl-carousel carouselInv container-fluid fond-inv">
+{% for invitation in invitations %}
+  <div class="inv m-3 ml-auto row mr-auto">
       <div class="col-md-4 image-block">
         <img src="{{ asset("plugs/perso/images/fond_invitation.png") }}" class="img fond-inv-image">
-        <img src="{{ asset("plugs/predefinie/images/mariee.jpg") }}" class="img img-circle inv-image">
+        <img src="{{ asset("plugs/photo/albums/" ~ invitation.PhotoMariee ) }}" class="img img-circle inv-image">
       </div>
-      <div class="col-md-8 p-5 text-center">
-        <h1 class="font-Great color-wedding">Ousmane & Malia</h1>
-        <p class="font-wedding h4 mot-inv">seraient heureux de vous compter parmis leurs invités pour la .... (Festivités) qui aura lieu au  .... (Lieu) le .... (Date) à partir de .... (Heure) </p>
-        <label class="font-wedding mot-inv">Réponse souhautée avant le ... (15j avant Date)</label><br>
+      <div class="col-md-8 lettre_inv p-5 text-center">
+        <h1 class="font-Great color-wedding">{{ invitation.nomMariees }}</h1>
+        <p class="font-wedding h4 mot-inv">{{ invitation.motInvitation|raw }}</p>
       </div>
-      
   </div>
+{% endfor %}
 </div>
 <div class="text-center p-3">
       <h2 class="font-Great color-title font-weight-bold" >Albums</h2>
       <hr>
         <div class="owl-carousel p-5 pb-2 owl-2">
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_1.jpg')}}" alt="Image" class="img-fluid"></a>
-            <h3><a href="#" class="color-description font-Great">04 Jan 2023</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_2.jpg')}}" alt="Image" class="img-fluid"></a>
-            <h3><a href="#" class="color-description font-Great">17 Jan 2023</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_3.jpg')}}" alt="Image" class="img-fluid"></a>
-            <h3><a href="#" class="color-description font-Great">15 Jan 2023</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_4.jpg')}}" alt="Image" class="img-fluid"></a>
-            <h3><a href="#" class="color-description font-Great" >01 Fev 2023</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_5.jpg')}}" alt="Image" class="img-fluid"></a>
-            <h3><a href="#" class="color-description font-Great">06 Fev 2023</a></h3>
-          </div>
-          <div class="media-29101">
-            <a href="#"><img src="{{asset('plugs/album/images/img_6.jpg')}}" alt="Image" class="img-fluid"></a>
-            <h3><a href="#" class="color-description font-Great">08 Fev 2023</a></h3>
-          </div>
+          {% for album in albums %}
+              {% if album.nom is empty %}
+                  {% set albumPhoto = 'default.png' %}
+              {% else %}
+                {% set albumPhoto = album.nom %}
+              {% endif %}
+              {% set ext_album = album.nom|split('.') %}
+              {% if ext_album[1] in extensionImage %}
+                <div class="media-29101">
+                  <a href="#"><img src="{{asset('plugs/photo/albums/' ~ albumPhoto )}}" alt="Image" class="img-fluid"></a>
+                  <h3><a href="#" class="color-description font-Great">{{ album.date|date('d M Y') }}</a></h3>
+                </div>
+              {% endif %}
+          {% endfor %}
         </div>
         <h2 class="font-Great color-title font-weight-bold" >Vidéos</h2>
       <hr>

@@ -79,7 +79,7 @@ a {
         font-size: 16px;
         text-decoration: none !important; }
         .site-navbar .site-navigation .site-menu > li > a > span {
-          padding: 5px 20px;
+          padding: 5px 10px;
           display: inline-block;
           -webkit-transition: .3s all ease;
           -o-transition: .3s all ease;
