@@ -69,10 +69,16 @@ class Mariage
      */
     private $albums;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="idMariage")
+     */
+    private $videos;
+
     public function __construct()
     {
         $this->festivites = new ArrayCollection();
         $this->albums = new ArrayCollection();
+        $this->videos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -236,5 +242,35 @@ class Mariage
     public function __toString()
     {
         return $this->getNomHomme() . ' & ' . $this->getNomFemme();
+    }
+
+    /**
+     * @return Collection<int, Video>
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->setIdMariage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->removeElement($video)) {
+            // set the owning side to null (unless already changed)
+            if ($video->getIdMariage() === $this) {
+                $video->setIdMariage(null);
+            }
+        }
+
+        return $this;
     }
 }

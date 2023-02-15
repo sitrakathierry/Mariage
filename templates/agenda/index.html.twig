@@ -33,11 +33,11 @@
                     {% for item in agenda %}
                         <tr>
                             <td>{{ item.IdMariage.NomHomme }} & {{ item.IdMariage.NomFemme }}</td>
-                            <td>{{ item.NomFest }}</td>
+                            <td>{{ item.IdTypeFestivite.Festivite }}</td>
                             <td>{{ item.Lieu }}</td>
                             <td>{{ item.Ville }}</td>
-                            <td>{{ item.Date | format_datetime('full','none') }}</td>
-                            <td>{{ item.Heure | format_datetime('none','short') }}</td>
+                            <td>{{ item.Date|date('d M Y') }}</td>
+                            <td>{{ item.Heure|date('H:i:s')  }}</td>
                         </tr>  
                     {% endfor %}
                     </tbody>
