@@ -30,7 +30,7 @@ class ActualitesCrudController extends AbstractCrudController
             Field::new('actualitesFile')
                 ->setFormType(VichImageType::class)
                 ->setLabel('Photo de l\'actualité')
-                ->setRequired(true),
+                ->hideOnIndex(),
             TextEditorField::new('Explication'),
             TextField::new('Auteur')->setRequired(true),
             DateTimeField::new('created_at')->hideOnForm(),
@@ -41,7 +41,6 @@ class ActualitesCrudController extends AbstractCrudController
     public function persistEntity(EntityManagerInterface $em, $entityInstance): void
     {
         if (!$entityInstance instanceof Actualites) return;
-
         $entityInstance->setCreatedAt(new \DateTimeImmutable);
         $entityInstance->setUpdatedAt(new \DateTimeImmutable);
         parent::persistEntity($em, $entityInstance);

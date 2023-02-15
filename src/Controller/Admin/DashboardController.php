@@ -12,6 +12,8 @@ use App\Entity\Panier;
 use App\Entity\Prix;
 use App\Entity\TypeOffre;
 use App\Entity\TypePrix;
+use App\Entity\Invitation;
+use App\Entity\TypeFestivite;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -45,15 +47,22 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Mariage::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Mariage::class)
         ]);
-        yield MenuItem::subMenu('Festivité', 'fas fa-bell')->setSubItems([
-            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Festivites::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Festivites::class)
+        yield MenuItem::subMenu('Festivité', 'fas fa-bell')->setSubItems([MenuItem::linkToCrud('Ajouter', 'fa fa-plus', TypeFestivite::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', TypeFestivite::class)
         ]);
         yield MenuItem::subMenu('Agenda', 'fa fa-calendar')->setSubItems([
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Festivites::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Festivites::class),
         ]);
-        yield MenuItem::subMenu('Contenu', 'fas fa-box')->setSubItems([
+        yield MenuItem::subMenu('Invitation', 'fa fa-user-plus')->setSubItems([
+            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Invitation::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Invitation::class),
+        ]);
+        yield MenuItem::subMenu('Video', 'fa  fa-cloud')->setSubItems([
+            MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class)
+        ]);
+        yield MenuItem::subMenu('Photo/Audio', 'fas fa-box')->setSubItems([
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class)
         ]);

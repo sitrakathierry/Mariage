@@ -192,10 +192,11 @@ class Actualites
         return $this->actualitesFile;
     }
 
+    
     /** 
      * @param File|null $actualitesFile
      */
-    public function setActualitesFile(File $actualitesFile)
+    public function setActualitesFile(?File $actualitesFile)
     {
         $this->actualitesFile = $actualitesFile;
 

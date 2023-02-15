@@ -65,14 +65,9 @@ class Festivites
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity=Albums::class, mappedBy="id_fest")
+     * @ORM\ManyToOne(targetEntity=TypeFestivite::class, inversedBy="festivites")
      */
-    private $albums;
-
-    public function __construct()
-    {
-        $this->albums = new ArrayCollection();
-    }
+    private $IdTypeFestivite;
 
     public function getId(): ?int
     {
@@ -187,39 +182,21 @@ class Festivites
         return $this;
     }
 
-    /**
-     * @return Collection<int, Albums>
-     */
-    public function getAlbums(): Collection
-    {
-        return $this->albums;
-    }
-
-    public function addAlbum(Albums $album): self
-    {
-        if (!$this->albums->contains($album)) {
-            $this->albums[] = $album;
-            $album->setIdFest($this->getId());
-        }
-
-        return $this;
-    }
-
-    public function removeAlbum(Albums $album): self
-    {
-        if ($this->albums->removeElement($album)) {
-            // set the owning side to null (unless already changed)
-            if ($album->getIdFest() === $this->getId()) {
-                $album->setIdFest(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function __toString()
     {
-        return $this->getId() . ' - ' . $this->getNomFest();
+        return $this->getNomFest();
+    }
+
+    public function getIdTypeFestivite(): ?TypeFestivite
+    {
+        return $this->IdTypeFestivite;
+    }
+
+    public function setIdTypeFestivite(?TypeFestivite $IdTypeFestivite): self
+    {
+        $this->IdTypeFestivite = $IdTypeFestivite;
+
+        return $this;
     }
 
 }

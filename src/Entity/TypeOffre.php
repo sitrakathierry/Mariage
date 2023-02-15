@@ -87,7 +87,7 @@ class TypeOffre
 
     public function __toString()
     {
-        return $this->getId() . ' - ' . $this->getNom();
+        return $this->getNom();
     }
 
     /**
@@ -108,15 +108,15 @@ class TypeOffre
         return $this;
     }
 
-    public function removeCategory(Categories $category): self
-    {
-        if ($this->categories->removeElement($category)) {
-            // set the owning side to null (unless already changed)
-            if ($category->getIdTypeOffre() === $this) {
-                $category->setIdTypeOffre(null);
-            }
-        }
+    // public function removeCategory(?Categories $category): self
+    // {
+    //     if ($this->categories->removeElement($category)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($category->getIdTypeOffre() === $this) {
+    //             $category->setIdTypeOffre(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

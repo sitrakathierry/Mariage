@@ -131,28 +131,28 @@ class Panier
     {
         if (!$this->articles->contains($article)) {
             $this->articles[] = $article;
-            $article->setIdPanier($this->getId());
+            $article->setIdPanier($this);
         }
 
         return $this;
     }
 
-    public function removeArticle(Articles $article): self
-    {
-        if ($this->articles->removeElement($article)) {
-            // set the owning side to null (unless already changed)
-            if ($article->getIdPanier() === $this) {
-                $article->setIdPanier(0);
-            }
-        }
+    // public function removeArticle(Articles $article): self
+    // {
+    //     if ($this->articles->removeElement($article)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($article->getIdPanier() === $this) {
+    //             $article->setIdPanier(0);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function __toString()
     {
         if (!empty($this->getIdUser())) {
-            return $this->getId() . ' - ' . $this->getIdUser()->getNom() . ' ' . $this->getIdUser()->getPrenoms();
+            return $this->getIdUser()->getNom() . ' ' . $this->getIdUser()->getPrenoms();
         } else {
             return '';
         }

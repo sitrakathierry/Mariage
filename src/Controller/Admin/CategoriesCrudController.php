@@ -28,7 +28,8 @@ class CategoriesCrudController extends AbstractCrudController
             TextField::new('Nom'),
             Field::new('categoryFile')
                 ->setFormType(VichImageType::class)
-                ->setLabel('Image Article'),
+                ->setLabel('Image Article')
+                ->hideOnIndex(),
             TextEditorField::new('Description'),
             NumberField::new('IdPrix', 'Prix Article'),
             DateTimeField::new('created_at')->hideOnForm(),

@@ -32,8 +32,8 @@ class AlbumsCrudController extends AbstractCrudController
     {
         return [
             // IdField::new('id'), Date
+            AssociationField::new('IdTypeFest', "Festivité"),
             AssociationField::new('IdMariage', "Mariage"),
-            AssociationField::new('id_fest', "Festivité"),
             TextField::new('Nom')->hideOnForm(),
             // TextareaField::new('albumFile')
             // ->setFormType(VichImageType::class),

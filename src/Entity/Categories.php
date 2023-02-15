@@ -235,20 +235,20 @@ class Categories
         return $this;
     }
 
-    public function removeArticle(Articles $article): self
-    {
-        if ($this->articles->removeElement($article)) {
-            // set the owning side to null (unless already changed)
-            if ($article->getIdCategorie() === $this) {
-                $article->setIdCategorie(0);
-            }
-        }
+    // public function removeArticle(Articles $article): self
+    // {
+    //     if ($this->articles->removeElement($article)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($article->getIdCategorie() === $this) {
+    //             $article->setIdCategorie(0);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function __toString()
     {
-        return $this->getId().' - '.$this->getNom() ;
+        return $this->getNom() ;
     }
 }

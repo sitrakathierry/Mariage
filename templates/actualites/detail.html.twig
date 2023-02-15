@@ -61,6 +61,7 @@
         <div class="bloc_article1 container-fluid p-4 mt-4" value="{{ actualite.id }}">
         <div class="row">
             <div class="col-md-12 p-2 text-center">
+            <h2 class="liya_text font-Montserrat text-center mb-3">{{ actualite.Titre }}</h2>
                 <img src="{{asset('plugs/photo/albums/' ~ actualite.ImageActualite )}}" class="img ml-auto mr-auto image_article img-fluid" alt="">
                 <div class='text-center'>
                  <label class="date_article font-Roboto text-orange w-100 font-weight-bold h5 text-white py-2 pr-3 mt-1">
@@ -70,7 +71,6 @@
                
             </div>
             <div class="col-md-12">
-                <h2 class="liya_text font-Montserrat text-center">{{ actualite.Titre }}</h2>
                 <div class="w-100 text-truncate text-wrap p-4 explication">
                     <p>{{ actualite.Explication|raw  }}
                      </p></a>

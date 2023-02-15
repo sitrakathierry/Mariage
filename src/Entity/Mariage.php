@@ -235,6 +235,6 @@ class Mariage
 
     public function __toString()
     {
-        return $this->getId() . ' - ' . $this->getNomHomme() . ' & ' . $this->getNomFemme();
+        return $this->getNomHomme() . ' & ' . $this->getNomFemme();
     }
 }

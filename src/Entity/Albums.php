@@ -55,12 +55,6 @@ class Albums
      */
     private $updated_at;
 
-    private $IdFest;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Festivites::class, inversedBy="albumsa")
-     */
-    private $id_fest;
 
     /**
      * @ORM\ManyToOne(targetEntity=Mariage::class, inversedBy="albums")
@@ -72,6 +66,11 @@ class Albums
      * @var File
      */
     private $albumFile;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeFestivite::class, inversedBy="albums")
+     */
+    private $IdTypeFest;
 
     public function getId(): ?int
     {
@@ -182,18 +181,6 @@ class Albums
         return $this;
     }
 
-    public function getIdFest(): ?Festivites
-    {
-        return $this->id_fest;
-    }
-
-    public function setIdFest(?Festivites $id_fest): self
-    {
-        $this->id_fest = $id_fest;
-
-        return $this;
-    }
-
     public function getIdMariage(): ?Mariage
     {
         return $this->IdMariage;
@@ -202,6 +189,18 @@ class Albums
     public function setIdMariage(?Mariage $IdMariage): self
     {
         $this->IdMariage = $IdMariage;
+
+        return $this;
+    }
+
+    public function getIdTypeFest(): ?TypeFestivite
+    {
+        return $this->IdTypeFest;
+    }
+
+    public function setIdTypeFest(?TypeFestivite $IdTypeFest): self
+    {
+        $this->IdTypeFest = $IdTypeFest;
 
         return $this;
     }
