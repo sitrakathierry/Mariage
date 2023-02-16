@@ -104,11 +104,13 @@
 <div class="w-100 p-3 owl-carousel carouselInv container-fluid fond-inv">
 {% for invitation in invitations %}
   <div class="inv m-3 ml-auto row mr-auto">
-      <div class="col-md-4 image-block">
-        <img src="{{ asset("plugs/perso/images/fond_invitation.png") }}" class="img fond-inv-image">
-        <img src="{{ asset("plugs/photo/albums/" ~ invitation.PhotoMariee ) }}" class="img img-circle inv-image">
+      <div class="col-md-5 d-flex align-items-center justify-content-center">
+        <div class="b-profil d-flex align-items-center justify-content-center" style="background-image:url({{ asset("plugs/perso/images/fond_invitation.png") }})">
+          <img src="{{ asset("plugs/photo/albums/" ~ invitation.PhotoMariee ) }}" class="img img-circle inv-image">
+        </div>
+        
       </div>
-      <div class="col-md-8 lettre_inv p-5 text-center">
+      <div class="col-md-7 lettre_inv p-3 text-center">
         <h1 class="font-Maiandra font-italic color-wedding">{{ invitation.nomMariees }}</h1>
         <p class="font-wedding h4 mot-inv">{{ invitation.motInvitation|raw }}</p>
       </div>

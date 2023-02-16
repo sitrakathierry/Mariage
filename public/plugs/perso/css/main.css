@@ -99,6 +99,15 @@
 
 }
 
+.b-profil {
+    width: 300px;
+    height: 300px;
+    /* border: 2px solid grey; */
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: padding-box;
+}
 .font-wedding {
     font-family: 'Wedding' !important;
 }
@@ -118,20 +127,6 @@
         box-shadow: 0 0 10px 25px rgba(255, 255, 255, 0.01);
     }
 }
-
-
-.image-block {
-    position: relative;
-}
-
-.fond-inv-image {
-    position: absolute;
-    width: 270px !important;
-    height: auto;
-    top: 15%;
-    left: 20%;
-}
-
 
 .color-title {
     color: rgba(255, 85, 0, 1) !important;
@@ -159,36 +154,18 @@
     padding-bottom : 10px;
 }
 .inv-image {
-    position: absolute;
-    width: 141px !important;
-        height: 141px;
+    width: 153px !important;
+        height: 153px !important;
     object-fit: cover;
-    top: 32.3%;
-    left: 38.5%;
+    box-shadow: 0px 0px 10px #ff5700;
     }
-    
-    @media only screen and (max-width: 1260px) {
-        .inv-image {
-            top: 30.5%;
-        left: 39.5%;
-        }
-}
+
+
 
 @media only screen and (max-width: 900px) {
-    .inv-image {
-        top: 28%;
-        left: 48.5%;
-    }
-}
-
-/* @media only screen and (max-width: 600px) {
-    .inv-image {
-        left: 38.5%;
-    }
 
 }
 
-*/
 .font-sous-titre {
     font-size: 1.6em;
 }
