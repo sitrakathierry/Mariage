@@ -167,6 +167,9 @@
 
 }
 
+.font-foot {
+    font-size: 1.6em !important;
+}
 .links a,
 .contact_link li a h5 {
     transition: .3s;

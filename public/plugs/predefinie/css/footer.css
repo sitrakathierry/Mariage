@@ -6,6 +6,9 @@
     background-repeat: no-repeat;
         background-position: 0 -90px;
         background-size: cover;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-14398 .footer-site-logo {
