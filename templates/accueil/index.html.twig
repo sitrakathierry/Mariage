@@ -138,11 +138,12 @@
         <h2 class="font-Great color-title font-weight-bold" >Vidéos</h2>
       <hr>
       <div class="featured-carousel p-5 owl-carousel">
-        <div class="item">
+       
             {% if videos is not empty or videos is not null   %}
               {% for video in videos %}
                   {% for attacheV in video.attachementVideos %}
                       {% set videoUrl = attacheV.url|split('watch?v=') %}
+                       <div class="item">
                       {% if videoUrl|length > 0  %}
                           <div class="w-100" style="height: 250px">
                           <div class="monElement" style="height: 250px">
@@ -159,18 +160,18 @@
                           <div class="monElement" style="height: 250px">
                               <iframe
                                   class="w-100" style="height: 250px"
-                                  src="https://www.youtube.com/embed/LAyqUtwtmF0"
+                                  src="{{videoUrl[0]}}"
                                   allow="encrypted-media; gyroscope;"
                                   allowfullscreen>
                               </iframe>
                           </div>
                       </div>
                       {% endif %}
-                        
+                    </div>
                   {% endfor %}
               {% endfor %}  
             {% endif %}
-          </div>
+          
 			</div>
       <h2 class="font-Great color-title font-weight-bold" >Audio</h2>
       <hr>
