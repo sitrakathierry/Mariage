@@ -340,7 +340,7 @@ var data2 = {
 affiche_Contenu(data2)
 
 var data2 = {
-    selector: ".affiche_audio",
-    types: 3
+    selector: ".affiche_video",
+    types: 2
 }
 })
