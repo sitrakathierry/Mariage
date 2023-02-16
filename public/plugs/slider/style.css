@@ -122,7 +122,7 @@ body {
   background-repeat: no-repeat;
     /* background-clip: border-box; */
     background-origin: padding-box;
-    background-position: center center;
+    background-position: center top;
 }
 
 .slideshow .slide .image-container::before {

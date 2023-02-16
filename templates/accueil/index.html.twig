@@ -58,7 +58,7 @@
                 <p>Vive les mariées</p>
               </div> 
               <a href="#" class="btn">
-                <span class="btn-inner">Détails</span>
+                <span class="btn-inner">Prochain Mariage</span>
               </a>
             </div>
           </div>
@@ -129,8 +129,10 @@
               {% set ext_album = albumPhoto|split('.') %}
               {% if ext_album[1] in extensionImage %}
                 <div class="media-29101">
-                  <a href="#"><img src="{{asset('plugs/photo/albums/' ~ albumPhoto )}}" alt="Image" class="img-fluid"></a>
-                  <h3><a href="#" class="color-description font-Great">{{ album.date|date('d M Y') }}</a></h3>
+                  <a href="#">
+                    <img src="{{asset('plugs/photo/albums/' ~ albumPhoto )}}" alt="Image" class="img-fluid acc_image_album">
+                  </a>
+                  {# <h3><a href="#" class="color-description font-Great">{{ album.date|date('d M Y') }}</a></h3> #}
                 </div>
               {% endif %}
           {% endfor %}
