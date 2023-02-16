@@ -18,6 +18,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use App\Field\VichImageField;
+use App\Form\AttachementType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 
 class AlbumsCrudController extends AbstractCrudController
@@ -32,8 +34,10 @@ class AlbumsCrudController extends AbstractCrudController
     {
         return [
             // IdField::new('id'), Date
-            AssociationField::new('IdTypeFest', "Festivité"),
-            AssociationField::new('IdMariage', "Mariage"),
+            AssociationField::new('IdTypeFest', "Festivité")
+                ->setRequired(true),
+            AssociationField::new('IdMariage', "Mariage")
+                ->setRequired(true),
             TextField::new('Nom')->hideOnForm(),
             // TextareaField::new('albumFile')
             // ->setFormType(VichImageType::class),
@@ -41,14 +45,23 @@ class AlbumsCrudController extends AbstractCrudController
             //         ->setFormType(VichImageType::class)
             //         ->setLabel('Image')
             //     ,
-            Field::new('albumFile')
-            ->setFormType(VichImageType::class)
-            ->setLabel('Contenu')
-            ->hideOnIndex(),
-            DateField::new('Date'),
+            DateField::new('Date')
+                ->setRequired(true),
+            CollectionField::new('attachements', "Images")
+            ->setEntryType(AttachementType::class)
+            ->setFormTypeOption('by_reference', false)
+            ->onlyOnForms(),
+            
+            // Field::new('albumFile')
+            // ->setFormType(VichImageType::class)
+            // ->setLabel('Contenu')
+            // ->hideOnIndex(),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
             TextField::new('Type')->hideOnForm(),
+            CollectionField::new('attachements', "Images")
+                ->setTemplatePath('images.html.twig')
+                ->onlyOnDetail() 
         ];
     }
 
@@ -59,6 +72,7 @@ class AlbumsCrudController extends AbstractCrudController
         $entityInstance->setNom('Album');
         $entityInstance->setType('Album');
         $entityInstance->setCreatedAt(new \DateTimeImmutable);
+        $entityInstance->setUpdatedAt(new \DateTimeImmutable);
         parent::persistEntity($em, $entityInstance);
     }
 
@@ -67,6 +81,12 @@ class AlbumsCrudController extends AbstractCrudController
         return $crud
             ->setPageTitle('new', 'Ajout Image/Audio')
             ->setPageTitle('index', 'Consultation Contenu');
+    }
+
+    public function configureActions(Actions $actions): Actions
+    {
+
+        return $actions->add(CRUD::PAGE_INDEX, 'detail');
     }
     
 }

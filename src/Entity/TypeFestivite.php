@@ -49,6 +49,11 @@ class TypeFestivite
      */
     private $videos;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $Statut;
+
     public function __construct()
     {
         $this->festivites = new ArrayCollection();
@@ -188,6 +193,18 @@ class TypeFestivite
                 $video->setIdTypeFestivite(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStatut(): ?int
+    {
+        return $this->Statut;
+    }
+
+    public function setStatut(?int $Statut): self
+    {
+        $this->Statut = $Statut;
 
         return $this;
     }

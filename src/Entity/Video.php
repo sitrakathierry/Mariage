@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\VideoRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,16 @@ class Video
      * @ORM\Column(type="integer", nullable=true)
      */
     private $status;
+
+    /**
+     * @ORM\OneToMany(targetEntity=AttachementVideo::class, mappedBy="video", cascade={"persist"})
+     */
+    private $attachementVideos;
+
+    public function __construct()
+    {
+        $this->attachementVideos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -154,6 +166,36 @@ class Video
     public function setStatus(?int $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, AttachementVideo>
+     */
+    public function getAttachementVideos(): Collection
+    {
+        return $this->attachementVideos;
+    }
+
+    public function addAttachementVideo(AttachementVideo $attachementVideo): self
+    {
+        if (!$this->attachementVideos->contains($attachementVideo)) {
+            $this->attachementVideos[] = $attachementVideo;
+            $attachementVideo->setVideo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttachementVideo(AttachementVideo $attachementVideo): self
+    {
+        if ($this->attachementVideos->removeElement($attachementVideo)) {
+            // set the owning side to null (unless already changed)
+            if ($attachementVideo->getVideo() === $this) {
+                $attachementVideo->setVideo(null);
+            }
+        }
 
         return $this;
     }

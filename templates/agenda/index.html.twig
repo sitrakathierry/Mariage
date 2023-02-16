@@ -12,41 +12,73 @@
 {% endblock %}
 
 {% block content %}
-<div class="pl-3 pr-3 w-100">
+<div class="pl-5 pr-5 w-100">
 <h2 class="font-Montserrat mt-4 font-weight-bold text-center">Liste des agenda</h2>
   <hr>
-
+<div class="filtre_agenda text-left container-fluid w-100 mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="" class="h5 font-Roboto font-weight-bold">Mariage</label>
+            <select name="mariage" class="custom-select mariage" id="">
+                <option value="" disabled selected>Mariage</option>
+                <option value="">Tous les Mariages</option>
+                {% for mariage in mariages %}
+                    <option value="{{mariage.id}}">{{mariage.NomHomme}} & {{mariage.NomFemme}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2">
+        <label for="" class="h5 font-Roboto font-weight-bold">Festivité</label>
+            <select name="mariage" class="custom-select festivite" id="">
+                <option value="" disabled selected>Festivite</option>
+                <option value="">Tous les Festivités</option>
+                {% for festivite in festivites %}
+                    <option value="{{festivite.id}}">{{ festivite.Festivite }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2">
+        <label for="" class="h5 font-Roboto font-weight-bold">Date</label>
+            <input type="date" class="form-control date">
+        </div>
+        <div class="col-md-3" >
+        <label for="" class="h5 font-Roboto font-weight-bold">Lieu</label>
+            <input type="text" class="form-control lieu" placeholder="Taper ici">
+        </div>
+        <div class="col-md-2">
+        <label for="" class="h5 font-Roboto font-weight-bold">Ville</label>
+            <input type="text" class="form-control ville" placeholder="Taper ici">
+        </div>
+    </div>
+    <button class="btn float-right btn-warning text-white font-weight-bold my-3 btn_rechercher"><i class="fa fa-search"></i>&nbsp;Rechercher</button>
 </div>
-        <div class="filtre_agenda container-fluid w-100">
-            
-        </div>
-            <div class="p-3 pt-1">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="thead-brown">
-                        <tr>
-                            <th>Mariée</th>
-                            <th>Festivité</th>
-                            <th>Lieu</th>
-                            <th>Ville</th>
-                            <th>Date</th>
-                            <th>Heure</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {% for item in agenda %}
-                        <tr>
-                            <td>{{ item.IdMariage.NomHomme }} & {{ item.IdMariage.NomFemme }}</td>
-                            <td>{{ item.IdTypeFestivite.Festivite }}</td>
-                            <td>{{ item.Lieu }}</td>
-                            <td>{{ item.Ville }}</td>
-                            <td>{{ item.Date|date('d M Y') }}</td>
-                            <td>{{ item.Heure|date('H:i:s')  }}</td>
-                        </tr>  
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>    
-        </div>
-
+    <div class="p-3 pt-1">
+    <div class="table-responsive">
+        <table class="table table-bordered font-Maiandra">
+            <thead class="thead-brown">
+                <tr>
+                    <th>Mariée</th>
+                    <th>Festivité</th>
+                    <th>Lieu</th>
+                    <th>Ville</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                </tr>
+            </thead>
+            <tbody class="content_agenda">
+            {% for item in agenda %}
+                <tr>
+                    <td>{{ item.IdMariage.NomHomme }} & {{ item.IdMariage.NomFemme }}</td>
+                    <td>{{ item.IdTypeFestivite.Festivite }}</td>
+                    <td>{{ item.Lieu }}</td>
+                    <td>{{ item.Ville }}</td>
+                    <td>{{ item.Date|date('d M Y') }}</td>
+                    <td>{{ item.Heure|date('H:i:s')  }}</td>
+                </tr>  
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>    
+</div>
+</div>
 {% endblock %}

@@ -75,7 +75,7 @@ class Albums
     private $IdTypeFest;
 
     /**
-     * @ORM\OneToMany(targetEntity=Attachement::class, mappedBy="album")
+     * @ORM\OneToMany(targetEntity=Attachement::class, mappedBy="album", cascade={"persist"} )
      */
     private $attachements;
 
@@ -245,5 +245,10 @@ class Albums
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getIdTypeFest()->getFestivite()." | ".$this->getIdMariage()->getNomHomme() . " & " . $this->getIdMariage()->getNomHomme();
     }
 }

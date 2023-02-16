@@ -226,4 +226,33 @@ $(document).ready(function(){
         var id = $(this).attr('value')
         location.assign(host+'/detail/actualite/'+id)
     })
+
+    $('.btn_rechercher').click(function(){
+        $('.content_agenda').empty().append(`
+             <tr>
+                <td colspan="6">
+                    <div class="d-flex align-items-center">
+                        <strong>Recherche en cours, veuillez patienter s'il vous plait ...</strong>
+                        <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                    </div>
+                </td>
+            </tr>
+        `)
+        var datas = {
+            "id_mariage_id":$('.mariage').val(),
+            "id_type_festivite_id":$('.festivite').val(),
+            "date":$('.date').val(),
+            "lieu":$('.lieu').val(),
+            "ville":$('.ville').val(),
+        }
+        $.ajax({
+            url: host + '/agenda/recherche',
+            type: 'post',
+            data: {params:datas},
+            dataType: 'html',
+            success: function(result) {
+                $('.content_agenda').empty().append(result)
+            }
+        });
+    })  
 })

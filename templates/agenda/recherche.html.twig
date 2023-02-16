@@ -1,0 +1,10 @@
+{% for item in agenda %}
+    <tr>
+        <td>{{ item.nom_homme }} & {{ item.nom_femme }}</td>
+        <td>{{ item.festivite }}</td>
+        <td>{{ item.lieu }}</td>
+        <td>{{ item.ville }}</td>
+        <td>{{ item.date|date('d M Y') }}</td>
+        <td>{{ item.heure|date('H:i:s')  }}</td>
+    </tr>  
+{% endfor %}

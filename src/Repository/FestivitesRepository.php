@@ -74,6 +74,38 @@ class FestivitesRepository extends ServiceEntityRepository
         return $query->fetchAssociative();
     }
 
+    public function findAgendaBy($params = array())
+    {
+        $keys = array_keys($params);
+
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = "SELECT m.nom_homme, m.nom_femme, tf.festivite, f.* FROM `festivites` f JOIN mariage m ON f.id_mariage_id = m.id JOIN type_festivite tf ON f.id_type_festivite_id = tf.id WHERE ";
+        $cmp = 0;
+        $extension = "";
+        for ($i = 0; $i < count($params); $i++) {
+            if ($params[$keys[$i]] !== "") {
+                if ($extension == "")
+                    $extension .= " ";
+                else
+                    $extension .= " AND ";
+                if ($i < 3)
+                    $extension .= $keys[$i] . " = '" . $params[$keys[$i]] . "'";
+                else
+                    $extension .= $keys[$i] . " like '%" . $params[$keys[$i]] . "%'";
+
+                $cmp++;
+            }
+        }
+        $sql .= $extension;
+        if ($cmp == 0)
+            $sql .= 1;
+        $stmt = $conn->prepare($sql);
+        $query = $stmt->executeQuery([]);
+
+        // returns an array of arrays (i.e. a raw data set)
+        return $query->fetchAllAssociative();
+    }
+
 //    public function findOneBySomeField($value): ?Festivites
 //    {
 //        return $this->createQueryBuilder('f')

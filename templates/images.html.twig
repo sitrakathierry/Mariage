@@ -1,0 +1,29 @@
+<style>
+    .monImage
+    {
+        width: 120px ;
+        height : 120px ;
+        object-fit: cover ;
+    }
+</style>
+<div class="form-widget">
+    {% set extensionImage = ['jpg', 'jpeg', 'png', 'gif', 'ico', 'svg', 'JPG', 'JPEG', 'PNG', 'SVG', 'webp'] %}
+    {% for image in field.value %}   
+        {% set extension = image.image|split('.') %}
+        {% if extension[1] in extensionImage %}           
+            <a href="#" class="ea-lightbox-thumbnail" data-ea-lightbox-content-selector="#ea-lightbox-{{ image.id }}">
+                <img src="/Mariage/public/plugs/photo/albums/{{ image.image }}" class="monImage img img-thumbnail">
+            </a>
+            <div id="ea-lightbox-{{image.id}}" class="ea-lightbox">
+                <img src="/Mariage/public/plugs/photo/albums/{{ image.image }}">
+            </div>
+            {% else %}
+                <a href="#" class="ea-lightbox-thumbnail" data-ea-lightbox-content-selector="#ea-lightbox-{{ image.id }}">
+                    <img src="/Mariage/public/plugs/default.png" class="monImage img img-thumbnail">
+                </a>
+                <div id="ea-lightbox-{{image.id}}" class="ea-lightbox">
+                    <img src="/Mariage/public/plugs/default.png">
+                </div>
+            {% endif %}
+    {% endfor %}
+</div>

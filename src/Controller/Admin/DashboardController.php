@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Actualites;
 use App\Entity\Albums;
 use App\Entity\Articles;
+use App\Entity\Attachement;
 use App\Entity\Categories;
 use App\Entity\Festivites;
 use App\Entity\Mariage;
@@ -65,7 +66,8 @@ class DashboardController extends AbstractDashboardController
         ]);
         yield MenuItem::subMenu('Photo/Audio', 'fas fa-box')->setSubItems([
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Albums::class)->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class)
+            MenuItem::linkToCrud('Consulter', 'fa fa-eye', Albums::class),
+            MenuItem::linkToCrud('Tous les fichiers', 'fa fa-list', Attachement::class)
         ]);
         yield MenuItem::subMenu('Article', 'fa fa-bell')->setSubItems([
             MenuItem::linkToCrud('Ajouter', 'fa fa-plus', Categories::class)->setAction(Crud::PAGE_NEW),
