@@ -60,7 +60,7 @@ class Video
     private $status;
 
     /**
-     * @ORM\OneToMany(targetEntity=AttachementVideo::class, mappedBy="video", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity=AttachementVideo::class, mappedBy="video", cascade={"persist","remove"})
      */
     private $attachementVideos;
 

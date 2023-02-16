@@ -35,17 +35,17 @@ class TypeFestivite
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity=Festivites::class, mappedBy="IdTypeFestivite")
+     * @ORM\OneToMany(targetEntity=Festivites::class, mappedBy="IdTypeFestivite",cascade={"remove"})
      */
     private $festivites;
 
     /**
-     * @ORM\OneToMany(targetEntity=Albums::class, mappedBy="IdTypeFest")
+     * @ORM\OneToMany(targetEntity=Albums::class, mappedBy="IdTypeFest",cascade={"remove"})
      */
     private $albums;
 
     /**
-     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="idTypeFestivite")
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="idTypeFestivite",cascade={"remove"})
      */
     private $videos;
 

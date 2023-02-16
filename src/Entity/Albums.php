@@ -75,7 +75,7 @@ class Albums
     private $IdTypeFest;
 
     /**
-     * @ORM\OneToMany(targetEntity=Attachement::class, mappedBy="album", cascade={"persist"} )
+     * @ORM\OneToMany(targetEntity=Attachement::class, mappedBy="album", cascade={"persist","remove"} )
      */
     private $attachements;
 

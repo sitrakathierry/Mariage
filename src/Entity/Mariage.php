@@ -60,17 +60,17 @@ class Mariage
 
 
     /**
-     * @ORM\OneToMany(targetEntity=Festivites::class, mappedBy="id_mariage")
+     * @ORM\OneToMany(targetEntity=Festivites::class, mappedBy="IdMariage", cascade={"remove"})
      */
     private $festivites;
 
     /**
-     * @ORM\OneToMany(targetEntity=Albums::class, mappedBy="IdMariage")
+     * @ORM\OneToMany(targetEntity=Albums::class, mappedBy="IdMariage",cascade={"remove"})
      */
     private $albums;
 
     /**
-     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="idMariage")
+     * @ORM\OneToMany(targetEntity=Video::class, mappedBy="idMariage",cascade={"remove"})
      */
     private $videos;
 
