@@ -234,22 +234,6 @@
   <h2 class="font-Great color-title font-weight-bold">Prestations</h2>
   <hr>
   <div class="px-5 pt-0 pb-2">
-  {% if prestations|length < 4 %}
-    <div class="w-100 text-center" >
-       {% for prestation in prestations %}
-                <div class="card-sl m-2">
-                    <div class="card-image">
-                        <img src="{{asset('plugs/photo/albums/' ~ prestation.Image)}}" />
-                    </div>
-                    {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
-                    <div class="card-heading">
-                        {{ prestation.Nom }}
-                    </div>
-                    <a href="{{path('app_detailPrest',{'idPrestation':prestation.id})}}" class="card-button"> Voir les tarifs</a>
-                </div>
-        {% endfor %}
-    </div>
-  {% else %}
       <div class="owl-carousel prestations_owl" >
         {% for prestation in prestations %}
                 <div class="card-sl m-2">
@@ -264,7 +248,6 @@
                 </div>
         {% endfor %}
         </div>
-  {% endif %}
   <div class="w-100  mt-3">
     <a href="{{path('app_prestations')}}" class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</a>
   </div>
