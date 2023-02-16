@@ -2,12 +2,19 @@
         {% for album in albums %}
             {% for attache in album.attachementVideos %}
                 <div class="elem_album">
-                    <a href="{{attache.url}}" target="_blank">
+                <iframe
+                    src="{{attache.url}}"
+                    allow="encrypted-media; gyroscope;"
+                    allowfullscreen></iframe>
+                {# <iframe width="350" height="250"
+                    src="{{attache.url}}">
+                </iframe> #}
+                    {# <a href="{{attache.url}}" target="_blank">
                     <div class="cadre m-2">
                         <img src="{{asset('plugs/videos/youtube.png')}}" alt="" class="img img-thumbnail img-fluid">
                         <label for="" class="font-Roboto font-weight-bold" ><a href="{{attache.url}}" target="_blank">{{attache.url}}</a></label>
                     </div>
-                    </a>
+                    </a> #}
                 </div>  
             {% endfor %}
         {% endfor %}  
