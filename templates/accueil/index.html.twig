@@ -62,8 +62,8 @@
               </a>
             </div>
           </div>
-          <div class="image-container"> 
-            <img src="{{asset('plugs/photo/albums/' ~ mariage.PhotoMariee )}}" alt="" class="image" />
+          <div class="image-container" style="background-image: url({{asset('plugs/photo/albums/' ~ mariage.PhotoMariee )}})"> 
+            {# <img src="{{asset('plugs/photo/albums/' ~ mariage.PhotoMariee )}}" alt="" class="image" /> #}
           </div>
         </div>
         {% set i = i + 1 %}
