@@ -57,6 +57,7 @@
         <table class="table table-bordered font-Maiandra">
             <thead class="thead-brown">
                 <tr>
+                    <th>N°</th>
                     <th>Mariée</th>
                     <th>Festivité</th>
                     <th>Lieu</th>
@@ -66,8 +67,10 @@
                 </tr>
             </thead>
             <tbody class="content_agenda">
+            {% set i = 0 %}
             {% for item in agenda %}
                 <tr>
+                    <td>{{ i }}</td>
                     <td>{{ item.IdMariage.NomHomme }} & {{ item.IdMariage.NomFemme }}</td>
                     <td>{{ item.IdTypeFestivite.Festivite }}</td>
                     <td>{{ item.Lieu }}</td>
@@ -75,6 +78,7 @@
                     <td>{{ item.Date|date('d M Y') }}</td>
                     <td>{{ item.Heure|date('H:i:s')  }}</td>
                 </tr>  
+                {% set i = i + 1 %}
             {% endfor %}
             </tbody>
         </table>
