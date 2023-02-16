@@ -54,15 +54,6 @@ class FestivitesRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function getAll(): array
-    {
-        return $this->createQueryBuilder('f')
-            ->groupBy('f.NomFest')
-            ->orderBy('f.NomFest', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-
     public function getFirstFestivite()
     {
         $conn = $this->getEntityManager()->getConnection();

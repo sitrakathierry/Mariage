@@ -1,0 +1,24 @@
+ {% if albums is not empty or albums is not null   %}
+        {% for album in albums %}
+            {% for attache in album.attachements %}
+                {% set extension = attache.Image|split('.') %}
+                {% if extension[1] in extensionImage %}
+                <div class="elem_album">
+                    <div class="cadre m-2">
+                        <a href="{{asset('plugs/photo/albums/' ~ attache.Image)}}" data-lightbox="album" data-title="{{ album.Date |date('d M Y') }}">
+                            <img src="{{asset('plugs/photo/albums/' ~ attache.Image)}}" alt="" class="img img-thumbnail img-fluid">
+                        </a>       
+                    </div>
+                </div>  
+                {% endif %}
+            {% endfor %}
+        {% endfor %}  
+{% else %}
+        <div class="elem_album">
+            <div class="cadre m-2">
+                <a href="{{asset('plugs/default.png')}}" data-lightbox="album" data-title="Insérer un album">
+                    <img src="{{asset('plugs/default.png')}}" alt="" class="img img-thumbnail img-fluid">
+                </a>       
+            </div>
+        </div>
+{% endif %}

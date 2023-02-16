@@ -41,7 +41,7 @@
                 {% for album in albums %}
                     {% set extension = album.Nom|split('.') %}
                     {% if extension[1] in extensionAudio %}
-                     <div class="elem_audio">
+                    <div class="elem_audio">
                     <div class="cadreAudio my-2 ml-4 mr-4">
                         <figure>
                             <figcaption>{{ album.Date | format_datetime('full','none') }}</figcaption>
@@ -54,7 +54,7 @@
                             </audio>
                         </figure>     
                     </div>
-                </div>  
+                    </div>  
                     {% endif %}
                 {% endfor %}  
             {% else %}

@@ -42,7 +42,7 @@ class AlbumsRepository extends ServiceEntityRepository
 
     public function getAlbumsParMariage()
     {
-        $sql = "SELECT * FROM `albums` WHERE `statut` IS NULL GROUP BY `id_mariage_id` ORDER BY `date` DESC ";
+        $sql = "SELECT * FROM `albums` alb JOIN attachement a ON alb.id = a.album_id WHERE `statut` IS NULL GROUP BY `id_mariage_id` ORDER BY `date` DESC";
         
         $conn = $this->getEntityManager()->getConnection();
         $stmt = $conn->prepare($sql);
@@ -52,6 +52,16 @@ class AlbumsRepository extends ServiceEntityRepository
         return $query->fetchAllAssociative();
     }
 
+    public function getLastFestOfMariage($idMariage): array
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.IdMariage = ?1 ')
+            ->setParameter(1, $idMariage)
+            ->orderBy('a.id', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Albums[] Returns an array of Albums objects
 //     */

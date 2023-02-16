@@ -254,5 +254,40 @@ $(document).ready(function(){
                 $('.content_agenda').empty().append(result)
             }
         });
-    })  
+    }) 
+    
+    $('.affiche_one_mrg').click(function(){
+        var one_festivite = $('.one_festivite').val()
+        var one_type_content = $('.one_type_content').val()
+        var idMariage = $(".idMariage").val()
+
+        $('.view_fest').text(one_festivite.split('|')[1])
+        if(one_type_content == 1)
+            $('.view_type').text("Album")
+        else if(one_type_content == 2)
+            $('.view_type').text("Video")
+        else
+            $('.view_type').text("Audio")
+
+        $('.contenu_album').empty().append(`
+            <div class="d-flex align-items-center ml-5">
+                <strong>Chargement en cours ...</strong>
+                <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+            </div>`)
+        var data = {
+            one_type_content:one_type_content,
+            idMariage:idMariage,
+            one_festivite:one_festivite.split('|')[0]
+        }
+        
+        $.ajax({
+            url: host + '/mariage/affiche/contenu',
+            type: 'post',
+            data: data,
+            dataType: 'html',
+            success: function(result) {
+                $('.contenu_album').empty().append(result)
+            }
+        });
+    })
 })

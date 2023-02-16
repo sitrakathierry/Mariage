@@ -119,13 +119,14 @@
       <h2 class="font-Great color-title font-weight-bold" >Albums</h2>
       <hr>
         <div class="owl-carousel p-5 pb-2 owl-2">
+ 
           {% for album in albums %}
-              {% if album.nom is empty %}
+              {% if album.image is empty %}
                   {% set albumPhoto = 'default.png' %}
               {% else %}
-                {% set albumPhoto = album.nom %}
+                {% set albumPhoto = album.image %}
               {% endif %}
-              {% set ext_album = album.nom|split('.') %}
+              {% set ext_album = albumPhoto|split('.') %}
               {% if ext_album[1] in extensionImage %}
                 <div class="media-29101">
                   <a href="#"><img src="{{asset('plugs/photo/albums/' ~ albumPhoto )}}" alt="Image" class="img-fluid"></a>

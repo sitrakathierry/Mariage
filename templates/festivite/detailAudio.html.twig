@@ -1,0 +1,38 @@
+ {% if albums is not empty %}
+        {% for album in albums %}
+            {% for attache in album.attachements %}
+                {% set extension = attache.Image|split('.') %}
+                {% if extension[1] in extensionAudio %}
+                <div class="elem_audio">
+                    <div class="cadreAudio my-2 ml-4 mr-4">
+                        <figure>
+                            <figcaption>{{ album.Date |date('d M Y') }}</figcaption>
+                            <audio
+                                controls
+                                src="{{asset('plugs/photo/albums/' ~ attache.Image)}}" class="w-100">
+                                    <a href="{{asset('plugs/photo/albums/' ~ attache.Image)}}">
+                                        Download audio
+                                    </a>
+                            </audio>
+                        </figure>     
+                    </div>
+                    </div>  
+                {% endif %}
+            {% endfor %}
+        {% endfor %}  
+{% else %}
+<div class="elem_audio">
+            <div class="cadreAudio my-2 ml-4 mr-4">
+                <figure>
+                    <figcaption>Insérer un fichier audio</figcaption>
+                    <audio
+                        controls
+                        src="{{asset('plugs/audio/default.mp3')}}" class="w-100">
+                            <a href="{{asset('audio/echantillon.mp3')}}">
+                                Download audio
+                            </a>
+                    </audio>
+                </figure>     
+            </div>
+        </div>
+{% endif %}
