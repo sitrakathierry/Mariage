@@ -291,10 +291,11 @@ $(document).ready(function(){
         });
     })
 
-    function affiche_Contenu(donnee){
-    $(donnee.selector).click(function(donnee){
+    
+    
+        function affiche_Contenu(types){
         var one_festivite = $('.festivite_content').val()
-        var one_type_content = donnee.types
+        var one_type_content = types
         var idMariage = $(".mariage_content").val()
 
         $('.view_mariage').text(idMariage.split('|')[1])
@@ -325,22 +326,15 @@ $(document).ready(function(){
                 $('.contenu_album').empty().append(result)
             }
         });
+      }
+    $(".affiche_album").click(function(){
+        affiche_Contenu(1)
     })
-    }
- 
-var data1 = {
-    selector: ".affiche_album",
-    types: 1
-}
-affiche_Contenu(data1)
-var data2 = {
-    selector: ".affiche_audio",
-    types: 3
-}
-affiche_Contenu(data2)
-
-var data2 = {
-    selector: ".affiche_video",
-    types: 2
-}
+    $(".affiche_video").click(function(){
+        affiche_Contenu(2)
+    })
+    $(".affiche_audio").click(function(){
+        affiche_Contenu(3)
+    })
+    
 })
