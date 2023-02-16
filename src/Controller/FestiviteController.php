@@ -190,7 +190,7 @@ class FestiviteController extends AbstractController
 
     /**
      * @Route("/mariage/affiche/contenu", name="contenu_Mariage")
-     */
+   */ 
     public function afficheContenuMariage(Request $request): Response
     {
         $one_festivite = $request->request->get('one_festivite');

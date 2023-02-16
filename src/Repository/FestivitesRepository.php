@@ -97,13 +97,22 @@ class FestivitesRepository extends ServiceEntityRepository
         return $query->fetchAllAssociative();
     }
 
-//    public function findOneBySomeField($value): ?Festivites
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Festivites
+    //    {
+    //        return $this->createQueryBuilder('f')
+    //            ->andWhere('f.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
+
+    public function getMariageEnCours()
+    {
+        $conn = $this->getEntityManager()->getConnection();
+        $sql = " SELECT m.nom_homme, m.nom_femme, m.photo_mariee FROM `festivites` f JOIN mariage m ON f.id_mariage_id = m.id WHERE f.statut IS NULL GROUP BY f.id_mariage_id ORDER BY date ASC ";
+        $stmt = $conn->prepare($sql);
+        $query = $stmt->executeQuery([]);
+        return $query->fetchAllAssociative();
+    }
 }

@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Mariage;
 use App\Entity\Albums;
 use App\Entity\Categories;
+use App\Entity\Festivites;
 use App\Entity\Invitation;
 
 class AccueilController extends AbstractController
@@ -33,8 +34,8 @@ class AccueilController extends AbstractController
      */
     public function index(): Response
     {
-        $mariages = $this->em->getRepository(Mariage::class)
-            ->findAll();
+        $mariages = $this->em->getRepository(Festivites::class)
+            ->getMariageEnCours();
 
         $invitations = $this->em->getRepository(Invitation::class)
             ->findBy(array(), array('id' => 'DESC'));
@@ -42,7 +43,7 @@ class AccueilController extends AbstractController
         $params = array(
             
         );
-
+ 
         $albums = $this->em->getRepository(Albums::class)
             ->getAlbumsParMariage($params);
 
