@@ -1,0 +1,23 @@
+ {% if albums is not empty or albums is not null   %}
+        {% for album in albums %}
+            {% for attache in album.attachementVideos %}
+                <div class="elem_album">
+                    <a href="{{attache.url}}" target="_blank">
+                    <div class="cadre m-2">
+                        <img src="{{asset('plugs/videos/youtube.png')}}" alt="" class="img img-thumbnail img-fluid">
+                        <label for="" class="font-Roboto font-weight-bold" ><a href="{{attache.url}}" target="_blank">{{attache.url}}</a></label>
+                    </div>
+                    </a>
+                </div>  
+            {% endfor %}
+        {% endfor %}  
+{% else %}
+        <div class="elem_album">
+            <a href="https://www.youtube.com/watch?v=9LCwvJIOltY" target="_blank">
+            <div class="cadre m-2">
+                <img src="{{asset('plugs/videos/youtube.png')}}" alt="" class="img img-thumbnail img-fluid">
+                <label for="" class="font-Roboto font-weight-bold" ><a href="https://www.youtube.com/watch?v=9LCwvJIOltY" target="_blank">Insérer un lien Youtube</a></label>
+            </div>
+            </a>
+        </div>
+{% endif %}

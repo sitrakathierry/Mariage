@@ -290,4 +290,57 @@ $(document).ready(function(){
             }
         });
     })
+
+    function affiche_Contenu(donnee){
+    $(donnee.selector).click(function(donnee){
+        var one_festivite = $('.festivite_content').val()
+        var one_type_content = donnee.types
+        var idMariage = $(".mariage_content").val()
+
+        $('.view_mariage').text(idMariage.split('|')[1])
+        $('.view_fest').text(one_festivite.split('|')[1])
+        if(one_type_content == 1)
+            $('.view_type').text("Album")
+        else if(one_type_content == 2)
+            $('.view_type').text("Video")
+        else
+            $('.view_type').text("Audio")
+
+        $('.contenu_album').empty().append(`
+            <div class="d-flex align-items-center ml-5">
+                <strong>Chargement en cours ...</strong>
+                <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+            </div>`)
+        var data = {
+            one_type_content:one_type_content,
+            idMariage:idMariage.split('|')[0],
+            one_festivite:one_festivite.split('|')[0]
+        }
+        $.ajax({
+            url: host + '/mariage/affiche/contenu',
+            type: 'post',
+            data: data,
+            dataType: 'html',
+            success: function(result) {
+                $('.contenu_album').empty().append(result)
+            }
+        });
+    })
+    }
+ 
+var data1 = {
+    selector: ".affiche_album",
+    types: 1
+}
+affiche_Contenu(data1)
+var data2 = {
+    selector: ".affiche_audio",
+    types: 3
+}
+affiche_Contenu(data2)
+
+var data2 = {
+    selector: ".affiche_audio",
+    types: 3
+}
 })

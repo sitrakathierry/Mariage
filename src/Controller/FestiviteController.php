@@ -10,6 +10,7 @@ use App\Entity\Mariage;
 use App\Entity\Festivites;
 use App\Entity\Albums;
 use App\Entity\TypeFestivite;
+use App\Entity\Video;
 use Symfony\Component\HttpFoundation\Request;
 
 class FestiviteController extends AbstractController
@@ -91,10 +92,10 @@ class FestiviteController extends AbstractController
 
         $albums = null;
         if (!empty($firstFestivite)) {
-            $albums = $this->em->getRepository(Albums::class)
+            $albums = $this->em->getRepository(Video::class)
                 ->findBy(array(
-                    "IdTypeFest" => $firstFestivite['id'],
-                    "IdMariage" => $firstFestivite['IdMariage'],
+                    "idMariage" => $firstFestivite['idTypeF'],
+                    "idTypeFestivite" => $firstFestivite['IdMariage'],
                 ));
 
             if (empty($albums))
@@ -129,7 +130,7 @@ class FestiviteController extends AbstractController
         if (!empty($firstFestivite)) {
             $albums = $this->em->getRepository(Albums::class)
                 ->findBy(array(
-                    "IdTypeFest" => $firstFestivite['id'],
+                    "IdTypeFest" => $firstFestivite['idTypeF'],
                     "IdMariage" => $firstFestivite['IdMariage'],
                 ));
 
@@ -210,6 +211,16 @@ class FestiviteController extends AbstractController
             ]);
         } else if ($one_type_content == 2) # Video
         {
+            $albums = $this->em->getRepository(Video::class)
+            ->findBy(array(
+                "idMariage" => $idMariage,
+                "idTypeFestivite" => $one_festivite
+            ));
+
+            return $this->render('festivite/detailVideo.html.twig', [
+                'albums' => $albums
+            ]);
+
         } else { # Audio
             $albums = $this->em->getRepository(Albums::class)
                 ->findBy(array(
