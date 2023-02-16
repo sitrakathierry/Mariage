@@ -120,7 +120,7 @@
 <div class="text-center p-3">
       <h2 class="font-Great color-title font-weight-bold" >Albums</h2>
       <hr>
-        <div class="owl-carousel p-5 pb-2 owl-2">
+        <div class="owl-carousel px-5 py-0  pb-2 owl-2">
 
            {% if albums is not empty or albums is not null   %}
             {% for album in albums %}
@@ -139,7 +139,7 @@
         </div>
         <h2 class="font-Great color-title font-weight-bold" >Vidéos</h2>
       <hr>
-      <div class="featured-carousel p-5 owl-carousel">
+      <div class="featured-carousel px-5 py-0 owl-carousel">
        
             {% if videos is not empty or videos is not null   %}
               {% for video in videos %}
@@ -177,7 +177,7 @@
 			</div>
       <h2 class="font-Great color-title font-weight-bold" >Audio</h2>
       <hr>
-      <div class="gtco-testimonials p-3">
+      <div class="gtco-testimonials px-3 py-0">
       <div class="owl-carousel owl-carousel1 owl-theme">
        {% if albums is not empty %}
         {% for album in albums %}
@@ -210,7 +210,7 @@
  
   <h2 class="font-Great color-title font-weight-bold">Boutiques</h2>
   <hr>
-  <div class="p-5 pb-2">
+  <div class="px-5 pt-0 pb-2">
   <div class="owl-carousel boutique_owl">
   {% for boutique in boutiques %}
         <div class="product-wrapper border rounded text-center"> 
@@ -227,13 +227,29 @@
         </div>
   {% endfor %}
   </div>
-  <div class="w-100  mt-5">
+  <div class="w-100  mt-3">
     <a href="{{path('app_boutiques')}}" class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</a>
   </div>
 </div>
   <h2 class="font-Great color-title font-weight-bold">Prestations</h2>
   <hr>
-  <div class="p-5 pb-2">
+  <div class="px-5 pt-0 pb-2">
+  {% if prestations|length < 4 %}
+    <div class="w-100 text-center" >
+       {% for prestation in prestations %}
+                <div class="card-sl m-2">
+                    <div class="card-image">
+                        <img src="{{asset('plugs/photo/albums/' ~ prestation.Image)}}" />
+                    </div>
+                    {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                    <div class="card-heading">
+                        {{ prestation.Nom }}
+                    </div>
+                    <a href="{{path('app_detailPrest',{'idPrestation':prestation.id})}}" class="card-button"> Voir les tarifs</a>
+                </div>
+        {% endfor %}
+    </div>
+  {% else %}
       <div class="owl-carousel prestations_owl" >
         {% for prestation in prestations %}
                 <div class="card-sl m-2">
@@ -248,7 +264,8 @@
                 </div>
         {% endfor %}
         </div>
-  <div class="w-100  mt-5">
+  {% endif %}
+  <div class="w-100  mt-3">
     <a href="{{path('app_prestations')}}" class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</a>
   </div>
   </div>

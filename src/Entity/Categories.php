@@ -171,7 +171,7 @@ class Categories
     /** 
      * @param File|null $categoryFile
      */
-    public function setCategoryFile(File $categoryFile)
+    public function setCategoryFile(?File $categoryFile)
     {
         $this->categoryFile = $categoryFile;
 

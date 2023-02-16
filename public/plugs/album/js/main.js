@@ -30,7 +30,7 @@ $(function() {
 
 if ( $('.carouselInv').length > 0 ) {
         $('.carouselInv').owlCarousel({
-            center: false,
+            center: true,
             items: 1,
             loop: true,
             stagePadding: 0,
