@@ -45,7 +45,7 @@ class AccueilController extends AbstractController
         );
  
         $albums = $this->em->getRepository(Albums::class)
-            ->getAlbumsParMariage($params);
+            ->findAll();
 
         return $this->render('accueil/index.html.twig', [
             'page_name' => 'Accueil',

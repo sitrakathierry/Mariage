@@ -119,23 +119,21 @@
       <h2 class="font-Great color-title font-weight-bold" >Albums</h2>
       <hr>
         <div class="owl-carousel p-5 pb-2 owl-2">
- 
-          {% for album in albums %}
-              {% if album.image is empty %}
-                  {% set albumPhoto = 'default.png' %}
-              {% else %}
-                {% set albumPhoto = album.image %}
-              {% endif %}
-              {% set ext_album = albumPhoto|split('.') %}
-              {% if ext_album[1] in extensionImage %}
-                <div class="media-29101">
-                  <a href="#">
-                    <img src="{{asset('plugs/photo/albums/' ~ albumPhoto )}}" alt="Image" class="img-fluid acc_image_album">
-                  </a>
-                  {# <h3><a href="#" class="color-description font-Great">{{ album.date|date('d M Y') }}</a></h3> #}
-                </div>
-              {% endif %}
-          {% endfor %}
+
+           {% if albums is not empty or albums is not null   %}
+            {% for album in albums %}
+                {% for attache in album.attachements %}
+                    {% set extension = attache.Image|split('.') %}
+                    {% if extension[1] in extensionImage %}
+                      <div class="media-29101">
+                            <a href="{{asset('plugs/photo/albums/' ~ attache.Image)}}" data-lightbox="album" data-title="{{ album.Date |date('d M Y') }}">
+                                <img src="{{asset('plugs/photo/albums/' ~ attache.Image)}}" alt="" class="img img-thumbnail acc_image_album img-fluid">
+                            </a>       
+                      </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}  
+          {% endif %}
         </div>
         <h2 class="font-Great color-title font-weight-bold" >Vidéos</h2>
       <hr>
