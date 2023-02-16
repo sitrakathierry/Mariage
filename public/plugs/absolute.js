@@ -25,7 +25,6 @@ $(document).ready(function(){
                             theme:'modern',
                             buttons: {
                                 Annuler: function () {
-                                    
                                 },
                                 Valider: {
                                     text: 'Valider',
@@ -44,7 +43,7 @@ $(document).ready(function(){
                                             success: function(result) {
                                                 if(result.msg == "success")
                                                 {
-                                                    $.alert('Article ajoutée')
+                                                    $.alert('Ajoutée')
                                                 }
                                             }
                                         });
