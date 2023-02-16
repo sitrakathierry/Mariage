@@ -55,4 +55,60 @@ if ( $('.carouselInv').length > 0 ) {
             }
         });            
     }
+
+  if ( $('.boutique_owl').length > 0 ) {
+        $('.boutique_owl').owlCarousel({
+            center: false,
+            items: 1,
+            // loop: true,
+            stagePadding: 0,
+            margin: 60,
+            smartSpeed: 1000,
+            autoplay: true,
+            nav: true,
+            dots: false,
+            pauseOnHover: false,
+            responsive:{
+                600:{
+                    margin: 20,
+                    nav: true,
+                  items: 3
+                },
+                1000:{
+                    margin: 20,
+                    stagePadding: 0,
+                    nav: true,
+                  items: 4
+                }
+            }
+        });            
+    }
+
+    if ( $('.prestations_owl').length > 0 ) {
+        $('.prestations_owl').owlCarousel({
+            center: false,
+            items: 1,
+            // loop: true,
+            stagePadding: 0,
+            margin: 60,
+            smartSpeed: 2000,
+            autoplay: true,
+            nav: true,
+            dots: false,
+            pauseOnHover: false,
+            responsive:{
+                600:{
+                    margin: 20,
+                    nav: true,
+                  items: 3
+                },
+                1000:{
+                    margin: 20,
+                    stagePadding: 0,
+                    nav: true,
+                  items: 4
+                }
+            }
+        });            
+    }
 })

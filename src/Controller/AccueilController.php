@@ -46,7 +46,16 @@ class AccueilController extends AbstractController
 
         $videos = $this->em->getRepository(Video::class)
             ->findAll();
-
+        $boutiques = $this->em->getRepository(Categories::class)
+            ->findBy(array(
+                "Statut" => null,
+                "IdTypeOffre" => 1
+            ));
+        $prestations = $this->em->getRepository(Categories::class)
+            ->findBy(array(
+                "Statut" => null,
+                "IdTypeOffre" => 2
+            ));
         return $this->render('accueil/index.html.twig', [
             'page_name' => 'Accueil',
             'mariages' => $mariages,
@@ -54,7 +63,9 @@ class AccueilController extends AbstractController
             'extensionImage' => $this->extensionImage,
             'extensionAudio' => $this->extensionAudio,
             'albums' => $albums,
-            'videos' => $videos
+            'videos' => $videos,
+            'boutiques' => $boutiques,
+            'prestations' => $prestations
         ]);
     }
 }

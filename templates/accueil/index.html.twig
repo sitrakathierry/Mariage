@@ -209,147 +209,45 @@
   <h2 class="font-Great color-title font-weight-bold">Boutiques</h2>
   <hr>
   <div class="p-5 pb-2">
-  <div class="row">
-    <div class="col-md-3">
-        <div class="product-wrapper text-center"> 
+  <div class="owl-carousel boutique_owl">
+  {% for boutique in boutiques %}
+        <div class="product-wrapper border rounded text-center"> 
             <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/robe.jpg')}}" alt=""> </a>
-            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
-                <div class="product-action"> 
-                    <div class="product-action-style">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                        <a href="#"><i class="fa fa-heart"></i> </a>
-                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
+            <a href="#" data-abc="true"> <img src="{{asset('plugs/photo/albums/' ~ boutique.Image)}}" alt=""> </a>
+            <span class="text-center">{{ boutique.IdPrix }}&nbsp;KMF</span>
+                <div class="product-action mb-3"> 
+                    <div class="product-action-style rounded">
+                    <a href="#">{{ boutique.Nom }}</a>
+                        <a href="#" class="ajout_panier" value="{{ boutique.id }}"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product-wrapper text-center"> 
-            <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/bijoux.webp')}}" alt=""> </a>
-            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
-                <div class="product-action"> 
-                    <div class="product-action-style">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                        <a href="#"><i class="fa fa-heart"></i> </a>
-                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product-wrapper text-center"> 
-            <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/costard.jpg')}}" alt=""> </a>
-            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
-                <div class="product-action"> 
-                    <div class="product-action-style">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                        <a href="#"><i class="fa fa-heart"></i> </a>
-                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="product-wrapper text-center"> 
-            <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('plugs/boutiques/chaussure.jpg')}}" alt=""> </a>
-            <span class="text-center">43 000 <i class="fa fa-euro"></i></span>
-                <div class="product-action"> 
-                    <div class="product-action-style">
-                        <a href="#"><i class="fa fa-plus"></i></a>
-                        <a href="#"><i class="fa fa-heart"></i> </a>
-                        <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  {% endfor %}
   </div>
   <div class="w-100  mt-5">
-    <button class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</button>
+    <a href="{{path('app_boutiques')}}" class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</a>
   </div>
 </div>
   <h2 class="font-Great color-title font-weight-bold">Prestations</h2>
   <hr>
   <div class="p-5 pb-2">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="card-sl">
-                <div class="card-image">
-                    <img
-                        src="{{asset('plugs/prestations/photographe.jpg')}}" />
+      <div class="owl-carousel prestations_owl" >
+        {% for prestation in prestations %}
+                <div class="card-sl m-2">
+                    <div class="card-image">
+                        <img src="{{asset('plugs/photo/albums/' ~ prestation.Image)}}" />
+                    </div>
+                    {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
+                    <div class="card-heading">
+                        {{ prestation.Nom }}
+                    </div>
+                    <a href="{{path('app_detailPrest',{'idPrestation':prestation.id})}}" class="card-button"> Voir les tarifs</a>
                 </div>
-
-                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
-                <div class="card-heading">
-                    Photographe
-                </div>
-                <div class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                </div>
-                <a href="#" class="card-button"> Commander</a>
-            </div>
+        {% endfor %}
         </div>
-      <div class="col-md-3">
-            <div class="card-sl">
-                <div class="card-image">
-                    <img
-                        src="{{asset('plugs/prestations/organisateur.jpg')}}" />
-                </div>
-
-                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
-                <div class="card-heading">
-                    Organisateur
-                </div>
-                <div class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                </div>
-                <a href="#" class="card-button"> Commander</a>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card-sl">
-                <div class="card-image">
-                    <img
-                        src="{{asset('plugs/prestations/patissier.jpg')}}" />
-                </div>
-
-                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
-                <div class="card-heading">
-                    Pâtissier
-                </div>
-                <div class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                </div>
-                <a href="#" class="card-button"> Commander</a>
-            </div>
-        </div>
-      <div class="col-md-3">
-            <div class="card-sl">
-                <div class="card-image">
-                    <img
-                        src="{{asset('plugs/prestations/maquilleur.webp')}}" />
-                </div>
-
-                {# <a class="card-action" href="#"><i class="fa fa-heart"></i></a> #}
-                <div class="card-heading">
-                    Maquilleur/Coiffeur
-                </div>
-                <div class="card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                </div>
-                <a href="#" class="card-button"> Commander</a>
-            </div>
-        </div>
-    </div>
   <div class="w-100  mt-5">
-    <button class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</button>
+    <a href="{{path('app_prestations')}}" class="btn btn-outline-danger pl-5 p-2 pr-5 voir-plus " >Voir plus</a>
   </div>
   </div>
   
