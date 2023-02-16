@@ -160,7 +160,23 @@
     box-shadow: 0px 0px 10px #ff5700;
     }
 
+.contact_link li a img {
+    width: 35px !important;
+    height: 35px !important;
+    line-height: 40px;
 
+}
+
+.links a,
+.contact_link li a h5 {
+    transition: .3s;
+    color: white;
+}
+
+.links a:hover,
+.contact_link li a h5:hover {
+    color: orangered !important;
+}
 
 @media only screen and (max-width: 900px) {
 

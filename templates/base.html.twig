@@ -107,34 +107,40 @@
       
         <div class="container">
           <div class="row">
-            <div class="col-md-3 text-center">
+            <div class="col-md-4 text-center">
               <img src="{{asset('plugs/predefinie/images/logo.jpeg')}}" alt="" class="img rounded-circle logoFooter">
             </div>
-            <div class="col-md-2 ml-auto">
+            <div class="col-md-4 text-left pl-5">
               <h3>Nos Liens</h3>
               <ul class="list-unstyled  links">
-                <li><a href="#" class="text-white">Agenda</a></li>
-                <li><a href="#" class="text-white">Mariage</a></li>
-                <li><a href="#" class="text-white">Actualités</a></li>
-                <li><a href="#" class="text-white">Boutiques</a></li>
-                <li><a href="#" class="text-white">Prestations</a></li>
+                <li><a href="{{path('app_agenda')}}" class="text-white">Agenda</a></li>
+                <li><a href="{{path('app_mariage')}}" class="text-white">Mariage</a></li>
+                <li><a href="{{path('app_actualites')}}" class="text-white">Actualités</a></li>
+                <li><a href="{{path('app_boutiques')}}" class="text-white">Boutiques</a></li>
+                <li><a href="{{path('app_prestations')}}" class="text-white">Prestations</a></li>
               </ul>
             </div>
-            <div class="col-md-2 ml-auto">
-              <h3>Nos patenaires</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#" class="text-white">Hikam SM</a></li>
-                <li><a href="#" class="text-white">Partenaire 2</a></li>
-                <li><a href="#" class="text-white">Partenaire 3</a></li>
-                <li><a href="#" class="text-white">Partenaire 4</a></li>
-                <li><a href="#" class="text-white">Partenaire 5</a></li>
-              </ul>
-            </div>
-            <div class="col-md-2 ml-auto">
-              <h3>Contacts</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#" class="text-white">Facebook : </a></li>
-                <li><a href="#" class="text-white">Gmail :  https://wa.me/15551234567</a></li>
+            <div class="col-md-3">
+              <h3 class="font-Roboto font-weight-bold" >Contacts</h3>
+              <ul class="list-unstyled lh-3 contact_link links">
+                <li class="mb-3">
+                <a href="https://web.facebook.com/profile.php?id=100063510724768&mibextid=ZbWKwL&_rdc=1&_rdr" class="d-flex w-100 align-item-center flex-row ">
+                <img src="{{asset('plugs/footer/facebook.png')}}" alt="">
+                <h5 class="mt-2 font-weight-bold font-Roboto h6" >&nbsp; SoibahLher Shuhuli</h5>
+                </a>
+                </li>
+                <li class="mb-3">
+                <a href="https://wa.me/2693263548 " class="d-flex w-100 align-item-center flex-row ">
+                <img src="{{asset('plugs/footer/whatsapp.png')}}" alt="">
+                <h5 class="mt-2 font-weight-bold font-Roboto h6" >&nbsp; +(269) 3263548</h5>
+                </a>
+                </li>
+                <li class="">
+                <a href="" class="d-flex w-100 align-item-center flex-row ">
+                <img src="{{asset('plugs/footer/gmail.png')}}" alt="">
+                <h5 class="mt-2 font-weight-bold font-Roboto h6" >&nbsp; soibah.lheri@gmail.com</h5>
+                </a>
+                </li>
                 {# <li><a href="#">Team</a></li>
                 <li><a href="#">Career</a></li>
                 <li><a href="#">Contacts</a></li> #}
