@@ -57,7 +57,7 @@ class FestiviteController extends AbstractController
         if (!empty($firstFestivite)) {
             $albums = $this->em->getRepository(Albums::class)
                 ->findBy(array(
-                    "IdTypeFest" => $firstFestivite['id'],
+                    "IdTypeFest" => $firstFestivite['idTypeF'],
                     "IdMariage" => $firstFestivite['IdMariage'],
                 ));
 

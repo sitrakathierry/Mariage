@@ -57,7 +57,7 @@ class FestivitesRepository extends ServiceEntityRepository
     public function getFirstFestivite()
     {
         $conn = $this->getEntityManager()->getConnection();
-        $sql = " SELECT f.id, m.id as IdMariage, m.nom_homme, m.nom_femme, f.nom_fest FROM `festivites` f JOIN mariage m ON f.id_mariage_id = m.id ORDER BY f.`id` ASC LIMIT 1 ";
+        $sql = " SELECT f.id, m.id as IdMariage, m.nom_homme, m.nom_femme, f.nom_fest ,tf.festivite, tf.id as idTypeF FROM `festivites` f JOIN mariage m ON f.id_mariage_id = m.id JOIN type_festivite tf ON f.id_type_festivite_id = tf.id ORDER BY f.`id` ASC LIMIT 1 ";
         $stmt = $conn->prepare($sql);
         $query = $stmt->executeQuery([]);
 
