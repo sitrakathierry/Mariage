@@ -3,8 +3,8 @@
 
   var carousels = function () {
     $(".owl-carousel1").owlCarousel({
-      loop: true,
-      center: true,
+      // loop: true,
+      // center: true,
       margin: 0,
       smartSpeed: 1000,
       autoplay: true,
@@ -22,7 +22,7 @@
           loop: false
         },
         1000: {
-          items: 4,
+          items: 3,
           nav: true
         }
       }

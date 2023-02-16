@@ -11,6 +11,7 @@ use App\Entity\Albums;
 use App\Entity\Categories;
 use App\Entity\Festivites;
 use App\Entity\Invitation;
+use App\Entity\Video;
 
 class AccueilController extends AbstractController
 {
@@ -40,11 +41,10 @@ class AccueilController extends AbstractController
         $invitations = $this->em->getRepository(Invitation::class)
             ->findBy(array(), array('id' => 'DESC'));
 
-        $params = array(
-            
-        );
- 
         $albums = $this->em->getRepository(Albums::class)
+            ->findAll();
+
+        $videos = $this->em->getRepository(Video::class)
             ->findAll();
 
         return $this->render('accueil/index.html.twig', [
@@ -53,7 +53,8 @@ class AccueilController extends AbstractController
             'invitations' => $invitations,
             'extensionImage' => $this->extensionImage,
             'extensionAudio' => $this->extensionAudio,
-            'albums' => $albums
+            'albums' => $albums,
+            'videos' => $videos
         ]);
     }
 }
