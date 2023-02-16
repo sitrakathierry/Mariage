@@ -42,35 +42,28 @@
   {% if albums is not empty or albums is not null   %}
         {% for album in albums %}
             {% for attache in album.attachementVideos %}
-                <div class="elem_album">
-                <iframe
-                    src="{{attache.url}}"
-                    allow="encrypted-media; gyroscope;"
-                    allowfullscreen></iframe>
-                    {# <iframe width="350" height="250"
-                        src="{{attache.url}}">
-                    </iframe> #}
-                    {# <video controls width="350" height="250">
-                        <source src="{{attache.url}}">
-                    </video> #}
-                    {# <a href="{{attache.url}}" target="_blank">
-                    <div class="cadre m-2">
-                        <img src="{{asset('plugs/videos/youtube.png')}}" alt="" class="img img-thumbnail img-fluid">
-                        <label for="" class="font-Roboto font-weight-bold" ><a href="{{attache.url}}" target="_blank">{{attache.url}}</a></label>
+                {% set videoUrl = attache.url|split('watch?v=') %}
+                <div class="elem_video text-center">
+                    <div class="monElement">
+                        <iframe
+                            src="{{videoUrl[0] ~ 'embed/' ~ videoUrl[1]}}"
+                            allow="encrypted-media; gyroscope;"
+                            allowfullscreen>
+                        </iframe>
                     </div>
-                    </a> #}
                 </div>  
             {% endfor %}
         {% endfor %}  
 {% else %}
-        <div class="elem_album">
-            <a href="https://www.youtube.com/watch?v=9LCwvJIOltY" target="_blank">
-            <div class="cadre m-2">
-                <img src="{{asset('plugs/videos/youtube.png')}}" alt="" class="img img-thumbnail img-fluid">
-                <label for="" class="font-Roboto font-weight-bold" ><a href="https://www.youtube.com/watch?v=9LCwvJIOltY" target="_blank">Insérer un lien Youtube</a></label>
-            </div>
-            </a>
+    <div class="elem_video text-center">
+        <div class="monElement">
+            <iframe
+                src="https://www.youtube.com/embed/9LCwvJIOltY"
+                allow="encrypted-media; gyroscope;"
+                allowfullscreen>
+            </iframe>
         </div>
+    </div>
 {% endif %}
     </div>
       <div class="option_album text-white text-left p-3 w-25 bg-grey">

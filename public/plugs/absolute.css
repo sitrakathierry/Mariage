@@ -64,3 +64,17 @@ footer {
 .font-Maiandra {
     font-family: 'Maiandra GD';
 }
+.elem_video {
+    width: calc(100%/3) ;
+    height: 200px;
+}
+
+.elem_video iframe {
+    width: 100%;
+    height: 200px;
+}
+
+.monElement {
+    width: 100%;
+    height: 200px !important;
+}
