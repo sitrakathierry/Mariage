@@ -6,5 +6,7 @@ nelmio_cors:
         allow_headers: ['Content-Type', 'Authorization','origin','accept','bearer']
         expose_headers: ['Link']
         max_age: 3600
+        forced_allow_origin_value: ~
+        skip_same_as_origin: true
     paths:
         '^/': null
