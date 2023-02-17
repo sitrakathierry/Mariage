@@ -13,6 +13,7 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 
 class ActualitesCrudController extends AbstractCrudController
 {

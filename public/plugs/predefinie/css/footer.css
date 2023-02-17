@@ -9,6 +9,16 @@ body {
     background-position: 0 -90px;
     background-size: cover;
 }
+
+@media only screen and (max-width: 600px) {
+    .footer-14398
+    {
+        background-position: right center !important;
+        padding-top: 129px;
+        height: 284px;
+    }
+}
+
 .maContenu {
     flex-grow: 1;
 }
@@ -25,7 +35,7 @@ body {
     color: #fff;
     font-size: 16px;
     margin-bottom: 20px;
-}
+} 
 
 .footer-14398 .links li {
     margin-bottom: 10px;
