@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Articles;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,9 +26,14 @@ class PrestationsController extends AbstractController
                 "Statut" => null,
                 "IdTypeOffre" => 2
             ));
+
+        $panier = $this->em->getRepository(Articles::class)->findBy(array(
+            "Statut" => -1
+        ));
         return $this->render('prestations/index.html.twig', [
             'page_name' => 'Prestations',
-            'prestations' => $prestations
+            'prestations' => $prestations,
+            'panier' => $panier
         ]);
     }
 
@@ -42,9 +48,14 @@ class PrestationsController extends AbstractController
                 "IdTypeOffre" => 2,
                 "id" => $idPrestation
             ));
+
+        $panier = $this->em->getRepository(Articles::class)->findBy(array(
+                "Statut" => -1
+            ));
         return $this->render('prestations/detailPrestation.html.twig', [
             'page_name' => 'Détails Prestation',
-            'unePrestation' => $unePrestation
+            'unePrestation' => $unePrestation,
+            'panier' => $panier
         ]);
     }
 }

@@ -8,10 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Mariage;
 use App\Entity\Albums;
+use App\Entity\Articles;
 use App\Entity\Categories;
 use App\Entity\Festivites;
 use App\Entity\Invitation;
 use App\Entity\Video;
+use Symfony\Component\HttpFoundation\Request;
 
 class AccueilController extends AbstractController
 {
@@ -56,6 +58,11 @@ class AccueilController extends AbstractController
                 "Statut" => null,
                 "IdTypeOffre" => 2
             ));
+
+        $panier = $this->em->getRepository(Articles::class)
+                ->findBy(array(
+                    "Statut" => -1
+                ));
         return $this->render('accueil/index.html.twig', [
             'page_name' => 'Accueil',
             'mariages' => $mariages,

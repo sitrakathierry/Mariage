@@ -4,9 +4,6 @@
 
 {% block stylesheets %}
 {{ parent() }}
-     <link rel="stylesheet" type="text/css" href="{{asset('plugs/actualites/css/style.css')}}">
-    <!-- Responsive-->
-    <link rel="stylesheet" href="{{asset('plugs/actualites/css/responsive.css')}}">
     <style>
     .g-banniere
         {
@@ -73,7 +70,7 @@
                 </label>
             </div>
             <div class="col-md-8">
-                <h3 class="liya_text font-Montserrat text-center">{{ actualite.Titre }}</h3>
+                <h3 class="liya_text font-Montserrat font-weight-bold text-center">{{ actualite.Titre }}</h3>
                 <div class="w-100 text-truncate text-wrap explication">
                     <p>{{ (actualite.Explication|striptags)[0:200]  }}&nbsp;. . .
                      </p></a>

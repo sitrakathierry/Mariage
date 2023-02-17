@@ -67,60 +67,32 @@
                     <li><a href="{{path('app_albums')}}" class="album">Albums</a></li>
                     <li><a href="{{path('app_videos')}}" class="video">Vidéos</a></li>
                     <li><a href="{{path('app_audio')}}" class="audio">Audio</a></li>
-                    {# <li class="has-children">
-                      <a href="#">Dropdown</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                        <li><a href="#">Menu Four</a></li>
-                      </ul>
-                    </li> #}
                   </ul>
                 </li>
                 <li><a href="{{path('app_actualites')}}"><span>Journal des mariages</span></a></li>
                 <li><a href="{{path('app_boutiques')}}"><span>Boutiques</span></a></li>
                 <li><a href="{{path('app_prestations')}}"><span>Prestations</span></a></li>
                 <li><a href="{{path('app_contact')}}"><span>Contact</span></a></li>
-                <li><a href="{{path('app_panier')}}"><span><i class="fas fa-shopping-cart"></i></span></a></li>
+                {% if panier is not defined or panier is empty %}
+                  {% set panier = null %}
+                {% endif %}
+                <li><a href="{{path('app_panier')}}"><span><i class="fas fa-shopping-cart"></i>&nbsp;<span class="badge {{ (panier|length <= 0) ? 'badge-secondary' : 'badge-success' }} badge_notif" value="{{panier|length}}" >{{ panier|length }}</span> </span></a></li>
               </ul>
-              
             </nav>
           </div>
           <div class="d-inline-block text-right d-xl-none w-100  pr-3" style="position: relative; top: -47px !important; left:0"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
-
           </div>
-
         </div>
       </div>
     </header>
-{# {% if page_name != "Accueil" %}
-<section class="g-banniere" >
-<h1>{{ page_name }}</h1>
-</section>
-{% endif %} #}
-
 {% block content %}
 
 {% endblock %}
+  {# <div class="w-100 p-5 mt-5 ghost_foot"> </div> #}
     <footer class="footer-14398" style="background-image:url({{asset('plugs/footer/fond_foot.jpg')}})" >
-        <div class="container-fluid">
+        <div class="container-fluid pl-3">
           <div class="row">
-            {# <div class="col-md-4 text-center">
-              <img src="{{asset('plugs/predefinie/images/logo.jpeg')}}" alt="" class="img rounded-circle logoFooter">
-            </div> #}
-            {# <div class="col-md-4 text-left pl-5">
-              <h3>Nos Liens</h3>
-              <ul class="list-unstyled  links">
-                <li><a href="{{path('app_agenda')}}" class="text-white">Agenda</a></li>
-                <li><a href="{{path('app_mariage')}}" class="text-white">Mariage</a></li>
-                <li><a href="{{path('app_actualites')}}" class="text-white">Actualités</a></li>
-                <li><a href="{{path('app_boutiques')}}" class="text-white">Boutiques</a></li>
-                <li><a href="{{path('app_prestations')}}" class="text-white">Prestations</a></li>
-              </ul>
-            </div> #}
             <div class="col-md-3">
-              {# <h2 class="font-Roboto font-foot h2 text-white font-weight-bold text-center" >Contact</h2> #}
               <ul class="list-unstyled lh-3 contact_link links">
                 <li class="mb-3">
                 <a href="https://web.facebook.com/profile.php?id=100063510724768&mibextid=ZbWKwL&_rdc=1&_rdr" class="d-flex w-100 align-item-center flex-row ">
@@ -140,39 +112,9 @@
                 <h5 class="mt-2 font-weight-bold font-Roboto h6" >&nbsp; soibah.lheri@gmail.com</h5>
                 </a>
                 </li>
-                {# <li><a href="#">Team</a></li>
-                <li><a href="#">Career</a></li>
-                <li><a href="#">Contacts</a></li> #}
               </ul>
             </div>
           </div>
-
-          {# <div class="row mb-4">
-            <div class="col-12 pb-4">
-              <div class="line"></div>
-            </div>
-            <div class="col-md-6 text-md-left">
-              <ul class="list-unstyled link-menu nav-left">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms &amp; Conditions</a></li>
-                <li><a href="#">Code of Conduct</a></li>
-              </ul>
-            </div>
-            <div class="col-md-6 text-md-right">
-              <ul class="list-unstyled social nav-right">
-                <li><a href="#"><span class="icon-twitter"></span></a></li>
-                <li><a href="#"><span class="icon-instagram"></span></a></li>
-                <li><a href="#"><span class="icon-facebook"></span></a></li>
-                <li><a href="#"><span class="icon-pinterest"></span></a></li>
-              </ul>
-            </div>
-          </div> #}
-
-          {# <div class="row">
-            <div class="col-md-7">
-              <p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, fuga. Ex at maxime eum odio quibusdam pariatur expedita explicabo harum! Consectetur ducimus delectus nemo, totam odit!</small></p>
-            </div>
-          </div> #}
         </div>
     </footer>
 {% block javascripts %} 

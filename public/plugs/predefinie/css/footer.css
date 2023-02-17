@@ -1,16 +1,17 @@
 .footer-14398 {
-    padding: 3rem 0;
-    /* background: linear-gradient(132deg, rgba(250, 188, 19, 1) 9%, rgba(213, 165, 6, 1) 36%, rgba(185, 95, 19, 1) 63%, rgba(255, 85, 0, 1) 87%); */
-    /* background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%); */
-    color: #777;
-    background-repeat: no-repeat;
-        background-position: 0 -90px;
-        background-size: cover;
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 100%; */
+    height: 280px;
+    padding: 3rem 0;
+    background-repeat: no-repeat;
+    background-position: 0 -90px;
+    background-size: cover;
 }
 
+.ghost_foot {
+    height: 400px;
+}
 .footer-14398 .footer-site-logo {
     color: #fff;
     font-size: 26px;

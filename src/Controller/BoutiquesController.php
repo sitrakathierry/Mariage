@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Articles;
 use App\Entity\Categories;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +26,13 @@ class BoutiquesController extends AbstractController
                 "Statut" => null,
                 "IdTypeOffre" => 1
             ));
+        $panier = $this->em->getRepository(Articles::class)->findBy(array(
+            "Statut" => -1
+        ));
         return $this->render('boutiques/index.html.twig', [
             'page_name' => 'Boutiques',
-            'boutiques' => $boutiques 
+            'boutiques' => $boutiques ,
+            'panier' => $panier
         ]);
     }
 }

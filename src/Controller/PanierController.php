@@ -33,6 +33,7 @@ class PanierController extends AbstractController
      */
     public function index(): Response
     {
+        
         $panier = $this->em->getRepository(Articles::class)->findBy(array(
             "Statut" => -1
         ));

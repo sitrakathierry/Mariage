@@ -43,7 +43,17 @@ $(document).ready(function(){
                                             success: function(result) {
                                                 if(result.msg == "success")
                                                 {
-                                                    $.alert('Ajoutée')
+                                                    $.confirm({
+                                                        title:'Ajout panier',
+                                                        content: 'Enregistrement effectué',
+                                                        type:'purle',
+                                                        buttons: {
+                                                            OK: function () {
+                                                                location.reload()
+                                                            }
+                                                        }
+                                                    })
+                                                    
                                                 }
                                             }
                                         });
@@ -92,8 +102,16 @@ $(document).ready(function(){
                                     var totalGeneral = valTG - parseInt(self.attr('totalP'))
                                     $('.valTG').val(totalGeneral)
                                     $('.totalG').text(totalGeneral)
-
-                                    // chiffreEnLettre();
+                                    var badge_notif = $('.badge_notif')
+                                    var val_badge = badge_notif.attr("value")-1
+                                    badge_notif.text(val_badge)
+                                    badge_notif.attr("value",val_badge)
+                                    if(val_badge<=0)
+                                    {
+                                        badge_notif.removeClass("bagde-success")
+                                        badge_notif.addClass("badge-secondary")
+                                    }
+                                        
                                     self.closest('tr').remove()
                                 }
                             }
@@ -335,5 +353,4 @@ $(document).ready(function(){
     $(".affiche_audio").click(function(){
         affiche_Contenu(3)
     })
-    
 })
