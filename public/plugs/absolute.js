@@ -362,7 +362,7 @@ $(document).ready(function(){
             data: {},
             dataType: 'json',
             success: function(result) {
-                $('.badge_notif').html("&nbsp;"+result.nbPanier+"&nbsp;")
+                $('.badge_notif').html(result.nbPanier)
                 if(result.nbPanier > 0)
                     $('.badge_notif').removeClass('badge-secondary')
                     $('.badge_notif').addClass('badge-success')
