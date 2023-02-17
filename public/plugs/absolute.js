@@ -353,4 +353,22 @@ $(document).ready(function(){
     $(".affiche_audio").click(function(){
         affiche_Contenu(3)
     })
+
+    function cherche_panier()
+    {
+        $.ajax({
+            url: host + '/chercher/panier',
+            type: 'post',
+            data: {},
+            dataType: 'json',
+            success: function(result) {
+                $('.badge_notif').html("&nbsp;"+result.nbPanier+"&nbsp;")
+                if(result.nbPanier > 0)
+                    $('.badge_notif').removeClass('badge-secondary')
+                    $('.badge_notif').addClass('badge-success')
+            }
+        });
+    }
+
+    cherche_panier()
 })

@@ -205,4 +205,17 @@ class PanierController extends AbstractController
             return new JsonResponse(['msg' => 'success']);
         }
     }
+
+    /**
+     * @Route("/chercher/panier", name="chercher_panier")
+     */
+    public function chercherPanier(): Response
+    {
+
+        $panier = $this->em->getRepository(Articles::class)->findBy(array(
+            "Statut" => -1
+        ));
+
+        return new JsonResponse(array("nbPanier" => count($panier)));
+    }
 }
