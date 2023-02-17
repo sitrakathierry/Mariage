@@ -62,7 +62,7 @@ class Articles
         return $this->IdPanier;
     }
 
-    public function setIdPanier(Panier $IdPanier): self
+    public function setIdPanier(?Panier $IdPanier): self
     {
         $this->IdPanier = $IdPanier;
 
@@ -75,7 +75,7 @@ class Articles
         return $this->IdCategorie;
     }
 
-    public function setIdCategorie(Categories $IdCategorie): self
+    public function setIdCategorie(?Categories $IdCategorie): self
     {
         if ($this->getIdCategorie() !== $IdCategorie) {
             $this->IdCategorie = $IdCategorie;
@@ -143,5 +143,10 @@ class Articles
         $this->quantite = $quantite;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getIdCategorie()->getNom();
     }
 }

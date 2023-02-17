@@ -212,27 +212,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->paniers;
     }
 
-    public function addPanier(Panier $panier): self
-    {
-        if (!$this->paniers->contains($panier)) {
-            $this->paniers[] = $panier;
-            $panier->setIdUser($this->getId());
-        }
+    // public function addPanier(Panier $panier): self
+    // {
+    //     if (!$this->paniers->contains($panier)) {
+    //         $this->paniers[] = $panier;
+    //         $panier->setIdUser($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removePanier(Panier $panier): self
-    {
-        if ($this->paniers->removeElement($panier)) {
-            // set the owning side to null (unless already changed)
-            if ($panier->getIdUser() === $this) {
-                $panier->setIdUser(0);
-            }
-        }
+    // public function removePanier(Panier $panier): self
+    // {
+    //     if ($this->paniers->removeElement($panier)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($panier->getIdUser() === $this) {
+    //             $panier->setIdUser(null);
+    //         }
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getNom(): ?string
     {
@@ -304,5 +304,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->Statut = $Statut;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getNom() . "  " . $this->getPrenoms() ;
     }
 }

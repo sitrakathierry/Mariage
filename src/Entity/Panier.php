@@ -45,7 +45,7 @@ class Panier
     private $updated_at;
 
     /**
-     * @ORM\OneToMany(targetEntity=Articles::class, mappedBy="id_panier")
+     * @ORM\OneToMany(targetEntity=Articles::class, mappedBy="IdPanier",cascade={"persist","remove"})
      */
     private $articles;
 
@@ -137,17 +137,17 @@ class Panier
         return $this;
     }
 
-    // public function removeArticle(Articles $article): self
-    // {
-    //     if ($this->articles->removeElement($article)) {
-    //         // set the owning side to null (unless already changed)
-    //         if ($article->getIdPanier() === $this) {
-    //             $article->setIdPanier(0);
-    //         }
-    //     }
+    public function removeArticle(Articles $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getIdPanier() === $this) {
+                $article->setIdPanier(null);
+            }
+        }
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
     public function __toString()
     {

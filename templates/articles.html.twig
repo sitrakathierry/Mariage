@@ -1,25 +1,6 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Panier{% endblock %}
-
-{% block stylesheets  %}
-    {{ parent() }}
-
-{% endblock %}
-
-{% block javascripts %}
-    {{parent()}}
-
-{% endblock %}
-
-{% block header_title %}
-    Panier
-{% endblock %}
-
-{% block content %}
-    <div class="p-5">
-        <div class="table-responsive">
-            <table class="table table-bordered">
+ 
+    <div class="table-responsive">
+        <table class="table table-bordered">
             <thead class="thead-dark">
             <tr>
                     <th>Type</th>
@@ -27,14 +8,13 @@
                     <th>Prix</th>
                     <th>Qte</th>
                     <th>Total (KMF)</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
             {% set totalP = 0 %}
             {% set totalG = 0 %}
 
-            {% for panier in panier %}
+            {% for panier in field.value %}  
                 {% set totalP = panier.IdCategorie.IdPrix * panier.quantite %}
                 <tr>
                     <td>{{ panier.IdCategorie.IdTypeOffre.Nom }}</td>
@@ -42,8 +22,6 @@
                     <td class="text-right">{{ panier.IdCategorie.IdPrix|number_format(0, '.', ' ') }}</td>
                     <td class="text-right">{{ panier.quantite|number_format(0, '.', ' ') }} </td>
                     <td class="text-right">{{ totalP|number_format(0, '.', ' ') }}</td>
-                    <td><button class="btn btn-danger supprPanier btn-block" value="{{ panier.id }}" totalP= "{{ totalP }}"><i class="fa text-white fa-times"></i></button></td>
-                </tr>
                 {% set totalG = totalG + totalP %}
             {% endfor %}
             </tbody>
@@ -51,21 +29,7 @@
                 <tr>
                     <th colspan="4">Total General</th>
                     <th class="totalG text-right">{{ totalG|number_format(0, '.', ' ') }}</th>
-                    <td></td>
                 </tr>
             </tfoot>
             </table>
-            <input type="hidden" class="valTG" value="{{ totalG }}">
-        </div>
-        {% if panier is not empty %}
-        <div class="w-100 text-right mt-3">
-            <button class="btn btn-danger font-Roboto font-weight-bold btn_annuler pl-5 pr-5 mr-4">Annuler</button>
-            <button class="btn btn-success font-Roboto font-weight-bold btn_commander pl-5 pr-5">Commander</button>
-        </div>
-        {% endif %}
-        
     </div>
-
-
-
-{% endblock %}
