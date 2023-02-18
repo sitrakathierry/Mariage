@@ -1,0 +1,1 @@
+$("#Actualites_Explication").summernote()

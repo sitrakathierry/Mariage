@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 
 class InvitationCrudController extends AbstractCrudController
@@ -29,7 +30,8 @@ class InvitationCrudController extends AbstractCrudController
                 ->setFormType(VichImageType::class)
                 ->setLabel("Photo d'invitation")
                 ->hideOnIndex(),
-            TextEditorField::new('motInvitation', 'Lettre d\'invitation'),
+            TextEditorField::new('motInvitation', 'Lettre d\'invitation')
+                ->setFormType(CKEditorType::class),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
 
@@ -50,6 +52,7 @@ class InvitationCrudController extends AbstractCrudController
     {
         return $crud
             ->setPageTitle('new', 'Ajout Invitation')
-            ->setPageTitle('index', 'Consultation Invitation');
+            ->setPageTitle('index', 'Consultation Invitation')
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 }
