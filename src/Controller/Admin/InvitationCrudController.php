@@ -34,7 +34,6 @@ class InvitationCrudController extends AbstractCrudController
                 ->setFormType(CKEditorType::class),
             DateTimeField::new('created_at')->hideOnForm(),
             DateTimeField::new('updated_at')->hideOnForm(),
-
         ];
     }
 

@@ -108,6 +108,22 @@ class PanierController extends AbstractController
         return new JsonResponse(['msg' => 'success']);
     }
 
+
+    public function getRandomStr($n)
+    {
+        // Stockez toutes les lettres possibles dans une chaîne.
+        $str = '0123456789abcdefghijklmnopqrstuvwxyz&#[|@=}$%!?]/*-+ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomStr = '';
+
+        // Générez un index aléatoire de 0 à la longueur de la chaîne -1.
+        for ($i = 0; $i < $n; $i++) {
+            $index = rand(0, strlen($str) - 1);
+            $randomStr .= $str[$index];
+        }
+
+        return $randomStr;
+    } 
+
     /**
      * @Route("/enregistrer/panier", name="enregistrer_panier",methods={"POST"} )
      */
@@ -130,6 +146,7 @@ class PanierController extends AbstractController
                     ->findOneBy(array(
                         "email" => $cmd_email,
                     ));
+                    
                 if (empty($verifyEmail)) {
                     $userClient->setEmail($cmd_email);
                     $userClient->setAdresse($cmd_adresse);
