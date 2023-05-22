@@ -10,73 +10,45 @@
 {% block javascripts %}
     {{parent()}}
     
-    {% endblock %}
+{% endblock %}
+
 {% block header_title %}
     Détails Mariage
 {% endblock %}
 
 {% block content %}
-<div class="padding">
-    <div class="block pl-5 pr-5 m-4">
-    <div class="sous-block w-100">
-        <img src="{{asset('plugs/mariage/hall.png')}}" class="img mrg-image" alt="">
-        <h4 class="font-Maiandra h6 color-title-apart font-weight-bold pt-2 font-weight-bold mt-3 ml-3">{{ unMariage.NomHomme }} & {{ unMariage.NomFemme }}</h4>
+
+<div class="padding pt-3 ">
+    <div class="w-100">
+        <h4 class="text-uppercase text-center font-weight-bold color-title-apart">{{ unMariage.NomHomme }} & {{ unMariage.NomFemme }}</h4>
+        {# <input type="hidden" value="{{unMariage.id}}" class="idMariage" > #}
     </div>
-    <div class="sous-block w-75">
-        <img src="{{asset('plugs/mariage/alarm.png')}}" class="img mrg-image" alt="">
-        <h4 class="font-Maiandra h6 color-title-apart font-weight-bold pt-1 font-weight-bold mt-3 ml-3 view_fest">{{ (lastFest is not empty) ? lastFest[0].IdTypeFestivite.Festivite : 'Aucune Festivité' }}</h4>
-    </div>
-    <div class="sous-block w-50">
-        <img src="{{asset('plugs/mariage/camera.png')}}" class="img mrg-image" alt="">
-        <h4 class="font-Maiandra h6 color-title-apart font-weight-bold pt-1 mt-3 ml-3 view_type">Album</h4>
-    </div>
-    </div>
-    <div class="myAlbum">
-    <div class="contenu_album p-2 w-75">
- {% if albums is not empty %}
-        {% for album in albums %}
-            {% for attache in album.attachements %}
-                {% set extension = attache.Image|split('.') %}
-                {% if extension[1] in extensionImage %}
-                <div class="elem_album">
-                    <div class="cadre m-2">
-                        <a href="{{asset('plugs/photo/albums/' ~ attache.Image)}}" data-lightbox="album" data-title="{{ album.Date |date('d M Y') }}">
-                            <img src="{{asset('plugs/photo/albums/' ~ attache.Image)}}" alt="" class="img img-thumbnail img-fluid">
-                        </a>       
+    <div class="border_title mx-auto"></div>
+    {% for festivite in festivites|keys %}
+        {% set nomFest = (festivite|split('|'))[0] %}
+        {% set idFest = (festivite|split('|'))[1] %}
+    <div class="contentData mt-4">
+        <h5 class="text-uppercase mt-2"><i class="fa fa-layer-group"></i>&nbsp;{{nomFest}}</h5>
+        <div class="w-100 d-flex flex-row align-items-center mt-2 ml-3">
+            <button value="{{idFest}}" data-target=".myAlbum" data-mariage="{{unMariage.id}}" data-type="ALBUM" data-class="btn-info" class="btn mx-2 affiche_contenu btn-info font-smaller px-4 py-1 btn_round">Album</button>
+            <button value="{{idFest}}" data-target=".myAlbum" data-mariage="{{unMariage.id}}" data-type="AUDIO" data-class="btn-info" class="btn mx-2 affiche_contenu btn-outline-info font-smaller px-4 py-1 btn_round">Audio</button>
+            <button value="{{idFest}}" data-target=".myAlbum" data-mariage="{{unMariage.id}}" data-type="VIDEO" data-class="btn-info" class="btn mx-2 affiche_contenu btn-outline-info font-smaller px-4 py-1 btn_round">Vidéo</button>
+        </div>
+        <div class="myAlbum mt-3">
+            <div class="contenu_album overflow-auto p-2 w-100">
+                {% for album in festivites[festivite] %}
+                    <div class="elem_album">
+                        <div class="cadre m-2">
+                            <a href="{{asset('plugs/photo/albums/' ~ album[0] )}}" data-lightbox="album" data-title="{{ album[1] }}">
+                                <img src="{{asset('plugs/photo/albums/' ~ album[0] )}}" alt="" class="img img-thumbnail img-fluid">
+                            </a>       
+                        </div>
                     </div>
-                </div>  
-                {% endif %}
-            {% endfor %}
-        {% endfor %}  
-{% else %}
-        <div class="elem_album">
-            <div class="cadre m-2">
-                <a href="{{asset('plugs/default.png')}}" data-lightbox="album" data-title="Insérer un album">
-                    <img src="{{asset('plugs/default.png')}}" alt="" class="img img-thumbnail img-fluid">
-                </a>       
+                {% endfor %}  
             </div>
         </div>
-{% endif %}
     </div>
-    <input type="hidden" value="{{unMariage.id}}" class="idMariage" >
-    <div class="option_album text-white text-left p-3 w-25 bg-grey">
-        <label for="" class="color-description-apart font-Maiandra h6  font-weight-bold">Festivités</label>
-        <select name="mariage" id="" class="custom-select mb-2 one_festivite">
-            <option value="" disabled selected>Festivités</option>
-            {% for festivite in allFestivites %}
-                <option value="{{ festivite.id }}|{{ festivite.Festivite }}" >{{ festivite.Festivite }}</option>
-            {% endfor %}
-        </select>
-        <label for="" class="color-description-apart font-Maiandra h6 font-weight-bold mt-4 ">Type Contenu</label>
-        <select name="mariage" id="" class="custom-select one_type_content">
-            <option value="" disabled selected>Type Contenu</option>
-            <option value="1">Album</option>
-            <option value="2">Vidéo</option>
-            <option value="3">Audio</option>
-        </select>
-        <button class="btn btn-warning font-weight-bold text-white affiche_one_mrg btn-block mt-4"><i class="fas fa-eye"></i>&nbsp;&nbsp;Afficher</button>
-    </div>
-    </div>
+    {% endfor %}
 </div>
 
 

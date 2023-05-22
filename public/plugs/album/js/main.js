@@ -4,7 +4,7 @@ $(function() {
         $('.owl-2').owlCarousel({
             center: false,
             items: 1,
-            loop: true,
+            loop: false,
             stagePadding: 0,
             margin: 20,
             smartSpeed: 1000,

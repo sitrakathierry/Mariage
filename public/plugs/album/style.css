@@ -57,10 +57,11 @@
     flex-direction: row;
     flex-wrap: wrap;
     border: 2px dashed grey;
+    max-height: 450px !important;
 }
 
 .elem_album {
-    width: 20%;
+    width: 10%;
 }
 
 @media only screen and (max-width: 900px) {

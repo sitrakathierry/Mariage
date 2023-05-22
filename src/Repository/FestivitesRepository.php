@@ -115,4 +115,5 @@ class FestivitesRepository extends ServiceEntityRepository
         $query = $stmt->executeQuery([]);
         return $query->fetchAllAssociative();
     }
+
 }

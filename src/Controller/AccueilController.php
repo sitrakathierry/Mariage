@@ -9,6 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Mariage;
 use App\Entity\Albums;
 use App\Entity\Articles;
+use App\Entity\Attachement;
 use App\Entity\Categories;
 use App\Entity\Festivites;
 use App\Entity\Invitation;
@@ -46,6 +47,42 @@ class AccueilController extends AbstractController
         $albums = $this->em->getRepository(Albums::class)
             ->findAll();
 
+        $elements = [] ;
+        foreach ($albums as $album) {
+            $element = [] ;
+            $image = $this->em->getRepository(Attachement::class)->findOneBy([
+                "album" => $album
+            ]);
+            if(is_null($image))
+            {
+                $imageD = "bijoux.webp" ;
+            }
+            else
+            {
+                $imageD = $image->getImage() ;
+            }
+            $element["mariage"] = "MARIAGE-".(str_pad($album->getIdMariage()->getId(), 3, '0', STR_PAD_LEFT))."|".$album->getIdMariage()->getId() ;
+            $element["festivite"] = $album->getIdTypeFest()->getFestivite() ;
+            $element["image"] = $imageD ;
+            $element["compte"] = 1 ;
+
+            array_push($elements,$element) ;
+        } 
+        
+        $groupedData = array_reduce($elements, function ($carry, $item) {
+            $mariage = $item['mariage'];
+            $festivite = $item['festivite'];
+        
+            if (!isset($carry[$mariage][$festivite])) {
+                $carry[$mariage][$festivite] = [];
+            }
+            $carry[$mariage][$festivite] = $item['image'] ;
+        
+            return $carry;
+        }, []);
+
+        // dd($groupedData) ;
+
         $videos = $this->em->getRepository(Video::class)
             ->findAll();
         $boutiques = $this->em->getRepository(Categories::class)
@@ -70,6 +107,7 @@ class AccueilController extends AbstractController
             'extensionImage' => $this->extensionImage,
             'extensionAudio' => $this->extensionAudio,
             'albums' => $albums,
+            'elemets' => $groupedData,
             'videos' => $videos,
             'boutiques' => $boutiques,
             'prestations' => $prestations

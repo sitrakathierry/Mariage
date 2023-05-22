@@ -110,9 +110,9 @@
         </div>
         
       </div>
-      <div class="col-md-7 lettre_inv p-3 text-center">
+      <div class="col-md-7 d-flex flex-column justify-content-center align-items-center lettre_inv p-3 text-center">
         <h1 class="font-Maiandra font-italic color-wedding">{{ invitation.nomMariees }}</h1>
-        <p class="font-wedding h4 mot-inv">{{ invitation.motInvitation|raw }}</p>
+        <p class="font-Great mot-inv font-italic">{{ invitation.motInvitation|raw }}</p>
       </div>
   </div>
 {% endfor %}
@@ -121,26 +121,19 @@
       <h2 class="font-Great color-title font-weight-bold" >Albums</h2>
       <hr>
         <div class="owl-carousel px-5 py-0  pb-2 owl-2">
-
-           {% if albums is not empty or albums is not null   %}
-            {% for album in albums %}
-                {% for attache in album.attachements %}
-                    {% set extension = attache.Image|split('.') %}
-                    {% if extension[1] in extensionImage %}
+            {% for album in elemets|keys %}
+                {% for item in elemets[album]|keys %}
                       <div class="media-29101">
-                            <a href="{{asset('plugs/photo/albums/' ~ attache.Image)}}" data-lightbox="album" data-title="{{ album.Date |date('d M Y') }}">
-                                <img src="{{asset('plugs/photo/albums/' ~ attache.Image)}}" alt="" class="img img-thumbnail acc_image_album img-fluid">
-                            </a>       
+                        <a href="{{path('app_detailMariage',{'idMariage':album|split('|')[1] })}}">
+                          <img src="{{asset('plugs/photo/albums/' ~ elemets[album][item] )}}" alt="" class="img img-thumbnail acc_image_album img-fluid">      
+                        </a>
                       </div>
-                    {% endif %}
                 {% endfor %}
             {% endfor %}  
-          {% endif %}
         </div>
         <h2 class="font-Great color-title font-weight-bold" >Vidéos</h2>
       <hr>
       <div class="featured-carousel px-5 py-0 owl-carousel">
-       
             {% if videos is not empty or videos is not null   %}
               {% for video in videos %}
                   {% for attacheV in video.attachementVideos %}

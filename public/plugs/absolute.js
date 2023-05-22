@@ -308,50 +308,39 @@ $(document).ready(function(){
         });
     })
 
-    
-    
-        function affiche_Contenu(types){
-        var one_festivite = $('.festivite_content').val()
-        var one_type_content = types
-        var idMariage = $(".mariage_content").val()
 
-        $('.view_mariage').text(idMariage.split('|')[1])
-        $('.view_fest').text(one_festivite.split('|')[1])
-        if(one_type_content == 1)
-            $('.view_type').text("Album")
-        else if(one_type_content == 2)
-            $('.view_type').text("Video")
-        else
-            $('.view_type').text("Audio")
+      
+    $(".affiche_contenu").click(function(){
+        var festivite = $(this).attr('value')
+        var mariage = $(this).data('mariage')
+        var type = $(this).data('type')
+        var target = $(this).closest(".contentData").find($(this).data("target"))
 
-        $('.contenu_album').empty().append(`
-            <div class="d-flex align-items-center ml-5">
-                <strong>Chargement en cours ...</strong>
-                <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+        var formData = new FormData() ;
+        formData.append("festivite",festivite) ;
+        formData.append("mariage",mariage) ;
+        formData.append("type",type) ;
+
+        target.find('.contenu_album').html(`
+            <div class="w-100 text-center">
+                <div class="spinner-border" role="status" aria-hidden="true"></div>
             </div>`)
-        var data = {
-            one_type_content:one_type_content,
-            idMariage:idMariage.split('|')[0],
-            one_festivite:one_festivite.split('|')[0]
-        }
+
         $.ajax({
-            url: host + '/mariage/affiche/contenu',
+            url:routes.contenu_unique_Mariage,
             type: 'post',
-            data: data,
+            data: formData,
             dataType: 'html',
+            processData: false, 
+            contentType: false, 
             success: function(result) {
-                $('.contenu_album').empty().append(result)
+                target.find('.contenu_album').html(result)
+            },
+            error : function(resp)
+            {
+                target.find('.contenu_album').html(JSON.stringify(resp))
             }
         });
-      }
-    $(".affiche_album").click(function(){
-        affiche_Contenu(1)
-    })
-    $(".affiche_video").click(function(){
-        affiche_Contenu(2)
-    })
-    $(".affiche_audio").click(function(){
-        affiche_Contenu(3)
     })
 
     function cherche_panier()
