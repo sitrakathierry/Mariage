@@ -61,27 +61,29 @@
     <div class="row">
     {% for actualite in actualites %}
         <div class="col-md-6 p-4">
-        <div class="bloc_article container-fluid p-4 mt-4" value="{{ actualite.id }}">
-        <div class="row">
-            <div class="col-md-4 p-2 text-right">
-                <img src="{{asset('plugs/photo/albums/' ~ actualite.ImageActualite )}}" class="img image_article img-fluid" alt="">
-                <label class="date_article font-Roboto text-orange w-100 font-weight-bold h5 text-white py-2 pr-3 mt-1">
-                    {{ actualite.Date|date('d') }}&emsp;{{ actualite.Date|date('M') }}&emsp;{{ actualite.Date|date('Y') }}
-                </label>
-            </div>
-            <div class="col-md-8">
-                <h3 class="liya_text font-Montserrat font-weight-bold text-center">{{ actualite.Titre }}</h3>
-                <div class="w-100 text-truncate text-wrap explication">
-                    <p>{{ (actualite.Explication|striptags)[0:200]  }}&nbsp;. . .
-                     </p></a>
+            <form method="GET" action="{{path('details_actualite',{'id_actualite':actualite.id})}}">
+                <div class="bloc_article container-fluid p-4 mt-4" value="{{ actualite.id }}">
+                    <div class="row">
+                        <div class="col-md-4 p-2 text-right">
+                            <img src="{{asset('plugs/photo/albums/' ~ actualite.ImageActualite )}}" class="img image_article img-fluid" alt="">
+                            <label class="date_article font-Roboto text-orange w-100 font-weight-bold h5 text-white py-2 pr-3 mt-1">
+                                {{ actualite.Date|date('d') }}&emsp;{{ actualite.Date|date('M') }}&emsp;{{ actualite.Date|date('Y') }}
+                            </label>
+                        </div>
+                        <div class="col-md-8">
+                            <h3 class="liya_text font-Montserrat font-weight-bold text-center">{{ actualite.Titre }}</h3>
+                            <div class="w-100 text-truncate text-wrap explication">
+                                <p>{{ (actualite.Explication|striptags)[0:200]  }}&nbsp;. . .
+                                </p></a>
+                            </div>
+                            <div class="text-right w-100 mt-2">
+                            <label for="" class="text-right font-italic ">{{ actualite.Auteur }}.</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-right w-100 mt-2">
-                <label for="" class="text-right font-italic ">{{ actualite.Auteur }}.</label>
-                </div>
-            </div>
+            </form>
         </div>
-    </div>
-    </div>
     {% endfor %}
     </div>
 </div>

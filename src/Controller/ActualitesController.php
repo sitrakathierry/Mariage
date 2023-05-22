@@ -29,7 +29,7 @@ class ActualitesController extends AbstractController
             'actualites' => $actualites
         ]);
     }
-
+ 
     /**
      * @Route("/detail/actualite/{id_actualite}", name="details_actualite")
      */

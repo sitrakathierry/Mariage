@@ -240,8 +240,7 @@ $(document).ready(function(){
     // chiffreEnLettre();
 
     $('.bloc_article').click(function(){
-        var id = $(this).attr('value')
-        location.assign(host+'/detail/actualite/'+id)
+        $(this).parent().submit()
     })
 
     $('.btn_rechercher').click(function(){
