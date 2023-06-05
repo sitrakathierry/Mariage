@@ -35,4 +35,18 @@ class BoutiquesController extends AbstractController
             'panier' => $panier
         ]);
     }
+    
+    /**
+     * @Route("/boutiques/details/{id}", name="details_boutique")
+     */
+    public function detailsBoutique($id)
+    {
+        $boutique = $this->em->getRepository(Categories::class)
+            ->find($id);
+
+        return $this->render('boutiques/details.html.twig', [
+            'page_name' => 'Détails boutique',
+            'boutique' => $boutique,
+        ]);
+    }
 }

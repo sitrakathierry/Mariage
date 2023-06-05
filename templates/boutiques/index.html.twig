@@ -29,13 +29,14 @@
   <div class="row">
   {% for boutique in boutiques %}
     <div class="col-md-3">
-        <div class="product-wrapper border rounded text-center"> 
+        
+        <div class="product-wrapper border rounded text-center">  
             <div class="product-img">
-            <a href="#" data-abc="true"> <img src="{{asset('plugs/photo/albums/' ~ boutique.Image)}}" alt=""> </a>
-            <span class="text-center">{{ boutique.IdPrix }}&nbsp;KMF</span>
-                <div class="product-action mb-3"> 
-                    <div class="product-action-style rounded">
-                    <a href="#">{{ boutique.Nom }}</a>
+                <a href="{{path('details_boutique',{'id':boutique.id})}}" data-abc="true"> <img src="{{asset('plugs/photo/albums/' ~ boutique.Image)}}" alt=""> </a>
+                <span class="text-center">{{ boutique.IdPrix }}&nbsp;KMF</span>
+                    <div class="product-action mb-3"> 
+                        <div class="product-action-style rounded">
+                        <a href="#">{{ boutique.Nom }}</a>
                         <a href="#" class="ajout_panier" value="{{ boutique.id }}"><i class="fa fa-shopping-cart"></i></a>
                     </div>
                 </div>

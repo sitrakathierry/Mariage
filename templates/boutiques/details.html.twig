@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutiques{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .col-md-3
+    {
+        padding:  30px ;
+    }
+    .pt-0{
+        padding-top : 0px !important ;
+    }
+</style>
+{% endblock %}
+
+{% block header_title %}
+    Boutiques
+{% endblock %}
+
+{% block content %}
+<div class="pl-3 pr-3 pb-1 w-100">
+<h2 class="font-Montserrat mt-4 font-weight-bold text-center">Details Produit</h2>
+  <hr>
+</div>
+
+  <div class="p-5 pt-0 pb-2">
+  <div class="row">
+    <div class="col-md-3">
+        <div class="w-100 d-flex flex-column align-items-center">
+            <img src="{{asset('plugs/photo/albums/' ~ boutique.Image)}}" class="img img-fluid h-100" alt="">
+        </div>
+        {# <div class="product-wrapper border rounded text-center"> 
+            <div class="product-img">
+            <a href="#" data-abc="true"></a>
+            <span class="text-center">{{ boutique.IdPrix }}&nbsp;KMF</span>
+                <div class="product-action mb-3"> 
+                    <div class="product-action-style rounded">
+                    <a href="#">{{ boutique.Nom }}</a>
+                        <a href="#" class="ajout_panier" value="{{ boutique.id }}"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div> #}
+    </div>
+    <div class="col-md-9">
+        <h3>{{boutique.Nom|upper}}</h3>
+        <label for="" class="font-italic h4 text-primary">{{boutique.IdPrix}}&nbsp;KMF</label>
+        <p class="text-left">{{boutique.description|raw}}</p>
+        <div class="w-100">
+            <a href="#" class="ajout_panier mt-3 btn btn-primary btn-sm" value="{{ boutique.id }}">Ajouter au panier</a>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
